@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+  "name": {
+    "ar": "جامعة محمد خيضر بسكرة",
+    "fr": "Université Mohamed Khider Biskra",
+    "en": "University of Mohamed Khider Biskra"
+  },
+  "type": "UNIVERSITY"
+}
