@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "L3 JSON schema",
+  "description": "Level 3 JSON schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "object",
+      "description": "Object Name",
+      "properties": {
+        "ar": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        }
+      },
+      "required": ["ar", "en", "fr"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["SPECIALTY", "SECTOR"],
+      "description": "L3 Node type"
+    },
+    "terms": {
+      "type": "object",
+      "properties": {
+        "perYear": {
+          "type": "number"
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "required": ["perYear", "slots"]
+    }
+  },
+  "required": ["name", "type", "terms"]
+}
