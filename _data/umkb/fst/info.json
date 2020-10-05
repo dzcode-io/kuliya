@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية العلوم والتكنلوجيا",
+    "en": "Faculty of Science and Technology",
+    "fr": "Faculté des Sciences et de la Technologie"
+  },
+  "type": "FACULTY"
+}

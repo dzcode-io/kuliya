@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l3.json",
+  "name": {
+    "ar": "تخصص التحكم الكهربائي",
+    "en": "Specialy of Electrical Control",
+    "fr": "Spécialité de commande électrique"
+  },
+  "type": "SPECIALTY",
+  "terms": {
+    "perYear": 2,
+    "slots": [7, 8, 9, 10]
+  }
+}
