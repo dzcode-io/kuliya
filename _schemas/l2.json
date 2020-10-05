@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "L2 JSON schema",
+  "description": "Level 2 JSON schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "object",
+      "description": "Object Name",
+      "properties": {
+        "ar": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        }
+      },
+      "required": ["ar", "en", "fr"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["FACULTY", "DEPARTMENT"],
+      "description": "L2 Node type"
+    }
+  },
+  "required": ["name", "type"]
+}
