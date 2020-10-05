@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "L1 JSON schema",
+  "description": "Level 1 JSON schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "object",
+      "description": "Object Name",
+      "properties": {
+        "ar": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        }
+      },
+      "required": ["ar", "en", "fr"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["UNIVERSITY", "ACADEMY", "PRIVATE_SCHOOL"],
+      "description": "L1 Node type"
+    }
+  },
+  "required": ["name", "type"]
+}
