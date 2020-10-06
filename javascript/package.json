@@ -1,0 +1,69 @@
+{
+  "name": "@dzcode-io/kuliya",
+  "version": "0.1.0",
+  "description": "Algeria's college hierarchy dataset as javascript package",
+  "main": "dist/index.js",
+  "scripts": {
+    "data": "tsc && node dist/data.js",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "yarn build && jest src",
+    "eslint:check": "eslint \"**/*.*\" --report-unused-disable-directives",
+    "eslint:fix": "eslint \"**/*.*\" --quiet --fix",
+    "prettier:check": "prettier \"**/*.*\" --check --ignore-path ./eslint.prettierignore",
+    "prettier:fix": "prettier \"**/*.*\" --write --ignore-path ./eslint.prettierignore",
+    "lint:check": "yarn eslint:check && yarn prettier:check",
+    "lint:fix": "yarn eslint:fix && yarn prettier:fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --relative"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --quiet --fix --ignore-path .eslintignore",
+      "prettier --write --ignore-path ./eslint.prettierignore"
+    ]
+  },
+  "license": "MIT",
+  "keywords": [
+    "algeria",
+    "university",
+    "college",
+    "tree",
+    "javascript",
+    "typescript",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/dzcode-io/kuliya.git"
+  },
+  "author": {
+    "email": "contact@zakiii.com",
+    "name": "Zakaria Mansouri",
+    "url": "https://www.zakiii.com"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@types/jest": "^26.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "babel-jest": "^26.5.2",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.5.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "source-map-support": "^0.5.19",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  }
+}

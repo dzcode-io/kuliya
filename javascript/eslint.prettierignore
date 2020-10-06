@@ -1,0 +1,12 @@
+node_modules/
+dist
+.*
+*.prettierignore
+*.tsbuildinfo
+*.lock
+
+*.tsx
+*.ts
+*.js
+*.json
+*.svg
