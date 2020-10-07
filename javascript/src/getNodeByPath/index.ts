@@ -1,12 +1,7 @@
-export const getNodeByPath = (path: string) => {
-  console.log(path);
+import { Node } from "../_config/types";
+import get from "lodash/fp/get";
+import mainJson from "../_data/main.json";
 
-  return {
-    name: {
-      ar: "جامعة محمد خيضر بسكرة",
-      en: "University of Mohamed Khider Biskra",
-      fr: "Université Mohamed Khider Biskra",
-    },
-    type: "UNIVERSITY",
-  };
+export const getNodeByPath: (path: string) => Node = (path: string) => {
+  return get(path.replace(/\//g, ".children."), mainJson);
 };
