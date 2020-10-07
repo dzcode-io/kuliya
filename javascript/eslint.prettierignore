@@ -7,6 +7,5 @@ dist
 
 *.tsx
 *.ts
-*.js
 *.json
 *.svg

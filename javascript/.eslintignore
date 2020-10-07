@@ -3,5 +3,4 @@ dist
 *.*
 !*.tsx
 !*.ts
-!*.js
 !*.json
