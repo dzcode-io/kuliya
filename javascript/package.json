@@ -4,10 +4,11 @@
   "description": "Algeria's college hierarchy dataset as javascript package",
   "main": "dist/index.js",
   "scripts": {
+    "postinstall": "node src/_config/pre.js",
     "data": "yarn build && node dist/_config/prepare.js",
-    "build": "node src/_config/pre.js && tsc",
+    "build": "tsc",
     "build:watch": "yarn build --watch",
-    "test": "yarn data && jest src",
+    "test": "yarn build && jest src",
     "eslint:check": "eslint \"**/*.*\" --report-unused-disable-directives",
     "eslint:fix": "eslint \"**/*.*\" --quiet --fix",
     "prettier:check": "prettier \"**/*.*\" --check --ignore-path ./eslint.prettierignore",
