@@ -1,5 +1,7 @@
 # kuliya
 
+[<img src="http://img.shields.io/badge/Join%20us%20on%20Slack-@dzCode.io-yellow.svg?logo=slack">](https://join.slack.com/t/dzcode/shared_invite/zt-ek9kscb7-m8z_~cBjX79l~uchuABPFQ)
+
 Algeria's college hierarchy dataset as packages for different languages and platforms
 
 **Why?**
