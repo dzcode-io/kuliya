@@ -1,6 +1,6 @@
 {
   "name": "@dzcode-io/kuliya",
-  "version": "0.1.0-alpha.6",
+  "version": "0.1.0-alpha.7",
   "description": "Algeria's college hierarchy dataset as javascript package",
   "main": "dist/index.js",
   "scripts": {
@@ -40,10 +40,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "repository": "https://github.com/dzcode-io/kuliya.git"
-  },
+  "repository": "https://github.com/dzcode-io/kuliya.git",
   "author": {
     "email": "contact@zakiii.com",
     "name": "Zakaria Mansouri",
