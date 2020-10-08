@@ -1,13 +1,13 @@
 {
   "name": "@dzcode-io/kuliya",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.5",
   "description": "Algeria's college hierarchy dataset as javascript package",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "node src/_config/pre.js",
+    "prepare": "node src/_config/pre.js",
     "data": "yarn build && node dist/_config/prepare.js",
     "build": "tsc",
-    "build:watch": "yarn build --watch",
+    "build:watch": "yarn prepare && yarn build --watch",
     "test": "yarn build && jest src",
     "eslint:check": "eslint \"**/*.*\" --report-unused-disable-directives",
     "eslint:fix": "eslint \"**/*.*\" --quiet --fix",
@@ -65,10 +65,12 @@
     "husky": "^4.3.0",
     "jest": "^26.5.2",
     "lint-staged": "^10.4.0",
-    "lodash": "^4.17.20",
     "prettier": "^2.1.2",
     "source-map-support": "^0.5.19",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
   }
 }
