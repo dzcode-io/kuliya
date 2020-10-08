@@ -1,0 +1,27 @@
+# Add 'data' to any changes within '_data' folder or any subfolders
+data:
+  - _data/**/*
+
+# Add 'schemas' to any changes within '_schemas' folder or any subfolders
+schemas:
+  - _schemas/**/*
+
+# Add 'csharp' to any changes within 'csharp' folder or any subfolders
+csharp:
+  - csharp/**/*
+
+# Add 'java' to any changes within 'java' folder or any subfolders
+java:
+  - java/**/*
+
+# Add 'javascript' to any changes within 'javascript' folder or any subfolders
+javascript:
+  - javascript/**/*
+
+# Add 'php' to any changes within 'php' folder or any subfolders
+php:
+  - php/**/*
+
+# Add 'python' to any changes within 'python' folder or any subfolders
+python:
+  - python/**/*
