@@ -1,6 +1,6 @@
 {
   "name": "@dzcode-io/kuliya",
-  "version": "0.1.0-alpha.5",
+  "version": "0.1.0-alpha.6",
   "description": "Algeria's college hierarchy dataset as javascript package",
   "main": "dist/index.js",
   "scripts": {
