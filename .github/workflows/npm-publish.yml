@@ -1,0 +1,44 @@
+name: Publish to NPM and GPR
+
+on:
+  push:
+    tags:
+      - "js-*"
+    paths:
+      - ".github/workflows/npm-publish.yml"
+      - "javascript/**"
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          cd javascript
+          yarn
+          yarn data
+          yarn build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://npm.pkg.github.com/
+      - run: |
+          cd javascript
+          yarn
+          yarn data
+          yarn build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
