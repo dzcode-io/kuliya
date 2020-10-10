@@ -1,5 +1,5 @@
 ---
-name: Request To Add/Edit University/School info
+name: Request To Update an existing University/School info
 about: Suggest a change, or ask for missing information for one of the universities/schools inside _data folder
 labels: enhancement, data
 ---
