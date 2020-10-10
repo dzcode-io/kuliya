@@ -1,0 +1,7 @@
+{
+    "name": "dzcode.io/kuliya",
+    "description": "Algeria's college hierarchy dataset as a package.",
+    "require": {
+        "php": "^7.2",
+    }
+}
