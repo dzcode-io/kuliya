@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "معهد علوم و تتقنيات النشاطات البدنية و الرياضية",
+    "en": "Institute of Sciences and Techniques of Physical Activities and Sports",
+    "fr": "Institut des Sciences et Techniques des Activités Physiques et Sportives"
+  },
+  "type": "INSTITUTE"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية الآداب واللغات",
+    "en": "Faculty of Arts and Languages",
+    "fr": "Faculté des Lettres et des Langues"
+  },
+  "type": "FACULTY"
+}
