@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية العلوم الاقتصادية والتجارية وعلوم التسيير",
+    "en": "Faculty of Law and Political Science",
+    "fr": "Faculté de Droit et et des Sciences politiques"
+  },
+  "type": "FACULTY"
+}

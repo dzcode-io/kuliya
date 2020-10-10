@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية العلوم الدقيقة و علوم الطبيعة و الحياة",
+    "en": "Faculty of The Exact Sciences, Natural, and Life Sciences",
+    "fr": "Faculté des Sciences Exactes, des Sciences de la nature et de la Vie"
+  },
+  "type": "FACULTY"
+}
