@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية العلوم البيولوجية والعلوم الزراعية",
+    "en": "Faculty of Biological Sciences and Agronomic Sciences",
+    "fr": "Faculté des Sciences Biologiques et des Sciences Agronomiques"
+  },
+  "type": "FACULTY"
+}

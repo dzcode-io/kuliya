@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+  "name": {
+    "ar": "جامعة مولود معمري",
+    "en": "University of Mouloud Mammeri",
+    "fr": "Université Mouloud Mammeri"
+  },
+  "type": "UNIVERSITY"
+}
