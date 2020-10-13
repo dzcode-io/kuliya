@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية علوم اﻷرض و تهيئة اﻹقليم",
+    "en": "Faculty of Earth Sciences and Country Planning",
+    "fr": "Faculté des Sciences de la terre et Aménagement du Territoire"
+  },
+  "type": "FACULTY"
+}

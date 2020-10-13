@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الكيمياء العضوية التطبيقية",
+    "en": "Department of Applied Organic Chemistry",
+    "fr": "Département de Chimie Organique Appliquée"
+  },
+  "type": "DEPARTMENT"
+}

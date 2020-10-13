@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم المواد والمكونات",
+    "en": "Materials and Components Department",
+    "fr": "Département Matériaux et Composant"
+  },
+  "type": "DEPARTMENT"
+}

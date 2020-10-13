@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم ميكانيكا الطاقة والموائع",
+    "en": "Department of Energy and Fluid Mechanics",
+    "fr": "Département d’Energétique et Mécanique des Fluides"
+  },
+  "type": "DEPARTMENT"
+}

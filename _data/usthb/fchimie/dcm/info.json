@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الكيمياء الجزيئية",
+    "en": "Department of Macromolecular Chemistry",
+    "fr": "Département de Chimie Macromoleculaire"
+  },
+  "type": "DEPARTMENT"
+}

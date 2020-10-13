@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+  "name": {
+    "ar": "جامعة هواري بومدين للعلوم والتكنولوجيا",
+    "en": "University of Sciences and Technology Houari Boumediene",
+    "fr": "Université Des Sciences et de la Technologie Houari Boumediene"
+  },
+  "type": "UNIVERSITY"
+}

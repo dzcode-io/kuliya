@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم كيمياء وفيزياء المواد غير العضوية",
+    "en": "Department of Chemistry and Physics of Inorganic Materials",
+    "fr": "Département de Chimie et Physique des Matériaux Inorganique"
+  },
+  "type": "DEPARTMENT"
+}
