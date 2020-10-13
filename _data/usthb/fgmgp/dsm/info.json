@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علوم المواد",
+    "en": "Department of Materials Sciences",
+    "fr": "Département Sciences des Matériaux"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الجبر ونظرية الأعداد",
+    "en": "Department of Algebra and Number Theory",
+    "fr": "Département Algèbre et théorie des nombres"
+  },
+  "type": "DEPARTMENT"
+}

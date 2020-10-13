@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الاحتمالات والإحصاء",
+    "en": "Probability and Statistics Department",
+    "fr": "Département Probabilités et statistiques"
+  },
+  "type": "DEPARTMENT"
+}

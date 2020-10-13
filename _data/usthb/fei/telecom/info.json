@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم اﻹتصال",
+    "en": "Telecommunications Department",
+    "fr": "Département Télécommunication"
+  },
+  "type": "DEPARTMENT"
+}

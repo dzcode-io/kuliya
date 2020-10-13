@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الجيوتكنيك والهيدروليكا",
+    "en": "Department of Geotechnics and Hydraulics",
+    "fr": "Département de Géotechnique et Hydraulique"
+  },
+  "type": "DEPARTMENT"
+}

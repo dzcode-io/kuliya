@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الهندسة الكيميائية وعلم التبريد",
+    "en": "Department of Chemical Engineering and Cryogenics",
+    "fr": "Département Génie Chimique & Cryogénie"
+  },
+  "type": "DEPARTMENT"
+}
