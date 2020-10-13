@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم العلوم التطبيقية والتقنيات",
+    "en": "Department of Applied Sciences and Technologies",
+    "fr": "Département des Sciences Appliquée et des Technologies"
+  },
+  "type": "DEPARTMENT"
+}

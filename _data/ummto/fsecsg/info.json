@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية الاقتصاد والأعمال وعلوم التسيير",
+    "en": "Faculty of Economics, Business and Management Sciences",
+    "fr": "Faculté des Sciences Economiques, Commerciales et des Sciences de Gestion"
+  },
+  "type": "FACULTY"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "الرياضيات - قسم علوم الحاسب",
+    "en": "Mathematics - Computer Science Department",
+    "fr": "Département Mathématiques - Informatique"
+  },
+  "type": "DEPARTMENT"
+}

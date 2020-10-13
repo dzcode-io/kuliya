@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية الهندسة الكهربائية وهندسة الحاسبات",
+    "en": "Faculty of Electrical and Computer Engineering",
+    "fr": "Faculté de Génie Electrique et Informatique"
+  },
+  "type": "FACULTY"
+}

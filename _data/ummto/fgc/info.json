@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية هندسة التشييد",
+    "en": "Faculty of Construction Engineering",
+    "fr": "Faculté du Génie de la Construction"
+  },
+  "type": "FACULTY"
+}
