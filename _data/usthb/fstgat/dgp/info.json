@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الجغرافيا والتخطيط الإقليمي",
+    "en": "Department of Geography and Regional Planning",
+    "fr": "Département de Géographie et de l’Aménagement du Territoire"
+  },
+  "type": "DEPARTMENT"
+}

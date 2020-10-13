@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم البيئة",
+    "en": "Department of Ecology and Environment",
+    "fr": "Département Écologie et Environnement"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية الهندسة الميكانيكية وهندسة الطرائق",
+    "en": "Faculty of Mechanical Engineering and Process Engineering",
+    "fr": "Faculté de Génie Mécanique et Génie de Procédés"
+  },
+  "type": "FACULTY"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الإنشاءات الميكانيكية والتصنيع",
+    "en": "Mechanical Construction and Manufacturing Department",
+    "fr": "Département Construction Mécanique and Productique"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم البحوث التشغيلية",
+    "en": "Operational Research Department",
+    "fr": "Département Recherche Opérationnelle"
+  },
+  "type": "DEPARTMENT"
+}

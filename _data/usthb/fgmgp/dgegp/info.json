@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الهندسة البيئية والهندسة الصيدلانية",
+    "en": "Environmental Engineering and Pharmaceutical Engineering Department",
+    "fr": "Département Génie Environnement & Génie Pharmaceutique"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الفيزياء النظرية",
+    "en": "Department of Theoretical Physics",
+    "fr": "Département de Physique Théorique"
+  },
+  "type": "DEPARTMENT"
+}

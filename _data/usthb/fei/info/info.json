@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم اﻹعلام اﻵلي",
+    "en": "Department of Computer Science",
+    "fr": "Département Informatique"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الجيوفيزياء",
+    "en": "Department of Geophysics",
+    "fr": "Département de Géophysique"
+  },
+  "type": "DEPARTMENT"
+}

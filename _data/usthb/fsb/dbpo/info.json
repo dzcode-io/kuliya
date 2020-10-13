@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علم الأحياء ووظائف الأعضاء",
+    "en": "Department of Biology and Physiology of Organisms",
+    "fr": "Département Biologie et Physiologie des Organismes"
+  },
+  "type": "DEPARTMENT"
+}

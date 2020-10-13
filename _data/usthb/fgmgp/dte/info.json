@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الطاقة الحرارية",
+    "en": "Thermo Energy Department",
+    "fr": "Département Thermo Énergétique"
+  },
+  "type": "DEPARTMENT"
+}

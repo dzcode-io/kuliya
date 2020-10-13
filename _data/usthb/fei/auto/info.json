@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الأجهزة والأتمتة",
+    "en": "Instrumentation and Automation Department",
+    "fr": "Département Instrumentation et Automatique"
+  },
+  "type": "DEPARTMENT"
+}

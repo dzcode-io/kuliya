@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الفيزياء الإشعاعية",
+    "en": "Department of Radiation Physics",
+    "fr": "Département de Physique des Rayonnements"
+  },
+  "type": "DEPARTMENT"
+}
