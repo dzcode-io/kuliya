@@ -2,6 +2,9 @@
     "name": "dzcode.io/kuliya",
     "description": "Algeria's college hierarchy dataset as a package.",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
     }
 }
