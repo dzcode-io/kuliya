@@ -1,5 +1,5 @@
 {
-    "name": "dzcode.io/kuliya",
+    "name": "dzcodeio/kuliya",
     "description": "Algeria's college hierarchy dataset as a package.",
     "keywords": [
         "dzcode", "algeria", "dataset", "package", "college"
@@ -7,7 +7,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "dzcode community",
+            "name": "dzcode.io community",
             "homepage": "https://www.dzcode.io/",
             "role": "Developer"
         }
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Dzcodeio\\Kuliya\\": "src"
+            "Dzcodeio\\Kuliya\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dzcodeio\\Kulyia\\Test\\": "tests"
+            "Dzcodeio\\Kulyia\\Test\\": "tests/"
         }
-    },
+    }
 }
