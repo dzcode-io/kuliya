@@ -1,7 +1,32 @@
 {
-    "name": "dzcode.io/kuliya",
+    "name": "dzcodeio/kuliya",
     "description": "Algeria's college hierarchy dataset as a package.",
+    "keywords": [
+        "dzcode", "algeria", "dataset", "package", "college"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed A. Ben Hamida",
+            "homepage": "http://mallekbh.github.io/",
+            "email": "mallek.bh@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dzcodeio\\Kuliya\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dzcodeio\\Kulyia\\Test\\": "tests/"
+        }
     }
 }
