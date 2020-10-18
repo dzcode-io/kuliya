@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم النشاط البدني و الرياضي المكيف",
+        "en": "Department of Adapted physical and sports activity",
+        "fr": "Département d'Activité Physique et Sportive Adaptée"
+    },
+    "type": "DEPARTMENT"
+}

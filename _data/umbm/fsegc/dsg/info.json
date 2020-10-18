@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم علوم التسيير",
+        "en": "Department of Management Sciences",
+        "fr": "Département des Sciences de Gestion"
+    },
+    "type": "DEPARTMENT"
+}

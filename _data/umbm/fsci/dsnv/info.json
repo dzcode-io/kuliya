@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم علوم الطبيعة و الحياة",
+        "en": "Department of Natural and Life Sciences",
+        "fr": "Département des Sciences de la Nature et de la Vie"
+    },
+    "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم علوم الاعلام والاتصال",
+        "en": "Department of Information and Communication Sciences",
+        "fr": "Département des Sciences de l'Information et de la Communication"
+    },
+    "type": "DEPARTMENT"
+}

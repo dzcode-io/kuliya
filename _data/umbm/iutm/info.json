@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "معهد إدارة التكنولوجيا الحضرية",
+        "en": "Urban Technology Management Institute",
+        "fr": "Institut de Gestion des Technologies Urbaines"
+    },
+    "type": "INSTITUTE"
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+    "name": {
+        "ar": "جامعة محمد بوضياف مسيلة",
+        "en": "University Mohamed Boudiaf M'sila",
+        "fr": "Université Mohamed Boudiaf de M'Sila"
+    },
+    "type": "UNIVERSITY"
+}
