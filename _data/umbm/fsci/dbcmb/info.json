@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الكيمياء الحيوية والأحياء الدقيقة",
+        "en": "Department of Biochemistry and Microbiology",
+        "fr": "Département de Biochimie et de Microbiologie"
+    },
+    "type": "DEPARTMENT"
+}

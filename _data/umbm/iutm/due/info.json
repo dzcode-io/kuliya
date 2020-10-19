@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الهندسة الحضرية",
+        "en": "Department of Urban Engineering",
+        "fr": "Département de Génie Urbain"
+    },
+    "type": "DEPARTMENT"
+}

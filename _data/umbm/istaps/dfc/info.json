@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم التدريب الرياضي",
+        "en": "Sports Training Department",
+        "fr": "Département de la formation sportive"
+    },
+    "type": "DEPARTMENT"
+}

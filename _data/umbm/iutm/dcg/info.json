@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الأرضية المشتركة",
+        "en": "Departement of common ground",
+        "fr": "Département de terrain d'entente"
+    },
+    "type": "DEPARTMENT"
+}

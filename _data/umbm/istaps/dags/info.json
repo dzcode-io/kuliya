@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الإدارة و التسيير الرياضي",
+        "en": "Department of Sports Administration and Management",
+        "fr": "Département d'administration et de gestion des sports"
+    },
+    "type": "DEPARTMENT"
+}

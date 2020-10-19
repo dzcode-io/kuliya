@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "كلية العلوم الإنسانية والاجتماعية",
+        "en": "Faculty of Human Sciences and Social Sciences",
+        "fr": "Faculté des sciences humaines et sociales"
+    },
+    "type": "FACULTY"
+}

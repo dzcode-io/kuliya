@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم العلوم الإقتصادية",
+        "en": "Department of Economic Sciences",
+        "fr": "Département des Sciences économiques"
+    },
+    "type": "DEPARTMENT"
+}

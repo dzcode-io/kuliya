@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم التكوين القاعدي المشترك",
+        "en": "Department of Common Basal Formation",
+        "fr": "Département de Formation Basale Commune"
+    },
+    "type": "DEPARTMENT"
+}

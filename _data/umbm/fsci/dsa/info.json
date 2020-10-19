@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم علوم الأرغونوميك",
+        "en": "Department of Argonomic Sciences",
+        "fr": "Département des Sciences Argonomiques"
+    },
+    "type": "DEPARTMENT"
+}

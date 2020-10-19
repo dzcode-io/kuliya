@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الاستشارات العلمية",
+        "en": "Department of Scientific Counsil",
+        "fr": "Département du Conseil Scientifique"
+    },
+    "type": "DEPARTMENT"
+}

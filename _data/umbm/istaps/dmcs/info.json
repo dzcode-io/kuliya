@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الإعلام و الإتصال الرياضي",
+        "en": "Department of Media and Sports Communication",
+        "fr": "Département des Médias et de la Communication Sportive"
+    },
+    "type": "DEPARTMENT"
+}
