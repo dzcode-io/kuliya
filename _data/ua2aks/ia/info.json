@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "معهد الترجمة",
+    "en": "Institute of translation",
+    "fr": "Institut de traduction"
+  },
+  "type": "INSTITUTE"
+}

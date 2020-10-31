@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم اللغة العربية وآدابها ",
+    "en": "Department of Arabic Language and Arts",
+    "fr": "Département de Langue et Lettres arabes et Langues Orientales"
+  },
+  "type": "DEPARTMENT"
+}

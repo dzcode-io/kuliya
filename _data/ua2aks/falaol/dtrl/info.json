@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم اللغة التركية والروسية ",
+    "en": "Department of Turkish and Russian Languages",
+    "fr": "Département de langues Turque et Russe"
+  },
+  "type": "DEPARTMENT"
+}
