@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علم النفس",
+    "en": "Department of psychology",
+    "fr": "Département de psychologie"
+  },
+  "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+  "name": {
+    "ar": "جامعة الجزائر 2  أبو القاسم سعد الله",
+    "en": "University of Algiers 2 Abou El-kacem Saâdallah",
+    "fr": "Université d’Alger 2 Abou El Kacem Saâdallah"
+  },
+  "type": "UNIVERSITY"
+}

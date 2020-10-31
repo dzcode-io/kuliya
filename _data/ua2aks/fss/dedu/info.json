@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علوم التربية",
+    "en": "Department of educational sciences",
+    "fr": "Département de sciences de l’éducation"
+  },
+  "type": "DEPARTMENT"
+}

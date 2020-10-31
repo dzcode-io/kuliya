@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علم الاجتماع",
+    "en": "Department of sociology",
+    "fr": "Département de sociologie"
+  },
+  "type": "DEPARTMENT"
+}

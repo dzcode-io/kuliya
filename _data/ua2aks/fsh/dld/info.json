@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علم المكتبات والتوثيق",
+    "en": "Department of librarianship and documentation",
+    "fr": "Département de bibliothéconomie"
+  },
+  "type": "DEPARTMENT"
+}

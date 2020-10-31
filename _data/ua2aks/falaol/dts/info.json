@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علوم اللسان ",
+    "en": "Department of Tongue Sciences",
+    "fr": "Département des Sciences du Langage"
+  },
+  "type": "DEPARTMENT"
+}

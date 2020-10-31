@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم اللغات الاسبانية , الألمانية , الايطالية  ",
+    "en": "Department of Spanish, German & Italian",
+    "fr": "Département des Langues Espagnole, Allemande, et Italienne"
+  },
+  "type": "DEPARTMENT"
+}
