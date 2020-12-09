@@ -1,0 +1,4 @@
+_data 
+*.bat
+src/main/resources/_data
+target
