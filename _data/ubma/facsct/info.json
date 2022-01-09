@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية علوم الأرض",
+    "en": "Faculty of Sciences of the Earth",
+    "fr": "Faculté des Sciences de la Terre"
+  },
+  "type": "FACULTY"
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم المناجم",
+    "en": "Department of Mines",
+    "fr": " Département des Mines"
+  },
+  "type": "DEPARTMENT"
+}
