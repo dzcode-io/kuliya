@@ -1,9 +1,0 @@
-{
-    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
-    "name": {
-      "ar": "جامعة باجي مختار -عنابة",
-      "en": "University of Badji Mokhtar Annaba",
-      "fr": "Université Badji Mokhtar Annaba"
-    },
-    "type": "UNIVERSITY"
-  }
