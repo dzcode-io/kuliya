@@ -2,8 +2,8 @@
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
         "ar": "",
-        "en": "Faculty Of Engineering Sciences",
+        "en": "Public Law Department",
         "fr": ""
     },
-    "type": "FACULTY"
+    "type": "DEPARTMENT"
 }
