@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "القسم الكهروتقني",
         "en": "Electrotechnical Department",
-        "fr": ""
+        "fr": "Département Électrotechnique"
     },
     "type": "DEPARTMENT"
 }

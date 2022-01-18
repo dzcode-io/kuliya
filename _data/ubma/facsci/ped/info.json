@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "قسم هندسة العمليات",
         "en": "Process Engineering Department",
-        "fr": ""
+        "fr": "Département Génie Des Procédés"
     },
     "type": "DEPARTMENT"
 }

@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "قسم علم المكتبيات",
         "en": "Biology Department",
-        "fr": ""
+        "fr": "Département Biblitheconomy"
     },
     "type": "DEPARTMENT"
 }

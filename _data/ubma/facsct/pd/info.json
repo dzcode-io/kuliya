@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "قسم التخطيط",
         "en": "Planning Department",
-        "fr": ""
+        "fr": "Département de la Planification"
     },
     "type": "DEPARTMENT"
 }

@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "قسم العلوم الإنسانية والاجتماعية",
         "en": "Human And Social Sciences Department",
-        "fr": ""
+        "fr": "Département Des Sciences Humaines Et Sociales"
     },
     "type": "DEPARTMENT"
 }

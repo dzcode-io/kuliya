@@ -1,9 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
     "name": {
-        "ar": "",
+        "ar": "قسم الهندسة الميكانيكية",
         "en": "Mechanical Engineering Department",
-        "fr": ""
+        "fr": "Département de Génie Mécanique"
     },
     "type": "DEPARTMENT"
 }
