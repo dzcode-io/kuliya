@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم التربية البدنية والرياضية",
+        "en": "Physical And Sports Education Department",
+        "fr": "Service D'Éducation Physique Et Sportive"
+    },
+    "type": "DEPARTMENT"
+}

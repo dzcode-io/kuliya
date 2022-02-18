@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم علوم البحار",
+        "en": "Sea Sciences Department",
+        "fr": "Département Des Sciences De La Mer"
+    },
+    "type": "DEPARTMENT"
+}

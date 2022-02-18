@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم اللغة الإيطالية",
+        "en": "Italian Language Department",
+        "fr": "Département De Langue Italienne"
+    },
+    "type": "DEPARTMENT"
+}

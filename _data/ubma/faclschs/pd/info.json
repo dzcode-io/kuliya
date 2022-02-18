@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الفلسفة",
+        "en": "Philosophy Department",
+        "fr": "Département De Philosophie"
+    },
+    "type": "DEPARTMENT"
+}

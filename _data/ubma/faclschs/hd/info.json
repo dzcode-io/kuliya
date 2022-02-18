@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم التاريخ",
+        "en": "History Department",
+        "fr": "Département D'Histoire"
+    },
+    "type": "DEPARTMENT"
+}

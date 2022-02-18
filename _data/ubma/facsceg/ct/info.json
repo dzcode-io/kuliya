@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "جذع مشترك",
+        "en": "Common Trunk",
+        "fr": "Tronc Commun"
+    },
+    "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم القانون العام",
+        "en": "Public Law Department",
+        "fr": "Département De Droit Public"
+    },
+    "type": "DEPARTMENT"
+}

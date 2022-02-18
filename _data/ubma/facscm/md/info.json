@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم الطب",
+        "en": "Medicine Department",
+        "fr": "Département De Mathématiques"
+    },
+    "type": "DEPARTMENT"
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "كلية العلوم الطبية",
+        "en": "Faculty Of Medical Sciences",
+        "fr": "Faculté Des Sciences Médicales"
+    },
+    "type": "FACULTY"
+}

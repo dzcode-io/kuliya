@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم طب الأسنان",
+        "en": "Department Of Dental Medicine",
+        "fr": "Département De Médecine Dentaire"
+    },
+    "type": "DEPARTMENT"
+}

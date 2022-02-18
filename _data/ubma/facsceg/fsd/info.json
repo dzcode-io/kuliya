@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم العلوم المالية",
+        "en": "Financial Sciences Department",
+        "fr": "Département Des Sciences Financières"
+    },
+    "type": "DEPARTMENT"
+}

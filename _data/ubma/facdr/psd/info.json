@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+    "name": {
+        "ar": "قسم العلوم السياسية",
+        "en": "Political Sciences Department",
+        "fr": "Département Des Sciences Politiques"
+    },
+    "type": "DEPARTMENT"
+}
