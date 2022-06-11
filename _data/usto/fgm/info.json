@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "كلية الهندسة الميكانيكية",
+    "en": "Faculty of Mechanical Engineering",
+    "fr": "Faculté de génie mécanique"
+  },
+  "type": "FACULTY"
+}

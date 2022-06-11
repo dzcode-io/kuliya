@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الكيمياء الفيزيائية",
+    "en": "Departement of  Physical chemistry",
+    "fr": "Déparetement Chimie physique"
+  },
+  "type": "DEPARTMENT"
+}

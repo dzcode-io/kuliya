@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الهندسة المدنية",
+    "en": "Civil engineering department",
+    "fr": "Déparement Génie civil"
+  },
+  "type": "DEPARTMENT"
+}
