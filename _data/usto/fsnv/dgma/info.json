@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم علم الوراثة الجزيئية التطبيقية",
+    "en": "Departement Applied Molecular Genetics",
+    "fr": "Déparetement Génétique moléculaire appliquée"
+  },
+  "type": "DEPARTMENT"
+}

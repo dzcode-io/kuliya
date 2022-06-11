@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l1.json",
+  "name": {
+    "ar": "جامعة وهران للعلوم و التكنولوجيا محمد بوضياف",
+    "en": "University of Sciences and Technology Oran Mohamed Boudiaf",
+    "fr": "Université Des Sciences et de la Technologie Oran Mohamed Boudiaf"
+  },
+  "type": "UNIVERSITY"
+}

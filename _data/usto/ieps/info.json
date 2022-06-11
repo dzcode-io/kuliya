@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "معهد التربية البدنية والرياضة",
+    "en": "Institute Of Physical Education And Sport",
+    "fr": "Institut d'éducation physique et de sport"
+  },
+  "type": "INSTITUTE"
+}

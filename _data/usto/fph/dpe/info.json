@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم فيزياء الطاقة",
+    "en": "Departement of Physics energetics",
+    "fr": "deparetement Physique énergétique"
+  },
+  "type": "DEPARTMENT"
+}

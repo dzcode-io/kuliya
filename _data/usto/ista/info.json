@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "معهد العلوم التطبيقية والتكنولوجيا",
+    "en": "Institute of Applied Science and Technology",
+    "fr": "Institut des Sciences et Techniques Appliquées"
+  },
+  "type": "INSTITUTE"
+}

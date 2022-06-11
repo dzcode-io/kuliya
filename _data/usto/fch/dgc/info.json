@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dzcode-io/kuliya/main/_schemas/l2.json",
+  "name": {
+    "ar": "قسم الهندسة الكيميائية",
+    "en": "Departement of chemical engineering",
+    "fr": "Déparetement Génie chimique"
+  },
+  "type": "DEPARTMENT"
+}
