@@ -25,3 +25,7 @@ php:
 # Add 'python' to any changes within 'python' folder or any subfolders
 python:
   - python/**/*
+
+# Add 'rust' to any changes within 'rust' folder or any subfolders
+rust:
+  - rust/**/*
