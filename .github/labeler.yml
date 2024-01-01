@@ -1,27 +1,31 @@
-# Add 'data' to any changes within '_data' folder or any subfolders
 data:
-  - _data/**/*
+  - changed-files:
+      - any-glob-to-any-file: "_data/**"
 
-# Add 'schemas' to any changes within '_schemas' folder or any subfolders
 schemas:
-  - _schemas/**/*
+  - changed-files:
+      - any-glob-to-any-file: "_schemas/**"
 
-# Add 'csharp' to any changes within 'csharp' folder or any subfolders
 csharp:
-  - csharp/**/*
+  - changed-files:
+      - any-glob-to-any-file: "csharp/**"
 
-# Add 'java' to any changes within 'java' folder or any subfolders
 java:
-  - java/**/*
+  - changed-files:
+      - any-glob-to-any-file: "java/**"
 
-# Add 'javascript' to any changes within 'javascript' folder or any subfolders
 javascript:
-  - javascript/**/*
+  - changed-files:
+      - any-glob-to-any-file: "javascript/**"
 
-# Add 'php' to any changes within 'php' folder or any subfolders
 php:
-  - php/**/*
+  - changed-files:
+      - any-glob-to-any-file: "php/**"
 
-# Add 'python' to any changes within 'python' folder or any subfolders
 python:
-  - python/**/*
+  - changed-files:
+      - any-glob-to-any-file: "python/**"
+
+rust:
+  - changed-files:
+      - any-glob-to-any-file: "rust/**"
