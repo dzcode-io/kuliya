@@ -11,7 +11,7 @@ struct Name {
     fr: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 enum Type {
     #[serde(rename = "UNIVERSITY")]
     University,
@@ -31,19 +31,11 @@ enum Type {
     Sector,
 }
 
-impl std::fmt::Display for Type {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Type::University => write!(f, "UNIVERSITY"),
-            Type::Academy => write!(f, "ACADEMY"),
-            Type::PrivateSchool => write!(f, "PRIVATE_SCHOOL"),
-            Type::Institute => write!(f, "INSTITUTE"),
-            Type::Faculty => write!(f, "FACULTY"),
-            Type::Department => write!(f, "DEPARTMENT"),
-            Type::Specialty => write!(f, "SPECIALTY"),
-            Type::Sector => write!(f, "SECTOR"),
-        }
-    }
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
+struct Terms {
+    #[serde(rename = "perYear")]
+    per_year: usize,
+    slots: Vec<usize>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -51,6 +43,7 @@ pub struct Schema {
     name: Name,
     #[serde(rename = "type")]
     ty: Type,
+    terms: Option<Terms>,
 }
 
 pub fn get_node_by_path(path: &str) -> Option<Schema> {
@@ -61,13 +54,12 @@ pub fn get_node_by_path(path: &str) -> Option<Schema> {
     let Ok(schema) = serde_json::from_str::<Schema>(info.as_str()) else {
         return None;
     };
-    dbg!(&schema);
     Some(schema)
 }
 
 #[cfg(test)]
 mod test {
-    use crate::{get_node_by_path, Name, Schema, Type};
+    use crate::{get_node_by_path, Name, Schema, Terms, Type};
 
     struct TestCase<'a> {
         path: &'a str,
@@ -92,6 +84,7 @@ mod test {
                         fr: "Université Mohamed Khider Biskra".to_string(),
                     },
                     ty: Type::University,
+                    terms: None,
                 },
             ),
             TestCase::new(
@@ -103,6 +96,22 @@ mod test {
                         fr: "Faculté des Sciences et de la Technologie".to_string(),
                     },
                     ty: Type::Faculty,
+                    terms: None,
+                },
+            ),
+            TestCase::new(
+                "umkb/fst/dee/sec",
+                Schema {
+                    name: Name {
+                        ar: "تخصص التحكم الكهربائي".to_string(),
+                        en: "Specialy of Electrical Control".to_string(),
+                        fr: "Spécialité de commande électrique".to_string(),
+                    },
+                    ty: Type::Specialty,
+                    terms: Some(Terms {
+                        per_year: 2,
+                        slots: vec![7, 8, 9, 10],
+                    }),
                 },
             ),
         ];
@@ -137,8 +146,13 @@ mod test {
         );
         assert_eq!(
             expected.ty, actual.ty,
-            "Expected ty to be '{}', but got '{}'",
+            "Expected ty to be '{:?}', but got '{:?}'",
             expected.ty, actual.ty
         );
+        assert_eq!(
+            expected.terms, actual.terms,
+            "Expeted terms to be '{:?}', but got '{:?}'",
+            expected.terms, actual.terms
+        )
     }
 }
