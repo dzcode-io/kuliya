@@ -2,7 +2,8 @@ use std::fs;
 
 use serde::{Deserialize, Serialize};
 
-const DATA_FOLDER: &'static str = "src/_data";
+static DATA_FOLDER: &'static str = "src/_data";
+static CARGO_MANIFEST_DIR: &'static str = env!("CARGO_MANIFEST_DIR");
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Name {
@@ -47,7 +48,7 @@ pub struct Schema {
 }
 
 pub fn get_node_by_path(path: &str) -> Option<Schema> {
-    let fs_path = format!("{}/{}/info.json", DATA_FOLDER, path);
+    let fs_path = format!("{}/{}/{}/info.json", CARGO_MANIFEST_DIR, DATA_FOLDER, path);
     let Ok(info) = fs::read_to_string(fs_path) else {
         return None;
     };
