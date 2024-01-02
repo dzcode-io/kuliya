@@ -6,14 +6,14 @@ static DATA_FOLDER: &'static str = "src/_data";
 static CARGO_MANIFEST_DIR: &'static str = env!("CARGO_MANIFEST_DIR");
 
 #[derive(Debug, Serialize, Deserialize)]
-struct Name {
-    ar: String,
-    en: String,
-    fr: String,
+pub struct Name {
+    pub ar: String,
+    pub en: String,
+    pub fr: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
-enum Type {
+pub enum Type {
     #[serde(rename = "UNIVERSITY")]
     University,
     #[serde(rename = "ACADEMY")]
@@ -33,18 +33,18 @@ enum Type {
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
-struct Terms {
+pub struct Terms {
     #[serde(rename = "perYear")]
-    per_year: usize,
-    slots: Vec<usize>,
+    pub per_year: usize,
+    pub slots: Vec<usize>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Schema {
-    name: Name,
+    pub name: Name,
     #[serde(rename = "type")]
-    ty: Type,
-    terms: Option<Terms>,
+    pub ty: Type,
+    pub terms: Option<Terms>,
 }
 
 pub fn get_node_by_path(path: &str) -> Option<Schema> {
