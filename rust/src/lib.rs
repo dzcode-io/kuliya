@@ -1,3 +1,5 @@
+mod _data;
+
 use std::fs;
 
 use serde::{Deserialize, Serialize};
