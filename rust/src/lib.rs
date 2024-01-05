@@ -72,8 +72,7 @@ impl std::fmt::Display for Terms {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Schema {
     pub name: Name,
-    #[serde(rename = "type")]
-    pub ty: Type,
+    pub r#type: Type,
     pub terms: Option<Terms>,
 }
 
@@ -82,14 +81,14 @@ impl std::fmt::Display for Schema {
         if self.terms.is_some() {
             let obj = json!({
                 "name": self.name,
-                "type": self.ty,
+                "type": self.r#type,
                 "terms": self.terms.clone().unwrap()
             });
             return write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap());
         } else {
             let obj = json!({
                 "name": self.name,
-                "type": self.ty
+                "type": self.r#type
             });
             return write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap());
         }
@@ -133,7 +132,7 @@ mod test {
                         en: "University of Mohamed Khider Biskra".to_string(),
                         fr: "Université Mohamed Khider Biskra".to_string(),
                     },
-                    ty: Type::University,
+                    r#type: Type::University,
                     terms: None,
                 },
             ),
@@ -145,7 +144,7 @@ mod test {
                         en: "Faculty of Science and Technology".to_string(),
                         fr: "Faculté des Sciences et de la Technologie".to_string(),
                     },
-                    ty: Type::Faculty,
+                    r#type: Type::Faculty,
                     terms: None,
                 },
             ),
@@ -157,7 +156,7 @@ mod test {
                         en: "Specialy of Electrical Control".to_string(),
                         fr: "Spécialité de commande électrique".to_string(),
                     },
-                    ty: Type::Specialty,
+                    r#type: Type::Specialty,
                     terms: Some(Terms {
                         per_year: 2,
                         slots: vec![7, 8, 9, 10],
@@ -195,9 +194,9 @@ mod test {
             expected.name.fr, actual.name.fr
         );
         assert_eq!(
-            expected.ty, actual.ty,
+            expected.r#type, actual.r#type,
             "Expected ty to be '{:?}', but got '{:?}'",
-            expected.ty, actual.ty
+            expected.r#type, actual.r#type
         );
         assert_eq!(
             expected.terms, actual.terms,
