@@ -1,7 +1,10 @@
 use std::fs;
 
+use error::FetchError;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
+
+mod error;
 
 static DATA_FOLDER: &'static str = "src/_data";
 static CARGO_MANIFEST_DIR: &'static str = env!("CARGO_MANIFEST_DIR");
@@ -95,15 +98,17 @@ impl std::fmt::Display for Schema {
     }
 }
 
-pub fn get_node_by_path(path: &str) -> Option<Schema> {
+pub fn get_node_by_path(path: &str) -> Result<Schema, FetchError> {
     let fs_path = format!("{}/{}/{}/info.json", CARGO_MANIFEST_DIR, DATA_FOLDER, path);
-    let Ok(info) = fs::read_to_string(fs_path) else {
-        return None;
-    };
-    let Ok(schema) = serde_json::from_str::<Schema>(info.as_str()) else {
-        return None;
-    };
-    Some(schema)
+    match fs::read_to_string(fs_path) {
+        Ok(info) => {
+            let Ok(schema) = serde_json::from_str::<Schema>(info.as_str()) else {
+                return Err(FetchError::Deserialize);
+            };
+            Ok(schema)
+        }
+        Err(err) => Err(FetchError::ReadJson(err)),
+    }
 }
 
 #[cfg(test)]
@@ -172,9 +177,9 @@ mod test {
     }
 
     #[test]
-    fn should_get_none_when_path_does_not_exist() {
+    fn should_get_error_when_path_does_not_exist() {
         let res = get_node_by_path("does/not/exist");
-        assert!(res.is_none());
+        assert!(res.is_err());
     }
 
     fn assert_schema(expected: &Schema, actual: &Schema) {
