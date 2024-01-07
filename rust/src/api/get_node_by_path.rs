@@ -12,7 +12,7 @@ mod test {
     use super::get_node_by_path;
 
     #[test]
-    fn check_three_schemas_and_non_extant() {
+    fn check_three_schemas_and_non_existent() {
         let tests = vec![
             (
                 "umkb",
