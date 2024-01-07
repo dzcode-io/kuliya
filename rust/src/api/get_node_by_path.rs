@@ -1,5 +1,6 @@
 use crate::{_auto_generated, node::model::Node};
 
+#[cfg(feature = "const")]
 pub fn get_node_by_path(path: &str) -> Option<&Node> {
     _auto_generated::data::get_node_by_path(path)
 }

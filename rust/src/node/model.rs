@@ -1,7 +1,10 @@
 #[derive(Debug, PartialEq)]
 pub struct NodeName {
+    #[cfg(feature = "const")]
     pub ar: &'static str,
+    #[cfg(feature = "const")]
     pub en: &'static str,
+    #[cfg(feature = "const")]
     pub fr: &'static str,
 }
 
@@ -20,6 +23,7 @@ pub enum NodeType {
 #[derive(Debug, PartialEq, Clone)]
 pub struct NodeTerms {
     pub per_year: usize,
+    #[cfg(feature = "const")]
     pub slots: &'static [i32],
 }
 
