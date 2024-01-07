@@ -1,22 +1,19 @@
-mod _data;
-pub mod api;
+#![recursion_limit = "512"]
 
-use std::fs;
+mod _data;
+// pub mod api;
 
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 
-static DATA_FOLDER: &'static str = "src/_data";
-static CARGO_MANIFEST_DIR: &'static str = env!("CARGO_MANIFEST_DIR");
-
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Name {
-    pub ar: String,
-    pub en: String,
-    pub fr: String,
+pub struct Name<'a> {
+    pub ar: &'a str,
+    pub en: &'a str,
+    pub fr: &'a str,
 }
 
-impl std::fmt::Display for Name {
+impl std::fmt::Display for Name<'static> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let obj = json!({"ar": self.ar, "en": self.en, "fr": self.fr});
         write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap())
@@ -74,7 +71,10 @@ impl std::fmt::Display for Terms {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Schema {
-    pub name: Name,
+    #[serde(skip_serializing)]
+    pub path: &'static str,
+    #[serde(borrow)]
+    pub name: Name<'static>,
     #[serde(rename = "type")]
     pub ty: Type,
     pub terms: Option<Terms>,
@@ -99,15 +99,13 @@ impl std::fmt::Display for Schema {
     }
 }
 
-pub fn get_node_by_path(path: &str) -> Option<Schema> {
-    let fs_path = format!("{}/{}/{}/info.json", CARGO_MANIFEST_DIR, DATA_FOLDER, path);
-    let Ok(info) = fs::read_to_string(fs_path) else {
-        return None;
-    };
-    let Ok(schema) = serde_json::from_str::<Schema>(info.as_str()) else {
-        return None;
-    };
-    Some(schema)
+pub fn get_node_by_path(path: &str) -> Option<&Schema> {
+    for entry in _data::ENTRIES.iter() {
+        if entry.path == path {
+            return Some(entry);
+        }
+    }
+    None
 }
 
 #[cfg(test)]
@@ -131,10 +129,11 @@ mod test {
             TestCase::new(
                 "umkb",
                 Schema {
+                    path: "umkb",
                     name: Name {
-                        ar: "جامعة محمد خيضر بسكرة".to_string(),
-                        en: "University of Mohamed Khider Biskra".to_string(),
-                        fr: "Université Mohamed Khider Biskra".to_string(),
+                        ar: "جامعة محمد خيضر بسكرة",
+                        en: "University of Mohamed Khider Biskra",
+                        fr: "Université Mohamed Khider Biskra",
                     },
                     ty: Type::University,
                     terms: None,
@@ -143,10 +142,11 @@ mod test {
             TestCase::new(
                 "umkb/fst",
                 Schema {
+                    path: "umkb/fst",
                     name: Name {
-                        ar: "كلية العلوم والتكنلوجيا".to_string(),
-                        en: "Faculty of Science and Technology".to_string(),
-                        fr: "Faculté des Sciences et de la Technologie".to_string(),
+                        ar: "كلية العلوم والتكنلوجيا",
+                        en: "Faculty of Science and Technology",
+                        fr: "Faculté des Sciences et de la Technologie",
                     },
                     ty: Type::Faculty,
                     terms: None,
@@ -155,10 +155,11 @@ mod test {
             TestCase::new(
                 "umkb/fst/dee/sec",
                 Schema {
+                    path: "umkb/fst/dee/sec",
                     name: Name {
-                        ar: "تخصص التحكم الكهربائي".to_string(),
-                        en: "Specialy of Electrical Control".to_string(),
-                        fr: "Spécialité de commande électrique".to_string(),
+                        ar: "تخصص التحكم الكهربائي",
+                        en: "Specialy of Electrical Control",
+                        fr: "Spécialité de commande électrique",
                     },
                     ty: Type::Specialty,
                     terms: Some(Terms {
