@@ -1,6 +1,9 @@
+#[cfg(feature = "const")]
 use serde_json::Value;
+#[cfg(feature = "const")]
 use std::{fs, io, path::Path};
 
+#[cfg(feature = "const")]
 fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
     let info_path = dir.as_ref().join("info.json");
     let info_dot_json = match info_path.exists() {
@@ -104,6 +107,7 @@ fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
     )
 }
 
+#[cfg(feature = "const")]
 fn generate_data_file() -> Result<(), io::Error> {
     let string_tree = dir_tree_to_list("../_data");
 
@@ -131,5 +135,6 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {{
 }
 
 fn main() {
+    #[cfg(feature = "const")]
     generate_data_file().unwrap();
 }
