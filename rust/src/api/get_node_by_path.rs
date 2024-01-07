@@ -44,7 +44,6 @@ mod test {
                         fr: "Université Mohamed Khider Biskra".to_string(),
                     },
                     r#type: NodeType::University,
-                    terms: None,
                 },
             ),
             TestCase::new(
@@ -56,7 +55,6 @@ mod test {
                         fr: "Faculté des Sciences et de la Technologie".to_string(),
                     },
                     r#type: NodeType::Faculty,
-                    terms: None,
                 },
             ),
             TestCase::new(
@@ -67,11 +65,12 @@ mod test {
                         en: "Specialy of Electrical Control".to_string(),
                         fr: "Spécialité de commande électrique".to_string(),
                     },
-                    r#type: NodeType::Specialty,
-                    terms: Some(NodeTerms {
-                        per_year: 2,
-                        slots: vec![7, 8, 9, 10],
-                    }),
+                    r#type: NodeType::Specialty {
+                        terms: NodeTerms {
+                            per_year: 2,
+                            slots: vec![7, 8, 9, 10],
+                        },
+                    },
                 },
             ),
         ];
@@ -90,29 +89,9 @@ mod test {
 
     fn assert_node(expected: &Node, actual: &Node) {
         assert_eq!(
-            expected.name.ar, actual.name.ar,
-            "Expected ar name to be '{}', but got '{}'",
-            expected.name.ar, actual.name.ar
+            expected, actual,
+            "Expected node to be '{}', but got '{}'",
+            expected, actual
         );
-        assert_eq!(
-            expected.name.en, actual.name.en,
-            "Expected en name to be '{}', but got '{}'",
-            expected.name.en, actual.name.en
-        );
-        assert_eq!(
-            expected.name.fr, actual.name.fr,
-            "Expected fr name to be '{}', but got '{}'",
-            expected.name.fr, actual.name.fr
-        );
-        assert_eq!(
-            expected.r#type, actual.r#type,
-            "Expected ty to be '{:?}', but got '{:?}'",
-            expected.r#type, actual.r#type
-        );
-        assert_eq!(
-            expected.terms, actual.terms,
-            "Expeted terms to be '{:?}', but got '{:?}'",
-            expected.terms, actual.terms
-        )
     }
 }

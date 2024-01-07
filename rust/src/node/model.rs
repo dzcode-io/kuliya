@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct NodeName {
     pub ar: String,
     pub en: String,
@@ -16,6 +16,7 @@ impl std::fmt::Display for NodeName {
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[serde(tag = "type")] // to flatten the enum to the parent struct
 pub enum NodeType {
     #[serde(rename = "UNIVERSITY")]
     University,
@@ -30,9 +31,9 @@ pub enum NodeType {
     #[serde(rename = "DEPARTMENT")]
     Department,
     #[serde(rename = "SPECIALTY")]
-    Specialty,
+    Specialty { terms: NodeTerms },
     #[serde(rename = "SECTOR")]
-    Sector,
+    Sector { terms: NodeTerms },
 }
 
 impl std::fmt::Display for NodeType {
@@ -44,8 +45,8 @@ impl std::fmt::Display for NodeType {
             NodeType::Institute => write!(f, "INSTITUTE"),
             NodeType::Faculty => write!(f, "FACULTY"),
             NodeType::Department => write!(f, "DEPARTMENT"),
-            NodeType::Specialty => write!(f, "SPECIALTY"),
-            NodeType::Sector => write!(f, "SECTOR"),
+            NodeType::Specialty { .. } => write!(f, "SPECIALTY"),
+            NodeType::Sector { .. } => write!(f, "SECTOR"),
         }
     }
 }
@@ -64,28 +65,15 @@ impl std::fmt::Display for NodeTerms {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct Node {
     pub name: NodeName,
+    #[serde(flatten)]
     pub r#type: NodeType,
-    pub terms: Option<NodeTerms>,
 }
 
 impl std::fmt::Display for Node {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        if self.terms.is_some() {
-            let obj = json!({
-                "name": self.name,
-                "type": self.r#type,
-                "terms": self.terms.clone().unwrap()
-            });
-            return write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap());
-        } else {
-            let obj = json!({
-                "name": self.name,
-                "type": self.r#type
-            });
-            return write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap());
-        }
+        write!(f, "{}", serde_json::to_string_pretty(&self).unwrap())
     }
 }
