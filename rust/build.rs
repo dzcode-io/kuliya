@@ -119,8 +119,7 @@ use crate::node::model::{{Node, NodeName, NodeType, NodeTerms}};
 {}
 pub fn get_node_by_path(path: &str) -> Option<&Node> {{
     match path {{
-{}
-        _ => None,
+{}        _ => None,
     }}
 }}"##,
         string_tree.0, string_tree.1
@@ -129,7 +128,9 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {{
     fs::write("./src/_auto_generated/data.rs", data)?;
     fs::write(
         "./src/_auto_generated/mod.rs",
-        "// This is auto-generated. Do not edit manually\npub mod data;\n",
+        r#"// This is auto-generated. Do not edit manually
+pub mod data;
+"#,
     )?;
     Ok(())
 }
