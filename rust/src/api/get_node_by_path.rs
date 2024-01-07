@@ -11,45 +11,38 @@ mod test {
 
     use super::get_node_by_path;
 
-    struct TestCase<'a> {
-        path: &'a str,
-        expected: Node,
-    }
-
-    impl<'a> TestCase<'a> {
-        pub fn new(path: &'a str, expected: Node) -> Self {
-            Self { path, expected }
-        }
-    }
-
     #[test]
-    fn should_get_expected_info() {
-        let tests: Vec<TestCase> = vec![
-            TestCase::new(
+    fn check_three_schemas_and_non_existent() {
+        let tests = vec![
+            (
                 "umkb",
-                Node {
+                Some(&Node {
                     name: NodeName {
                         ar: "جامعة محمد خيضر بسكرة",
                         en: "University of Mohamed Khider Biskra",
                         fr: "Université Mohamed Khider Biskra",
                     },
                     r#type: NodeType::University,
-                },
+                }),
+                #[cfg(feature = "serde_derive")]
+                "{\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"University\"}",
             ),
-            TestCase::new(
+            (
                 "umkb/fst",
-                Node {
+                Some(&Node {
                     name: NodeName {
                         ar: "كلية العلوم والتكنلوجيا",
                         en: "Faculty of Science and Technology",
                         fr: "Faculté des Sciences et de la Technologie",
                     },
                     r#type: NodeType::Faculty,
-                },
+                }),
+                #[cfg(feature = "serde_derive")]
+                "{\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"Faculty\"}",
             ),
-            TestCase::new(
+            (
                 "umkb/fst/dee/sec",
-                Node {
+                Some(&Node {
                     name: NodeName {
                         ar: "تخصص التحكم الكهربائي",
                         en: "Specialy of Electrical Control",
@@ -61,27 +54,30 @@ mod test {
                             slots: &[7, 8, 9, 10],
                         },
                     },
-                },
+                }),
+                #[cfg(feature = "serde_derive")]
+                "{\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":{\"Specialty\":{\"terms\":{\"per_year\":2,\"slots\":[7,8,9,10]}}}}",
+            ),
+            (
+                "does/not/exist", None, 
+                #[cfg(feature = "serde_derive")]
+                "null"
             ),
         ];
 
-        for tc in tests {
-            let actual = get_node_by_path(tc.path).unwrap();
-            assert_node(&tc.expected, &actual);
+        for test_case in tests {
+            let path = test_case.0;
+            let expected = test_case.1;
+            let actual = get_node_by_path(path);
+            assert_eq!(actual, expected);
+            #[cfg(feature = "serde_derive")]
+            {
+                let expected_stringified = test_case.2;
+                assert_eq!(
+                    serde_json::to_string(&actual).unwrap(),
+                    expected_stringified
+                );
+            }
         }
-    }
-
-    #[test]
-    fn should_get_none_when_path_does_not_exist() {
-        let res = get_node_by_path("does/not/exist");
-        assert!(res.is_none());
-    }
-
-    fn assert_node(expected: &Node, actual: &Node) {
-        assert_eq!(
-            expected, actual,
-            "Expected node to be '{:?}', but got '{:?}'",
-            expected, actual
-        );
     }
 }

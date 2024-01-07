@@ -1,4 +1,8 @@
+#[cfg(feature = "serde_derive")]
+use serde::Serialize;
+
 #[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize))]
 pub struct NodeName {
     #[cfg(feature = "const")]
     pub ar: &'static str,
@@ -9,6 +13,7 @@ pub struct NodeName {
 }
 
 #[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize))]
 pub enum NodeType {
     University,
     Academy,
@@ -21,6 +26,7 @@ pub enum NodeType {
 }
 
 #[derive(Debug, PartialEq, Clone)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize))]
 pub struct NodeTerms {
     pub per_year: usize,
     #[cfg(feature = "const")]
@@ -28,6 +34,7 @@ pub struct NodeTerms {
 }
 
 #[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize))]
 pub struct Node {
     pub name: NodeName,
     pub r#type: NodeType,
