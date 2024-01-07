@@ -6,8 +6,11 @@ edition = "2021"
 [features]
 default = ["const"]
 const = []
+serde_derive = ["dep:serde", "dep:serde_json"]
 
 [dependencies]
+serde = { version = "1.0.194", features = ["derive"], optional = true }
+serde_json = { version = "1.0.110", optional = true }
 
 [build-dependencies]
 serde = { version = "1.0.194", features = ["derive"] }

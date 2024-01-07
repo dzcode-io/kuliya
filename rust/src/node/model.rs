@@ -1,14 +1,19 @@
+#[cfg(feature = "serde_derive")]
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug, PartialEq)]
-pub struct NodeName {
+#[cfg_attr(feature = "serde_derive", derive(Serialize, Deserialize))]
+pub struct NodeName<'a> {
     #[cfg(feature = "const")]
-    pub ar: &'static str,
+    pub ar: &'a str,
     #[cfg(feature = "const")]
-    pub en: &'static str,
+    pub en: &'a str,
     #[cfg(feature = "const")]
-    pub fr: &'static str,
+    pub fr: &'a str,
 }
 
 #[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize, Deserialize))]
 pub enum NodeType {
     University,
     Academy,
@@ -21,14 +26,18 @@ pub enum NodeType {
 }
 
 #[derive(Debug, PartialEq, Clone)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize, Deserialize))]
 pub struct NodeTerms {
     pub per_year: usize,
     #[cfg(feature = "const")]
+    #[cfg_attr(feature = "serde_derive", serde(skip_deserializing))]
     pub slots: &'static [i32],
 }
 
 #[derive(Debug, PartialEq)]
+#[cfg_attr(feature = "serde_derive", derive(Serialize, Deserialize))]
 pub struct Node {
-    pub name: NodeName,
+    #[cfg_attr(feature = "serde_derive", serde(borrow))]
+    pub name: NodeName<'static>,
     pub r#type: NodeType,
 }
