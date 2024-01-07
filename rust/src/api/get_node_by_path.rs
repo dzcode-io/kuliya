@@ -1,18 +1,7 @@
-use crate::node::model::Node;
-use std::fs;
+use crate::{_auto_generated, node::model::Node};
 
-static DATA_FOLDER: &'static str = "src/_data";
-static CARGO_MANIFEST_DIR: &'static str = env!("CARGO_MANIFEST_DIR");
-
-pub fn get_node_by_path(path: &str) -> Option<Node> {
-    let fs_path = format!("{}/{}/{}/info.json", CARGO_MANIFEST_DIR, DATA_FOLDER, path);
-    let Ok(info) = fs::read_to_string(fs_path) else {
-        return None;
-    };
-    let Ok(node) = serde_json::from_str::<Node>(info.as_str()) else {
-        return None;
-    };
-    Some(node)
+pub fn get_node_by_path(path: &str) -> Option<&Node> {
+    _auto_generated::data::get_node_by_path(path)
 }
 
 #[cfg(test)]
@@ -39,9 +28,9 @@ mod test {
                 "umkb",
                 Node {
                     name: NodeName {
-                        ar: "جامعة محمد خيضر بسكرة".to_string(),
-                        en: "University of Mohamed Khider Biskra".to_string(),
-                        fr: "Université Mohamed Khider Biskra".to_string(),
+                        ar: "جامعة محمد خيضر بسكرة",
+                        en: "University of Mohamed Khider Biskra",
+                        fr: "Université Mohamed Khider Biskra",
                     },
                     r#type: NodeType::University,
                 },
@@ -50,9 +39,9 @@ mod test {
                 "umkb/fst",
                 Node {
                     name: NodeName {
-                        ar: "كلية العلوم والتكنلوجيا".to_string(),
-                        en: "Faculty of Science and Technology".to_string(),
-                        fr: "Faculté des Sciences et de la Technologie".to_string(),
+                        ar: "كلية العلوم والتكنلوجيا",
+                        en: "Faculty of Science and Technology",
+                        fr: "Faculté des Sciences et de la Technologie",
                     },
                     r#type: NodeType::Faculty,
                 },
@@ -61,14 +50,14 @@ mod test {
                 "umkb/fst/dee/sec",
                 Node {
                     name: NodeName {
-                        ar: "تخصص التحكم الكهربائي".to_string(),
-                        en: "Specialy of Electrical Control".to_string(),
-                        fr: "Spécialité de commande électrique".to_string(),
+                        ar: "تخصص التحكم الكهربائي",
+                        en: "Specialy of Electrical Control",
+                        fr: "Spécialité de commande électrique",
                     },
                     r#type: NodeType::Specialty {
                         terms: NodeTerms {
                             per_year: 2,
-                            slots: vec![7, 8, 9, 10],
+                            slots: &[7, 8, 9, 10],
                         },
                     },
                 },
@@ -90,7 +79,7 @@ mod test {
     fn assert_node(expected: &Node, actual: &Node) {
         assert_eq!(
             expected, actual,
-            "Expected node to be '{}', but got '{}'",
+            "Expected node to be '{:?}', but got '{:?}'",
             expected, actual
         );
     }
