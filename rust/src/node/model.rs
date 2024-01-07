@@ -2,13 +2,13 @@ use serde::{Deserialize, Serialize};
 use serde_json::json;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Name {
+pub struct NodeName {
     pub ar: String,
     pub en: String,
     pub fr: String,
 }
 
-impl std::fmt::Display for Name {
+impl std::fmt::Display for NodeName {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let obj = json!({"ar": self.ar, "en": self.en, "fr": self.fr});
         write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap())
@@ -16,7 +16,7 @@ impl std::fmt::Display for Name {
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
-pub enum Type {
+pub enum NodeType {
     #[serde(rename = "UNIVERSITY")]
     University,
     #[serde(rename = "ACADEMY")]
@@ -35,29 +35,29 @@ pub enum Type {
     Sector,
 }
 
-impl std::fmt::Display for Type {
+impl std::fmt::Display for NodeType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Type::University => write!(f, "UNIVERSITY"),
-            Type::Academy => write!(f, "ACADEMY"),
-            Type::PrivateSchool => write!(f, "PRIVATE_SCHOOL"),
-            Type::Institute => write!(f, "INSTITUTE"),
-            Type::Faculty => write!(f, "FACULTY"),
-            Type::Department => write!(f, "DEPARTMENT"),
-            Type::Specialty => write!(f, "SPECIALTY"),
-            Type::Sector => write!(f, "SECTOR"),
+            NodeType::University => write!(f, "UNIVERSITY"),
+            NodeType::Academy => write!(f, "ACADEMY"),
+            NodeType::PrivateSchool => write!(f, "PRIVATE_SCHOOL"),
+            NodeType::Institute => write!(f, "INSTITUTE"),
+            NodeType::Faculty => write!(f, "FACULTY"),
+            NodeType::Department => write!(f, "DEPARTMENT"),
+            NodeType::Specialty => write!(f, "SPECIALTY"),
+            NodeType::Sector => write!(f, "SECTOR"),
         }
     }
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq, Clone)]
-pub struct Terms {
+pub struct NodeTerms {
     #[serde(rename = "perYear")]
     pub per_year: usize,
     pub slots: Vec<usize>,
 }
 
-impl std::fmt::Display for Terms {
+impl std::fmt::Display for NodeTerms {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let obj = json!({"perYear": self.per_year, "slots": self.slots});
         write!(f, "{}", serde_json::to_string_pretty(&obj).unwrap())
@@ -65,13 +65,13 @@ impl std::fmt::Display for Terms {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Schema {
-    pub name: Name,
-    pub r#type: Type,
-    pub terms: Option<Terms>,
+pub struct Node {
+    pub name: NodeName,
+    pub r#type: NodeType,
+    pub terms: Option<NodeTerms>,
 }
 
-impl std::fmt::Display for Schema {
+impl std::fmt::Display for Node {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         if self.terms.is_some() {
             let obj = json!({
