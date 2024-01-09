@@ -31,7 +31,7 @@ fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
     r#type: {},
 }};
 "#,
-                path.replace("/", "_").to_uppercase(),
+                path.replace('/', "_").to_uppercase(),
                 info.get("name").unwrap().get("en").unwrap(),
                 info.get("name").unwrap().get("ar").unwrap(),
                 info.get("name").unwrap().get("fr").unwrap(),
@@ -77,7 +77,7 @@ fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
             format!(
                 "        \"{}\" => Some(&{}),\n",
                 path,
-                path.replace("/", "_").to_uppercase()
+                path.replace('/', "_").to_uppercase()
             )
         }
         None => String::new(),
