@@ -1,5 +1,5 @@
 #[cfg(feature = "serde_derive")]
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 #[cfg(feature = "const")]
 #[derive(Debug, PartialEq)]
@@ -61,7 +61,7 @@ pub struct NodeTerms {
 
 #[cfg(any(feature = "const", feature = "storage"))]
 #[derive(Debug, PartialEq)]
-#[cfg_attr(feature = "serde_derive", derive(Serialize))]
+#[cfg_attr(feature = "serde_derive", derive(Serialize, Deserialize))]
 pub struct Node {
     #[cfg(feature = "const")]
     #[cfg_attr(feature = "serde_derive", serde(borrow))]

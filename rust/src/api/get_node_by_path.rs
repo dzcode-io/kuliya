@@ -28,7 +28,8 @@ mod test {
         let tests = vec![
             (
                 "umkb",
-                Some(&Node {
+                Some(
+                    #[cfg(feature = "const")]&Node {
                     name: NodeName {
                         #[cfg(feature = "const")]
                         ar: "جامعة محمد خيضر بسكرة",
@@ -44,13 +45,34 @@ mod test {
                         fr: "Université Mohamed Khider Biskra".to_string(),
                     },
                     r#type: NodeType::University,
-                }),
+                },
+                #[cfg(feature = "storage")]
+                Node {
+                    name: NodeName {
+                        #[cfg(feature = "const")]
+                        ar: "جامعة محمد خيضر بسكرة",
+                        #[cfg(feature = "storage")]
+                        ar: "جامعة محمد خيضر بسكرة".to_string(),
+                        #[cfg(feature = "const")]
+                        en: "University of Mohamed Khider Biskra",
+                        #[cfg(feature = "storage")]
+                        en: "University of Mohamed Khider Biskra".to_string(),
+                        #[cfg(feature = "const")]
+                        fr: "Université Mohamed Khider Biskra",
+                        #[cfg(feature = "storage")]
+                        fr: "Université Mohamed Khider Biskra".to_string(),
+                    },
+                    r#type: NodeType::University,
+                }
+                ),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"University\"}",
+                "{\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"UNIVERSITY\"}",
             ),
             (
                 "umkb/fst",
-                Some(&Node {
+                Some(
+                    #[cfg(feature = "const")]
+                    &Node {
                     name: NodeName {
                         #[cfg(feature = "const")]
                         ar: "كلية العلوم والتكنلوجيا",
@@ -66,13 +88,34 @@ mod test {
                         fr: "Faculté des Sciences et de la Technologie".to_string(),
                     },
                     r#type: NodeType::Faculty,
-                }),
+                },
+                #[cfg(feature = "storage")]
+                Node {
+                    name: NodeName {
+                        #[cfg(feature = "const")]
+                        ar: "كلية العلوم والتكنلوجيا",
+                        #[cfg(feature = "storage")]
+                        ar: "كلية العلوم والتكنلوجيا".to_string(),
+                        #[cfg(feature = "const")]
+                        en: "Faculty of Science and Technology",
+                        #[cfg(feature = "storage")]
+                        en: "Faculty of Science and Technology".to_string(),
+                        #[cfg(feature = "const")]
+                        fr: "Faculté des Sciences et de la Technologie",
+                        #[cfg(feature = "storage")]
+                        fr: "Faculté des Sciences et de la Technologie".to_string(),
+                    },
+                    r#type: NodeType::Faculty,
+                }
+                ),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"Faculty\"}",
+                "{\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"FACULTY\"}",
             ),
             (
                 "umkb/fst/dee/sec",
-                Some(&Node {
+                Some(
+                    #[cfg(feature = "const")]
+                    &Node {
                     name: NodeName {
                         #[cfg(feature = "const")]
                         ar: "تخصص التحكم الكهربائي",
@@ -96,9 +139,36 @@ mod test {
                             slots: vec![7, 8, 9, 10],
                         },
                     },
-                }),
+                },
+                #[cfg(feature = "storage")]
+                Node {
+                    name: NodeName {
+                        #[cfg(feature = "const")]
+                        ar: "تخصص التحكم الكهربائي",
+                        #[cfg(feature = "storage")]
+                        ar: "تخصص التحكم الكهربائي".to_string(),
+                        #[cfg(feature = "const")]
+                        en: "Specialy of Electrical Control",
+                        #[cfg(feature = "storage")]
+                        en: "Specialy of Electrical Control".to_string(),
+                        #[cfg(feature = "const")]
+                        fr: "Spécialité de commande électrique",
+                        #[cfg(feature = "storage")]
+                        fr: "Spécialité de commande électrique".to_string(),
+                    },
+                    r#type: NodeType::Specialty {
+                        terms: NodeTerms {
+                            per_year: 2,
+                            #[cfg(feature = "const")]
+                            slots: &[7, 8, 9, 10],
+                            #[cfg(feature = "storage")]
+                            slots: vec![7, 8, 9, 10],
+                        },
+                    },
+                }
+                ),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":{\"Specialty\":{\"terms\":{\"per_year\":2,\"slots\":[7,8,9,10]}}}}",
+                "{\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":\"SPECIALTY\",\"terms\":{\"perYear\":2,\"slots\":[7,8,9,10]}}",
             ),
             (
                 "does/not/exist", None, 
@@ -108,15 +178,26 @@ mod test {
         ];
 
         for tc in tests {
+            let path = tc.0;
+            let expected = tc.1;
             #[cfg(feature = "const")]
             {
-                let actual = get_node_by_path(tc.path).unwrap();
-                assert_node(&tc.expected, &actual);
+                let actual = get_node_by_path(path);
+                assert_eq!(actual, expected);
             }
             #[cfg(feature = "storage")]
             {
-                let actual = get_node_by_path("../_data", tc.path).unwrap();
-                assert_node(&tc.expected, &actual);
+                let actual = get_node_by_path("../_data", path).ok();
+                assert_eq!(actual, expected);
+            }
+            #[cfg(feature = "serde_derive")]
+            {
+                let expected_stringified = tc.2;
+                let actual = get_node_by_path("../_data", path).ok();
+                assert_eq!(
+                    serde_json::to_string(&actual).unwrap(),
+                    expected_stringified
+                );
             }
         }
     }
@@ -133,13 +214,5 @@ mod test {
             let res = get_node_by_path("../_data", "does/not/exist");
             assert!(res.is_err());
         }
-    }
-
-    fn assert_node(expected: &Node, actual: &Node) {
-        assert_eq!(
-            expected, actual,
-            "Expected node to be '{:?}', but got '{:?}'",
-            expected, actual
-        );
     }
 }
