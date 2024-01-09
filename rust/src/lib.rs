@@ -1,4 +1,6 @@
+#[cfg(feature = "const")]
 mod _auto_generated;
+
 mod api;
 mod node;
 
