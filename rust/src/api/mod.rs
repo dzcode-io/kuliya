@@ -1,2 +1,3 @@
 pub mod get_node_by_path;
-mod storage;
+#[cfg(feature = "storage")]
+pub mod storage;

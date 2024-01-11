@@ -1,15 +1,15 @@
-#[cfg(feature = "storage")]
-use crate::Node;
+#![cfg(feature = "storage")]
 
-#[cfg(feature = "storage")]
-pub fn get_node_by_path(data_path: &'static str, path: &str) -> Result<Node, std::io::Error> {
-    let fs_path = format!("{}/{}/info.json", data_path, path);
-    let info = std::fs::read_to_string(fs_path)?;
-    let Ok(node) = serde_json::from_str::<Node>(info.as_str()) else {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::Other,
-            "json was not deserialized",
-        ));
-    };
-    Ok(node)
+use crate::Node;
+use std::path::Path;
+
+pub enum StorageError {
+    Io(std::io::Error),
+    Json(serde_json::Error),
+}
+
+pub fn get_node_by_path(path: impl AsRef<Path>) -> Result<Node, StorageError> {
+    let json_file_path = path.as_ref().join("info.json");
+    let json_file_content = std::fs::read_to_string(json_file_path).map_err(StorageError::Io)?;
+    serde_json::from_str::<Node>(json_file_content.as_str()).map_err(StorageError::Json)
 }

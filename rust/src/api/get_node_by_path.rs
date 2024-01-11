@@ -5,6 +5,8 @@ use crate::_auto_generated;
 
 #[cfg(feature = "storage")]
 use crate::api::storage;
+#[cfg(feature = "storage")]
+use std::path::Path;
 
 #[cfg(feature = "const")]
 pub fn get_node_by_path(path: &str) -> Option<&Node> {
@@ -12,161 +14,95 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
 }
 
 #[cfg(feature = "storage")]
-pub fn get_node_by_path(data_path: &'static str, path: &str) -> Result<Node, std::io::Error> {
-    storage::get_node_by_path(data_path, path)
+pub fn get_node_by_path(path: impl AsRef<Path>) -> Result<Node, storage::StorageError> {
+    storage::get_node_by_path(path)
 }
 
-#[cfg(any(feature = "const", feature = "storage"))]
 #[cfg(test)]
 mod test {
-    use crate::node::model::{Node, NodeName, NodeTerms, NodeType};
-
     use super::get_node_by_path;
+    use crate::node::model::{Node, NodeName, NodeTerms, NodeType};
+    #[cfg(feature = "storage")]
+    use std::path::Path;
 
     #[test]
     fn check_three_schemas_and_non_existent() {
+        let umkb = Node {
+            name: NodeName {
+                #[cfg(feature = "const")]
+                ar: "جامعة محمد خيضر بسكرة",
+                #[cfg(feature = "storage")]
+                ar: "جامعة محمد خيضر بسكرة".to_string(),
+                #[cfg(feature = "const")]
+                en: "University of Mohamed Khider Biskra",
+                #[cfg(feature = "storage")]
+                en: "University of Mohamed Khider Biskra".to_string(),
+                #[cfg(feature = "const")]
+                fr: "Université Mohamed Khider Biskra",
+                #[cfg(feature = "storage")]
+                fr: "Université Mohamed Khider Biskra".to_string(),
+            },
+            r#type: NodeType::University,
+        };
+        let sec = Node {
+            name: NodeName {
+                #[cfg(feature = "const")]
+                ar: "تخصص التحكم الكهربائي",
+                #[cfg(feature = "storage")]
+                ar: "تخصص التحكم الكهربائي".to_string(),
+                #[cfg(feature = "const")]
+                en: "Specialy of Electrical Control",
+                #[cfg(feature = "storage")]
+                en: "Specialy of Electrical Control".to_string(),
+                #[cfg(feature = "const")]
+                fr: "Spécialité de commande électrique",
+                #[cfg(feature = "storage")]
+                fr: "Spécialité de commande électrique".to_string(),
+            },
+            r#type: NodeType::Specialty {
+                terms: NodeTerms {
+                    per_year: 2,
+                    #[cfg(feature = "const")]
+                    slots: &[7, 8, 9, 10],
+                    #[cfg(feature = "storage")]
+                    slots: vec![7, 8, 9, 10],
+                },
+            },
+        };
+        let fst = Node {
+            name: NodeName {
+                #[cfg(feature = "const")]
+                ar: "كلية العلوم والتكنلوجيا",
+                #[cfg(feature = "storage")]
+                ar: "كلية العلوم والتكنلوجيا".to_string(),
+                #[cfg(feature = "const")]
+                en: "Faculty of Science and Technology",
+                #[cfg(feature = "storage")]
+                en: "Faculty of Science and Technology".to_string(),
+                #[cfg(feature = "const")]
+                fr: "Faculté des Sciences et de la Technologie",
+                #[cfg(feature = "storage")]
+                fr: "Faculté des Sciences et de la Technologie".to_string(),
+            },
+            r#type: NodeType::Faculty,
+        };
+
         let tests = vec![
             (
                 "umkb",
-                Some(
-                    #[cfg(feature = "const")]&Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "جامعة محمد خيضر بسكرة",
-                        #[cfg(feature = "storage")]
-                        ar: "جامعة محمد خيضر بسكرة".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "University of Mohamed Khider Biskra",
-                        #[cfg(feature = "storage")]
-                        en: "University of Mohamed Khider Biskra".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Université Mohamed Khider Biskra",
-                        #[cfg(feature = "storage")]
-                        fr: "Université Mohamed Khider Biskra".to_string(),
-                    },
-                    r#type: NodeType::University,
-                },
-                #[cfg(feature = "storage")]
-                Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "جامعة محمد خيضر بسكرة",
-                        #[cfg(feature = "storage")]
-                        ar: "جامعة محمد خيضر بسكرة".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "University of Mohamed Khider Biskra",
-                        #[cfg(feature = "storage")]
-                        en: "University of Mohamed Khider Biskra".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Université Mohamed Khider Biskra",
-                        #[cfg(feature = "storage")]
-                        fr: "Université Mohamed Khider Biskra".to_string(),
-                    },
-                    r#type: NodeType::University,
-                }
-                ),
+                Some(&umkb),
                 #[cfg(feature = "serde_derive")]
                 "{\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"UNIVERSITY\"}",
             ),
             (
                 "umkb/fst",
-                Some(
-                    #[cfg(feature = "const")]
-                    &Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "كلية العلوم والتكنلوجيا",
-                        #[cfg(feature = "storage")]
-                        ar: "كلية العلوم والتكنلوجيا".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "Faculty of Science and Technology",
-                        #[cfg(feature = "storage")]
-                        en: "Faculty of Science and Technology".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Faculté des Sciences et de la Technologie",
-                        #[cfg(feature = "storage")]
-                        fr: "Faculté des Sciences et de la Technologie".to_string(),
-                    },
-                    r#type: NodeType::Faculty,
-                },
-                #[cfg(feature = "storage")]
-                Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "كلية العلوم والتكنلوجيا",
-                        #[cfg(feature = "storage")]
-                        ar: "كلية العلوم والتكنلوجيا".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "Faculty of Science and Technology",
-                        #[cfg(feature = "storage")]
-                        en: "Faculty of Science and Technology".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Faculté des Sciences et de la Technologie",
-                        #[cfg(feature = "storage")]
-                        fr: "Faculté des Sciences et de la Technologie".to_string(),
-                    },
-                    r#type: NodeType::Faculty,
-                }
-                ),
+                Some(&fst),
                 #[cfg(feature = "serde_derive")]
                 "{\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"FACULTY\"}",
             ),
             (
                 "umkb/fst/dee/sec",
-                Some(
-                    #[cfg(feature = "const")]
-                    &Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "تخصص التحكم الكهربائي",
-                        #[cfg(feature = "storage")]
-                        ar: "تخصص التحكم الكهربائي".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "Specialy of Electrical Control",
-                        #[cfg(feature = "storage")]
-                        en: "Specialy of Electrical Control".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Spécialité de commande électrique",
-                        #[cfg(feature = "storage")]
-                        fr: "Spécialité de commande électrique".to_string(),
-                    },
-                    r#type: NodeType::Specialty {
-                        terms: NodeTerms {
-                            per_year: 2,
-                            #[cfg(feature = "const")]
-                            slots: &[7, 8, 9, 10],
-                            #[cfg(feature = "storage")]
-                            slots: vec![7, 8, 9, 10],
-                        },
-                    },
-                },
-                #[cfg(feature = "storage")]
-                Node {
-                    name: NodeName {
-                        #[cfg(feature = "const")]
-                        ar: "تخصص التحكم الكهربائي",
-                        #[cfg(feature = "storage")]
-                        ar: "تخصص التحكم الكهربائي".to_string(),
-                        #[cfg(feature = "const")]
-                        en: "Specialy of Electrical Control",
-                        #[cfg(feature = "storage")]
-                        en: "Specialy of Electrical Control".to_string(),
-                        #[cfg(feature = "const")]
-                        fr: "Spécialité de commande électrique",
-                        #[cfg(feature = "storage")]
-                        fr: "Spécialité de commande électrique".to_string(),
-                    },
-                    r#type: NodeType::Specialty {
-                        terms: NodeTerms {
-                            per_year: 2,
-                            #[cfg(feature = "const")]
-                            slots: &[7, 8, 9, 10],
-                            #[cfg(feature = "storage")]
-                            slots: vec![7, 8, 9, 10],
-                        },
-                    },
-                }
-                ),
+                Some(&sec),
                 #[cfg(feature = "serde_derive")]
                 "{\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":\"SPECIALTY\",\"terms\":{\"perYear\":2,\"slots\":[7,8,9,10]}}",
             ),
@@ -177,42 +113,25 @@ mod test {
             ),
         ];
 
-        for tc in tests {
-            let path = tc.0;
-            let expected = tc.1;
+        for test_case in tests {
+            let path = test_case.0;
+            let expected = test_case.1;
             #[cfg(feature = "const")]
-            {
-                let actual = get_node_by_path(path);
-                assert_eq!(actual, expected);
-            }
+            let actual = get_node_by_path(path);
             #[cfg(feature = "storage")]
-            {
-                let actual = get_node_by_path("../_data", path).ok();
-                assert_eq!(actual, expected);
-            }
+            let actual = get_node_by_path(Path::new("../_data").join(path)).ok();
+            #[cfg(feature = "storage")]
+            let actual: Option<&Node> = actual.as_ref();
+
+            assert_eq!(actual, expected);
             #[cfg(feature = "serde_derive")]
             {
-                let expected_stringified = tc.2;
-                let actual = get_node_by_path("../_data", path).ok();
+                let expected_stringified = test_case.2;
                 assert_eq!(
                     serde_json::to_string(&actual).unwrap(),
                     expected_stringified
                 );
             }
-        }
-    }
-
-    #[test]
-    fn should_get_none_when_path_does_not_exist() {
-        #[cfg(feature = "const")]
-        {
-            let res = get_node_by_path("does/not/exist");
-            assert!(res.is_none());
-        }
-        #[cfg(feature = "storage")]
-        {
-            let res = get_node_by_path("../_data", "does/not/exist");
-            assert!(res.is_err());
         }
     }
 }
