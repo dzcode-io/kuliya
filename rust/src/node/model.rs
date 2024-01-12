@@ -13,7 +13,7 @@ pub struct NodeName {
 }
 
 #[derive(Debug, PartialEq)]
-#[cfg_attr(feature = "storage", derive(Serialize))]
+#[cfg_attr(feature = "serde_derive", derive(Serialize))]
 #[cfg_attr(feature = "storage", derive(Deserialize))]
 #[cfg(feature = "storage")]
 pub struct NodeName {
