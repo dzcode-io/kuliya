@@ -29,3 +29,7 @@ python:
 rust:
   - changed-files:
       - any-glob-to-any-file: "rust/**"
+
+c:
+  - changed-files:
+     - any-glob-to-any-file: "c/**"
