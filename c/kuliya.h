@@ -1,7 +1,7 @@
 #ifndef KULIYA_H
 #define KULIYA_H
 
-#include "jsmn.h"
+#include "./helpers/jsmn.h"
 
 #define KULIYA_API extern
 
