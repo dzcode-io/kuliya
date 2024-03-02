@@ -1,6 +1,8 @@
 #ifndef KULIYA_H
 #define KULIYA_H
 
+#include "jsmn.h"
+
 #define KULIYA_API extern
 
 #ifdef __cplusplus
@@ -10,10 +12,11 @@ extern "C"
 
     KULIYA_API int get_node_by_path(const char *path)
     {
+        return 0;
     }
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif
+#endif /* KULIYA_H */
