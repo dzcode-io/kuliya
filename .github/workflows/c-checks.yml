@@ -1,0 +1,15 @@
+name: "C Checks"
+
+on:
+  pull_request:
+    paths:
+     - ".github/workflows/c-checks.yml"
+     - "c/**"
+
+jobs:
+  build_and_test:
+    name: kuliya - latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cd c && make
