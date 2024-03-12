@@ -2,12 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <dirent.h>
+#include <sys/types.h>
 
 #include "helpers/jsmn.h"
 
 #define TOK_SIZE 128
+#define PATH_MAX 128
 #define STR_EQ(str1, str2) strcmp(str1, str2) == 0
 #define STR_IN(big_str, small_str) strstr(big_str, small_str) != NULL
+#define FILE_EXISTS(file_path) access(file_path, F_OK) == 0
 
 typedef struct
 {
@@ -28,6 +34,8 @@ typedef struct
     char *type;
     kuliya_terms *terms;
 } schema;
+
+void parse_info_json(const char *json_path);
 
 void remove_chars(char *str, int c, ...)
 {
@@ -50,6 +58,47 @@ void remove_chars(char *str, int c, ...)
     }
 
     va_end(args);
+}
+
+void walk_dirs(const char *path)
+{
+    struct dirent *dent;
+    DIR *srcdir = opendir(path);
+
+    if (srcdir == NULL)
+    {
+        perror("opendir");
+        exit(EXIT_FAILURE);
+    }
+
+    while ((dent = readdir(srcdir)) != NULL)
+    {
+        struct stat st;
+
+        if (STR_EQ(dent->d_name, ".") || STR_EQ(dent->d_name, ".."))
+            continue;
+
+        if (fstatat(dirfd(srcdir), dent->d_name, &st, 0) < 0)
+        {
+            perror(dent->d_name);
+            continue;
+        }
+
+        if (S_ISDIR(st.st_mode))
+        {
+            char tmp_path[PATH_MAX];
+            strcpy(tmp_path, path);
+            strcat(tmp_path, dent->d_name);
+            strcat(tmp_path, "/");
+            char info_path[PATH_MAX];
+            strcpy(info_path, tmp_path);
+            strcat(info_path, "info.json");
+            if (FILE_EXISTS(info_path))
+                parse_info_json(info_path);
+            walk_dirs(tmp_path);
+        }
+    }
+    closedir(srcdir);
 }
 
 void free_schema(schema *schema)
@@ -87,10 +136,10 @@ void print_schema(const schema *schema, const size_t slots_length)
     printf("------------------------------------\n");
 }
 
-int main(void)
+void parse_info_json(const char *json_path)
 {
     // Open file in read mode
-    FILE *file = fopen("../_data/umkb/fst/dee/sec/info.json", "r");
+    FILE *file = fopen(json_path, "r");
     if (file != NULL)
     {
         // Read file content into a dynamically allocated buffer
@@ -127,11 +176,10 @@ int main(void)
         jsmn_init(&p);
         int number_of_tokens = jsmn_parse(&p, buf, strlen(buf), tokens, TOK_SIZE);
 
-        jsmntok_t *token;
-        schema *schema;
-        schema = calloc(1, sizeof(schema));
-        schema->name = calloc(1, sizeof(kuliya_name));
-        schema->terms = calloc(1, sizeof(kuliya_terms));
+        jsmntok_t *token = calloc(1, sizeof(jsmntok_t));
+        schema *s = calloc(1, sizeof(schema));
+        s->name = calloc(1, sizeof(kuliya_name));
+        s->terms = NULL;
         size_t s_idx = 0;
         for (size_t i = 0; i < number_of_tokens; ++i)
         {
@@ -147,8 +195,8 @@ int main(void)
                 char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
-                schema->name->ar = calloc(1, length + 1);
-                memcpy(schema->name->ar, data, length + 1);
+                s->name->ar = calloc(1, length + 1);
+                memcpy(s->name->ar, data, length + 1);
             }
             if (STR_EQ("en", data))
             {
@@ -157,8 +205,8 @@ int main(void)
                 char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
-                schema->name->en = calloc(1, length + 1);
-                memcpy(schema->name->en, data, length + 1);
+                s->name->en = calloc(1, length + 1);
+                memcpy(s->name->en, data, length + 1);
             }
             if (STR_EQ("fr", data))
             {
@@ -167,8 +215,8 @@ int main(void)
                 char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
-                schema->name->fr = calloc(1, length + 1);
-                memcpy(schema->name->fr, data, length + 1);
+                s->name->fr = calloc(1, length + 1);
+                memcpy(s->name->fr, data, length + 1);
             }
             if (STR_EQ("type", data))
             {
@@ -177,8 +225,12 @@ int main(void)
                 char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
-                schema->type = calloc(1, length + 1);
-                memcpy(schema->type, data, length + 1);
+                s->type = calloc(1, length + 1);
+                memcpy(s->type, data, length + 1);
+            }
+            if (STR_EQ("terms", data))
+            {
+                s->terms = calloc(1, sizeof(kuliya_terms));
             }
             if (STR_EQ("perYear", data))
             {
@@ -187,7 +239,7 @@ int main(void)
                 char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
-                schema->terms->per_year = atoi(data);
+                s->terms->per_year = atoi(data);
             }
             if (STR_EQ("slots", data))
             {
@@ -205,12 +257,12 @@ int main(void)
                     tmp_slots[s_idx++] = val;
                     ptr = strtok(NULL, ",");
                 }
-                schema->terms->slots = calloc(1, s_idx * sizeof(*schema->terms->slots));
-                memcpy(schema->terms->slots, tmp_slots, s_idx * sizeof(int));
+                s->terms->slots = calloc(1, s_idx * sizeof(*s->terms->slots));
+                memcpy(s->terms->slots, tmp_slots, s_idx * sizeof(int));
             }
         }
-        print_schema(schema, s_idx);
-        free_schema(schema);
+        print_schema(s, s_idx);
+        free_schema(s);
     }
     else
     {
@@ -219,5 +271,9 @@ int main(void)
     }
 
     fclose(file);
-    exit(EXIT_SUCCESS);
+}
+
+int main(void)
+{
+    walk_dirs("../_data/");
 }
