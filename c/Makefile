@@ -5,7 +5,7 @@ test:
 	./test/$@
 
 build:
-	gcc build.c -g -o $@
+	gcc build.c $(INCLUDES) -g -o $@
 	./$@
 
 clean:
