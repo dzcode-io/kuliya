@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <dirent.h>
 #include <sys/types.h>
 
 #include "helpers/jsmn.h"
+#include "helpers/string.h"
 
 #define TOK_SIZE 128
 #define PATH_MAX 128
-#define STR_EQ(str1, str2) (strcmp(str1, str2) == 0)
-#define STR_IN(big_str, small_str) (strstr(big_str, small_str) != NULL)
 #define FILE_EXISTS(file_path) (access(file_path, F_OK) == 0)
 #define DATA_FILE "data.h"
 #define TEMP_FILE "temp.h"
@@ -40,40 +38,6 @@ typedef struct
 } kuliya_schema;
 
 void parse_info_json(const char *);
-
-void remove_chars(char *str, int c, ...)
-{
-    va_list args;
-    va_start(args, c);
-
-    while (42) // The answer for everything
-    {
-        char char_to_remove = va_arg(args, int);
-        if (char_to_remove == '\0')
-            break;
-
-        size_t j = 0;
-        for (size_t i = 0; str[i] != '\0'; ++i)
-        {
-            if (str[i] != char_to_remove)
-                str[j++] = str[i];
-        }
-        str[j] = '\0';
-    }
-
-    va_end(args);
-}
-
-char *replace_char(char *str, char find, char replace)
-{
-    char *current_pos = strchr(str, find);
-    while (current_pos)
-    {
-        *current_pos = replace;
-        current_pos = strchr(current_pos, find);
-    }
-    return str;
-}
 
 void walk_dirs(const char *path)
 {
