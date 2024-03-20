@@ -17,6 +17,9 @@
 
 static size_t max_slots_length = 0;
 
+/**
+ * Kuliya name.
+ */
 typedef struct
 {
     char *ar;
@@ -24,12 +27,18 @@ typedef struct
     char *fr;
 } kuliya_name;
 
+/**
+ * Kuliya terms.
+ */
 typedef struct
 {
     int per_year;
     int *slots;
 } kuliya_terms;
 
+/**
+ * Kuliya schema
+ */
 typedef struct
 {
     kuliya_name *name;
@@ -39,6 +48,11 @@ typedef struct
 
 void parse_info_json(const char *);
 
+/**
+ * Walk `_data/` sub-directories to parse the located `info.json` file.
+ * @param path Path of the `info.json` file.
+ * @returns This function do not return anything.
+ */
 void walk_dirs(const char *path)
 {
     struct dirent *dent;
@@ -80,6 +94,11 @@ void walk_dirs(const char *path)
     closedir(srcdir);
 }
 
+/**
+ * Free current schema object from memory.
+ * @param schema Kuliya schema object.
+ * @returns This function do not return anything.
+ */
 void free_schema(kuliya_schema *schema)
 {
     free(schema->name->ar);
@@ -95,6 +114,10 @@ void free_schema(kuliya_schema *schema)
     free(schema);
 }
 
+/**
+ * Add struct definitions at the begining of `data.h` file.
+ * @returns This function do not return anything.
+ */
 void prepend_to_data_file()
 {
     if (!FILE_EXISTS(TEMP_FILE))
@@ -132,6 +155,13 @@ void prepend_to_data_file()
     fclose(data_file);
 }
 
+/**
+ * Save Kuliya struct into `data.h` file.
+ * @param schema Kuliya schema object.
+ * @param slots_length Length of slots if the current schema has terms.
+ * @param json_path Path of the `info.json` file.
+ * @returns This function do not return anything.
+ */
 void save_to_file(const kuliya_schema *schema, const size_t slots_length, const char *json_path)
 {
     FILE *data_file = fopen(TEMP_FILE, "a");
@@ -160,6 +190,11 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
     fclose(data_file);
 }
 
+/**
+ * Parse the info JSON file located at a given path.
+ * @param json_path Path of the `info.json` file.
+ * @returns This function do not return anything.
+ */
 void parse_info_json(const char *json_path)
 {
     // Open file in read mode
