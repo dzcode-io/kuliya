@@ -8,10 +8,10 @@
 
 #include "helpers/jsmn.h"
 #include "helpers/string.h"
+#include "helpers/file.h"
 
 #define TOK_SIZE 128
 #define PATH_MAX 128
-#define FILE_EXISTS(file_path) (access(file_path, F_OK) == 0)
 #define DATA_FILE "data.h"
 #define TEMP_FILE "temp.h"
 
