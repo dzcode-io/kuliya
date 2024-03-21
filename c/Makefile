@@ -4,7 +4,12 @@ test:
 	gcc test/test.c $(INCLUDES) -g -o test/$@
 	./test/$@
 
+build:
+	gcc build.c $(INCLUDES) -g -o $@
+	./$@
+
 clean:
 	rm -f ./test/test
+	rm -f ./build
 
-.PHONY: test clean
+.PHONY: test build clean
