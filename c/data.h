@@ -228,7 +228,7 @@ kuliya_schema ua2aks_falaol_dart = {.name = {.ar = "قسم الفنون ", .en =
 kuliya_schema ua2aks_falaol_dtrl = {.name = {.ar = "قسم اللغة التركية والروسية ", .en = "Department of Turkish and Russian Languages", .fr = "Département de langues Turque et Russe"}, .type = "DEPARTMENT"};
 kuliya_schema ua2aks_falaol_dala = {.name = {.ar = "قسم اللغة العربية وآدابها ", .en = "Department of Arabic Language and Arts", .fr = "Département de Langue et Lettres arabes et Langues Orientales"}, .type = "DEPARTMENT"};
 
-kuliya_schema* get_node_by_path(const char* path) {
+kuliya_schema* __get_node_by_path(const char* path) {
 	if (STR_EQ("umbm", path))
 		return &umbm;
 

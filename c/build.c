@@ -164,7 +164,7 @@ void append_to_data_file()
     if (data_file == NULL)
         exit(EXIT_FAILURE);
 
-    fprintf(data_file, "\nkuliya_schema* get_node_by_path(const char* path) {");
+    fprintf(data_file, "\nkuliya_schema* __get_node_by_path(const char* path) {");
     fprintf(data_file, "%s\n", clauses);
     fprintf(data_file, "\treturn NULL;\n");
     fprintf(data_file, "}\n");
