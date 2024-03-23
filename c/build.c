@@ -167,7 +167,7 @@ void append_to_data_file()
     if (data_file == NULL)
         exit(EXIT_FAILURE);
 
-    fprintf(data_file, "\nkuliya_schema* __get_node_by_path(const char* path) {");
+    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char* path) {");
     fprintf(data_file, "%s\n", clauses);
     fprintf(data_file, "\treturn NULL;\n");
     fprintf(data_file, "}\n");
@@ -192,7 +192,7 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
     path_value[strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
-    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s ",
+    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s",
             path_value,
             schema->name->ar,
             schema->name->en,
