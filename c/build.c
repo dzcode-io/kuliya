@@ -134,9 +134,12 @@ void prepend_to_data_file()
 
     fprintf(data_file, "// This is an auto generated file, do not edit it!\n");
     fprintf(data_file, "#ifndef DATA_H\n#define DATA_H\n");
+    fprintf(data_file, "\n#include <string.h>\n");
+    fprintf(data_file, "\n#define STR_EQ(str1, str2) (strcmp(str1, str2) == 0)\n");
+    fprintf(data_file, "\ntypedef enum\n{\n\tUNIVERSITY,\n\tACADEMY,\n\tPRIVATE_SCHOOL,\n\tINSTITUTE,\n\tFACULTY,\n\tDEPARTMENT,\n\tSPECIALTY,\n\tSECTOR\n} node_type;\n");
     fprintf(data_file, "\ntypedef struct\n{\n\tconst char *ar;\n\tconst char *en;\n\tconst char *fr;\n} kuliya_name;\n");
     fprintf(data_file, "\ntypedef struct\n{\n\tint per_year;\n\tconst int slots[%zu];\n} kuliya_terms;\n", max_slots_length);
-    fprintf(data_file, "\ntypedef struct\n{\n\tkuliya_name name;\n\tconst char *type;\n\tkuliya_terms terms;\n} kuliya_schema;\n\n");
+    fprintf(data_file, "\ntypedef struct\n{\n\tkuliya_name name;\n\tnode_type type;\n\tkuliya_terms terms;\n} kuliya_schema;\n\n");
 
     char *line = NULL;
     size_t len = 0;
@@ -189,7 +192,7 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
     path_value[strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
-    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = \"%s\"",
+    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s ",
             path_value,
             schema->name->ar,
             schema->name->en,
