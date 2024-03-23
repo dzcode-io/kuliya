@@ -228,4 +228,623 @@ kuliya_schema ua2aks_falaol_dart = {.name = {.ar = "قسم الفنون ", .en =
 kuliya_schema ua2aks_falaol_dtrl = {.name = {.ar = "قسم اللغة التركية والروسية ", .en = "Department of Turkish and Russian Languages", .fr = "Département de langues Turque et Russe"}, .type = "DEPARTMENT"};
 kuliya_schema ua2aks_falaol_dala = {.name = {.ar = "قسم اللغة العربية وآدابها ", .en = "Department of Arabic Language and Arts", .fr = "Département de Langue et Lettres arabes et Langues Orientales"}, .type = "DEPARTMENT"};
 
+kuliya_schema* get_node_by_path(const char* path) {
+	if (STR_EQ("umbm", path))
+		return &umbm;
+
+	if (STR_EQ("umbm/fll", path))
+		return &umbm_fll;
+
+	if (STR_EQ("umbm/fll/dfll", path))
+		return &umbm_fll_dfll;
+
+	if (STR_EQ("umbm/fll/dall", path))
+		return &umbm_fll_dall;
+
+	if (STR_EQ("umbm/fll/dell", path))
+		return &umbm_fll_dell;
+
+	if (STR_EQ("umbm/fdsp", path))
+		return &umbm_fdsp;
+
+	if (STR_EQ("umbm/fdsp/ddroit", path))
+		return &umbm_fdsp_ddroit;
+
+	if (STR_EQ("umbm/fdsp/dsp", path))
+		return &umbm_fdsp_dsp;
+
+	if (STR_EQ("umbm/ftech", path))
+		return &umbm_ftech;
+
+	if (STR_EQ("umbm/ftech/dhydr", path))
+		return &umbm_ftech_dhydr;
+
+	if (STR_EQ("umbm/ftech/dce", path))
+		return &umbm_ftech_dce;
+
+	if (STR_EQ("umbm/ftech/dme", path))
+		return &umbm_ftech_dme;
+
+	if (STR_EQ("umbm/ftech/dee", path))
+		return &umbm_ftech_dee;
+
+	if (STR_EQ("umbm/ftech/delec", path))
+		return &umbm_ftech_delec;
+
+	if (STR_EQ("umbm/iutm", path))
+		return &umbm_iutm;
+
+	if (STR_EQ("umbm/iutm/dcm", path))
+		return &umbm_iutm_dcm;
+
+	if (STR_EQ("umbm/iutm/due", path))
+		return &umbm_iutm_due;
+
+	if (STR_EQ("umbm/iutm/dcg", path))
+		return &umbm_iutm_dcg;
+
+	if (STR_EQ("umbm/fsegc", path))
+		return &umbm_fsegc;
+
+	if (STR_EQ("umbm/fsegc/dsfc", path))
+		return &umbm_fsegc_dsfc;
+
+	if (STR_EQ("umbm/fsegc/dsg", path))
+		return &umbm_fsegc_dsg;
+
+	if (STR_EQ("umbm/fsegc/dse", path))
+		return &umbm_fsegc_dse;
+
+	if (STR_EQ("umbm/fsegc/dsc", path))
+		return &umbm_fsegc_dsc;
+
+	if (STR_EQ("umbm/fmi", path))
+		return &umbm_fmi;
+
+	if (STR_EQ("umbm/fmi/dcs", path))
+		return &umbm_fmi_dcs;
+
+	if (STR_EQ("umbm/fmi/dmath", path))
+		return &umbm_fmi_dmath;
+
+	if (STR_EQ("umbm/fshs", path))
+		return &umbm_fshs;
+
+	if (STR_EQ("umbm/fshs/dhist", path))
+		return &umbm_fshs_dhist;
+
+	if (STR_EQ("umbm/fshs/dphilo", path))
+		return &umbm_fshs_dphilo;
+
+	if (STR_EQ("umbm/fshs/dsci", path))
+		return &umbm_fshs_dsci;
+
+	if (STR_EQ("umbm/fshs/dsi", path))
+		return &umbm_fshs_dsi;
+
+	if (STR_EQ("umbm/fshs/dsocio", path))
+		return &umbm_fshs_dsocio;
+
+	if (STR_EQ("umbm/fsci", path))
+		return &umbm_fsci;
+
+	if (STR_EQ("umbm/fsci/dchi", path))
+		return &umbm_fsci_dchi;
+
+	if (STR_EQ("umbm/fsci/dsa", path))
+		return &umbm_fsci_dsa;
+
+	if (STR_EQ("umbm/fsci/dbcmb", path))
+		return &umbm_fsci_dbcmb;
+
+	if (STR_EQ("umbm/fsci/dphy", path))
+		return &umbm_fsci_dphy;
+
+	if (STR_EQ("umbm/fsci/dsnv", path))
+		return &umbm_fsci_dsnv;
+
+	if (STR_EQ("umbm/istaps", path))
+		return &umbm_istaps;
+
+	if (STR_EQ("umbm/istaps/dags", path))
+		return &umbm_istaps_dags;
+
+	if (STR_EQ("umbm/istaps/dcbf", path))
+		return &umbm_istaps_dcbf;
+
+	if (STR_EQ("umbm/istaps/dapsa", path))
+		return &umbm_istaps_dapsa;
+
+	if (STR_EQ("umbm/istaps/dfc", path))
+		return &umbm_istaps_dfc;
+
+	if (STR_EQ("umbm/istaps/dep", path))
+		return &umbm_istaps_dep;
+
+	if (STR_EQ("umbm/istaps/dmcs", path))
+		return &umbm_istaps_dmcs;
+
+	if (STR_EQ("umkb", path))
+		return &umkb;
+
+	if (STR_EQ("umkb/fll", path))
+		return &umkb_fll;
+
+	if (STR_EQ("umkb/fdsp", path))
+		return &umkb_fdsp;
+
+	if (STR_EQ("umkb/fsecsg", path))
+		return &umkb_fsecsg;
+
+	if (STR_EQ("umkb/fshs", path))
+		return &umkb_fshs;
+
+	if (STR_EQ("umkb/fsesnv", path))
+		return &umkb_fsesnv;
+
+	if (STR_EQ("umkb/fst", path))
+		return &umkb_fst;
+
+	if (STR_EQ("umkb/fst/dee", path))
+		return &umkb_fst_dee;
+
+	if (STR_EQ("umkb/fst/dee/sec", path))
+		return &umkb_fst_dee_sec;
+
+	if (STR_EQ("umkb/istaps", path))
+		return &umkb_istaps;
+
+	if (STR_EQ("usto", path))
+		return &usto;
+
+	if (STR_EQ("usto/ieps", path))
+		return &usto_ieps;
+
+	if (STR_EQ("usto/fch", path))
+		return &usto_fch;
+
+	if (STR_EQ("usto/fch/dgc", path))
+		return &usto_fch_dgc;
+
+	if (STR_EQ("usto/fch/dchm", path))
+		return &usto_fch_dchm;
+
+	if (STR_EQ("usto/fch/dchp", path))
+		return &usto_fch_dchp;
+
+	if (STR_EQ("usto/ista", path))
+		return &usto_ista;
+
+	if (STR_EQ("usto/fmi", path))
+		return &usto_fmi;
+
+	if (STR_EQ("usto/fmi/dinf", path))
+		return &usto_fmi_dinf;
+
+	if (STR_EQ("usto/fmi/dma", path))
+		return &usto_fmi_dma;
+
+	if (STR_EQ("usto/fsnv", path))
+		return &usto_fsnv;
+
+	if (STR_EQ("usto/fsnv/dbio", path))
+		return &usto_fsnv_dbio;
+
+	if (STR_EQ("usto/fsnv/dve", path))
+		return &usto_fsnv_dve;
+
+	if (STR_EQ("usto/fsnv/dgma", path))
+		return &usto_fsnv_dgma;
+
+	if (STR_EQ("usto/fag", path))
+		return &usto_fag;
+
+	if (STR_EQ("usto/fag/da", path))
+		return &usto_fag_da;
+
+	if (STR_EQ("usto/fag/dge", path))
+		return &usto_fag_dge;
+
+	if (STR_EQ("usto/fag/dgc", path))
+		return &usto_fag_dgc;
+
+	if (STR_EQ("usto/fge", path))
+		return &usto_fge;
+
+	if (STR_EQ("usto/fge/dau", path))
+		return &usto_fge_dau;
+
+	if (STR_EQ("usto/fge/del", path))
+		return &usto_fge_del;
+
+	if (STR_EQ("usto/fge/delt", path))
+		return &usto_fge_delt;
+
+	if (STR_EQ("usto/fgm", path))
+		return &usto_fgm;
+
+	if (STR_EQ("usto/fgm/dgme", path))
+		return &usto_fgm_dgme;
+
+	if (STR_EQ("usto/fgm/dmm", path))
+		return &usto_fgm_dmm;
+
+	if (STR_EQ("usto/fgm/dgma", path))
+		return &usto_fgm_dgma;
+
+	if (STR_EQ("usto/fph", path))
+		return &usto_fph;
+
+	if (STR_EQ("usto/fph/dgp", path))
+		return &usto_fph_dgp;
+
+	if (STR_EQ("usto/fph/dtm", path))
+		return &usto_fph_dtm;
+
+	if (STR_EQ("usto/fph/dpe", path))
+		return &usto_fph_dpe;
+
+	if (STR_EQ("ummto", path))
+		return &ummto;
+
+	if (STR_EQ("ummto/fmed", path))
+		return &ummto_fmed;
+
+	if (STR_EQ("ummto/fdsp", path))
+		return &ummto_fdsp;
+
+	if (STR_EQ("ummto/fsecsg", path))
+		return &ummto_fsecsg;
+
+	if (STR_EQ("ummto/fsbsa", path))
+		return &ummto_fsbsa;
+
+	if (STR_EQ("ummto/fshs", path))
+		return &ummto_fshs;
+
+	if (STR_EQ("ummto/dsat", path))
+		return &ummto_dsat;
+
+	if (STR_EQ("ummto/fgei", path))
+		return &ummto_fgei;
+
+	if (STR_EQ("ummto/dmi", path))
+		return &ummto_dmi;
+
+	if (STR_EQ("ummto/fgc", path))
+		return &ummto_fgc;
+
+	if (STR_EQ("usthb", path))
+		return &usthb;
+
+	if (STR_EQ("usthb/fgmgp", path))
+		return &usthb_fgmgp;
+
+	if (STR_EQ("usthb/fgmgp/dcmp", path))
+		return &usthb_fgmgp_dcmp;
+
+	if (STR_EQ("usthb/fgmgp/dgcc", path))
+		return &usthb_fgmgp_dgcc;
+
+	if (STR_EQ("usthb/fgmgp/dte", path))
+		return &usthb_fgmgp_dte;
+
+	if (STR_EQ("usthb/fgmgp/dgegp", path))
+		return &usthb_fgmgp_dgegp;
+
+	if (STR_EQ("usthb/fgmgp/dsm", path))
+		return &usthb_fgmgp_dsm;
+
+	if (STR_EQ("usthb/fsb", path))
+		return &usthb_fsb;
+
+	if (STR_EQ("usthb/fsb/dee", path))
+		return &usthb_fsb_dee;
+
+	if (STR_EQ("usthb/fsb/dbcm", path))
+		return &usthb_fsb_dbcm;
+
+	if (STR_EQ("usthb/fsb/dbpo", path))
+		return &usthb_fsb_dbpo;
+
+	if (STR_EQ("usthb/fchimie", path))
+		return &usthb_fchimie;
+
+	if (STR_EQ("usthb/fchimie/dcpmi", path))
+		return &usthb_fchimie_dcpmi;
+
+	if (STR_EQ("usthb/fchimie/dcm", path))
+		return &usthb_fchimie_dcm;
+
+	if (STR_EQ("usthb/fchimie/dcpt", path))
+		return &usthb_fchimie_dcpt;
+
+	if (STR_EQ("usthb/fchimie/dcoa", path))
+		return &usthb_fchimie_dcoa;
+
+	if (STR_EQ("usthb/fphy", path))
+		return &usthb_fphy;
+
+	if (STR_EQ("usthb/fphy/demf", path))
+		return &usthb_fphy_demf;
+
+	if (STR_EQ("usthb/fphy/dmc", path))
+		return &usthb_fphy_dmc;
+
+	if (STR_EQ("usthb/fphy/dpr", path))
+		return &usthb_fphy_dpr;
+
+	if (STR_EQ("usthb/fphy/dpt", path))
+		return &usthb_fphy_dpt;
+
+	if (STR_EQ("usthb/fstgat", path))
+		return &usthb_fstgat;
+
+	if (STR_EQ("usthb/fstgat/dgat", path))
+		return &usthb_fstgat_dgat;
+
+	if (STR_EQ("usthb/fstgat/dg", path))
+		return &usthb_fstgat_dg;
+
+	if (STR_EQ("usthb/fstgat/dgp", path))
+		return &usthb_fstgat_dgp;
+
+	if (STR_EQ("usthb/fei", path))
+		return &usthb_fei;
+
+	if (STR_EQ("usthb/fei/auto", path))
+		return &usthb_fei_auto;
+
+	if (STR_EQ("usthb/fei/info", path))
+		return &usthb_fei_info;
+
+	if (STR_EQ("usthb/fei/telecom", path))
+		return &usthb_fei_telecom;
+
+	if (STR_EQ("usthb/fei/elt", path))
+		return &usthb_fei_elt;
+
+	if (STR_EQ("usthb/fmath", path))
+		return &usthb_fmath;
+
+	if (STR_EQ("usthb/fmath/da", path))
+		return &usthb_fmath_da;
+
+	if (STR_EQ("usthb/fmath/dps", path))
+		return &usthb_fmath_dps;
+
+	if (STR_EQ("usthb/fmath/dro", path))
+		return &usthb_fmath_dro;
+
+	if (STR_EQ("usthb/fmath/datn", path))
+		return &usthb_fmath_datn;
+
+	if (STR_EQ("usthb/fgc", path))
+		return &usthb_fgc;
+
+	if (STR_EQ("usthb/fgc/dgh", path))
+		return &usthb_fgc_dgh;
+
+	if (STR_EQ("usthb/fgc/dsm", path))
+		return &usthb_fgc_dsm;
+
+	if (STR_EQ("ubma/facdr", path))
+		return &ubma_facdr;
+
+	if (STR_EQ("ubma/facdr/pld", path))
+		return &ubma_facdr_pld;
+
+	if (STR_EQ("ubma/facdr/psd", path))
+		return &ubma_facdr_psd;
+
+	if (STR_EQ("ubma/facsc", path))
+		return &ubma_facsc;
+
+	if (STR_EQ("ubma/facsc/pd", path))
+		return &ubma_facsc_pd;
+
+	if (STR_EQ("ubma/facsc/ssd", path))
+		return &ubma_facsc_ssd;
+
+	if (STR_EQ("ubma/facsc/nlsd", path))
+		return &ubma_facsc_nlsd;
+
+	if (STR_EQ("ubma/facsc/bd", path))
+		return &ubma_facsc_bd;
+
+	if (STR_EQ("ubma/facsc/mcd", path))
+		return &ubma_facsc_mcd;
+
+	if (STR_EQ("ubma/facsc/md", path))
+		return &ubma_facsc_md;
+
+	if (STR_EQ("ubma/facsc/msd", path))
+		return &ubma_facsc_msd;
+
+	if (STR_EQ("ubma/facsc/cd", path))
+		return &ubma_facsc_cd;
+
+	if (STR_EQ("ubma/facscm", path))
+		return &ubma_facscm;
+
+	if (STR_EQ("ubma/facscm/pd", path))
+		return &ubma_facscm_pd;
+
+	if (STR_EQ("ubma/facscm/ddm", path))
+		return &ubma_facscm_ddm;
+
+	if (STR_EQ("ubma/facscm/md", path))
+		return &ubma_facscm_md;
+
+	if (STR_EQ("ubma/facscm/tt", path))
+		return &ubma_facscm_tt;
+
+	if (STR_EQ("ubma/faclschs", path))
+		return &ubma_faclschs;
+
+	if (STR_EQ("ubma/faclschs/pd", path))
+		return &ubma_faclschs_pd;
+
+	if (STR_EQ("ubma/faclschs/alld", path))
+		return &ubma_faclschs_alld;
+
+	if (STR_EQ("ubma/faclschs/sd", path))
+		return &ubma_faclschs_sd;
+
+	if (STR_EQ("ubma/faclschs/icsd", path))
+		return &ubma_faclschs_icsd;
+
+	if (STR_EQ("ubma/faclschs/fld", path))
+		return &ubma_faclschs_fld;
+
+	if (STR_EQ("ubma/faclschs/hd", path))
+		return &ubma_faclschs_hd;
+
+	if (STR_EQ("ubma/faclschs/bd", path))
+		return &ubma_faclschs_bd;
+
+	if (STR_EQ("ubma/faclschs/eld", path))
+		return &ubma_faclschs_eld;
+
+	if (STR_EQ("ubma/faclschs/td", path))
+		return &ubma_faclschs_td;
+
+	if (STR_EQ("ubma/faclschs/hssd", path))
+		return &ubma_faclschs_hssd;
+
+	if (STR_EQ("ubma/faclschs/psed", path))
+		return &ubma_faclschs_psed;
+
+	if (STR_EQ("ubma/faclschs/ild", path))
+		return &ubma_faclschs_ild;
+
+	if (STR_EQ("ubma/facsceg", path))
+		return &ubma_facsceg;
+
+	if (STR_EQ("ubma/facsceg/esd", path))
+		return &ubma_facsceg_esd;
+
+	if (STR_EQ("ubma/facsceg/ct", path))
+		return &ubma_facsceg_ct;
+
+	if (STR_EQ("ubma/facsceg/fsd", path))
+		return &ubma_facsceg_fsd;
+
+	if (STR_EQ("ubma/facsceg/msd", path))
+		return &ubma_facsceg_msd;
+
+	if (STR_EQ("ubma/facsct", path))
+		return &ubma_facsct;
+
+	if (STR_EQ("ubma/facsct/pd", path))
+		return &ubma_facsct_pd;
+
+	if (STR_EQ("ubma/facsct/ad", path))
+		return &ubma_facsct_ad;
+
+	if (STR_EQ("ubma/facsct/md", path))
+		return &ubma_facsct_md;
+
+	if (STR_EQ("ubma/facsct/gd", path))
+		return &ubma_facsct_gd;
+
+	if (STR_EQ("ubma/facsci", path))
+		return &ubma_facsci;
+
+	if (STR_EQ("ubma/facsci/ped", path))
+		return &ubma_facsci_ped;
+
+	if (STR_EQ("ubma/facsci/hd", path))
+		return &ubma_facsci_hd;
+
+	if (STR_EQ("ubma/facsci/ed", path))
+		return &ubma_facsci_ed;
+
+	if (STR_EQ("ubma/facsci/std", path))
+		return &ubma_facsci_std;
+
+	if (STR_EQ("ubma/facsci/csd", path))
+		return &ubma_facsci_csd;
+
+	if (STR_EQ("ubma/facsci/md", path))
+		return &ubma_facsci_md;
+
+	if (STR_EQ("ubma/facsci/tt", path))
+		return &ubma_facsci_tt;
+
+	if (STR_EQ("ubma/facsci/ced", path))
+		return &ubma_facsci_ced;
+
+	if (STR_EQ("ubma/facsci/d", path))
+		return &ubma_facsci_d;
+
+	if (STR_EQ("ubma/facsci/med", path))
+		return &ubma_facsci_med;
+
+	if (STR_EQ("ua2aks", path))
+		return &ua2aks;
+
+	if (STR_EQ("ua2aks/fle", path))
+		return &ua2aks_fle;
+
+	if (STR_EQ("ua2aks/fle/dfr", path))
+		return &ua2aks_fle_dfr;
+
+	if (STR_EQ("ua2aks/fle/dsgi", path))
+		return &ua2aks_fle_dsgi;
+
+	if (STR_EQ("ua2aks/fle/den", path))
+		return &ua2aks_fle_den;
+
+	if (STR_EQ("ua2aks/it", path))
+		return &ua2aks_it;
+
+	if (STR_EQ("ua2aks/ia", path))
+		return &ua2aks_ia;
+
+	if (STR_EQ("ua2aks/fss", path))
+		return &ua2aks_fss;
+
+	if (STR_EQ("ua2aks/fss/dedu", path))
+		return &ua2aks_fss_dedu;
+
+	if (STR_EQ("ua2aks/fss/dpsy", path))
+		return &ua2aks_fss_dpsy;
+
+	if (STR_EQ("ua2aks/fss/dst", path))
+		return &ua2aks_fss_dst;
+
+	if (STR_EQ("ua2aks/fss/dsocio", path))
+		return &ua2aks_fss_dsocio;
+
+	if (STR_EQ("ua2aks/fsh", path))
+		return &ua2aks_fsh;
+
+	if (STR_EQ("ua2aks/fsh/dh", path))
+		return &ua2aks_fsh_dh;
+
+	if (STR_EQ("ua2aks/fsh/dph", path))
+		return &ua2aks_fsh_dph;
+
+	if (STR_EQ("ua2aks/fsh/dld", path))
+		return &ua2aks_fsh_dld;
+
+	if (STR_EQ("ua2aks/falaol", path))
+		return &ua2aks_falaol;
+
+	if (STR_EQ("ua2aks/falaol/dts", path))
+		return &ua2aks_falaol_dts;
+
+	if (STR_EQ("ua2aks/falaol/dart", path))
+		return &ua2aks_falaol_dart;
+
+	if (STR_EQ("ua2aks/falaol/dtrl", path))
+		return &ua2aks_falaol_dtrl;
+
+	if (STR_EQ("ua2aks/falaol/dala", path))
+		return &ua2aks_falaol_dala;
+
+	return NULL;
+}
+
 #endif

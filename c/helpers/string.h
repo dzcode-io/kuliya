@@ -52,12 +52,13 @@ void remove_chars(char *str, int c, ...)
 
 /**
  * Replace a character with another character from a given string.
+ * This will modify the original string.
  * @param str String to perform the check with.
  * @param find Character to be replaced.
  * @param replace Character to replace the origin character.
- * @returns This function returns the string with the replaced character.
+ * @returns This function do not return anything.
  */
-char *replace_char(char *str, char find, char replace)
+void replace_char(char *str, char find, char replace)
 {
     char *current_pos = strchr(str, find);
     while (current_pos)
@@ -65,7 +66,6 @@ char *replace_char(char *str, char find, char replace)
         *current_pos = replace;
         current_pos = strchr(current_pos, find);
     }
-    return str;
 }
 
 #endif

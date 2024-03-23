@@ -16,6 +16,7 @@
 #define TEMP_FILE "temp.h"
 
 static size_t max_slots_length = 0;
+static char clauses[100000];
 
 /**
  * Kuliya name.
@@ -146,12 +147,29 @@ void prepend_to_data_file()
         fprintf(data_file, "%s", line);
     }
 
-    fprintf(data_file, "\n#endif\n");
-
     fclose(temp_file);
     if (line)
         free(line);
     remove(TEMP_FILE);
+    fclose(data_file);
+}
+
+/**
+ * Add `get_node_by_path` function definition.
+ * @returns This function do not return anything.
+ */
+void append_to_data_file()
+{
+    FILE *data_file = fopen(DATA_FILE, "a");
+    if (data_file == NULL)
+        exit(EXIT_FAILURE);
+
+    fprintf(data_file, "\nkuliya_schema* get_node_by_path(const char* path) {");
+    fprintf(data_file, "%s\n", clauses);
+    fprintf(data_file, "\treturn NULL;\n");
+    fprintf(data_file, "}\n");
+    fprintf(data_file, "\n#endif\n");
+
     fclose(data_file);
 }
 
@@ -169,14 +187,15 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
     size_t suffix_length = strlen("/info.json");
     char *path_value = (char *)json_path + prefix_length;
     path_value[strlen(path_value) - suffix_length] = '\0';
-    const char *var_name = replace_char(path_value, '/', '_');
+    replace_char(path_value, '/', '_');
 
     fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = \"%s\"",
-            var_name,
+            path_value,
             schema->name->ar,
             schema->name->en,
             schema->name->fr,
             schema->type);
+
     if (schema->terms != NULL)
     {
         fprintf(data_file, ", .terms = {.per_year = %d, .slots = {%d", schema->terms->per_year, schema->terms->slots[0]);
@@ -187,6 +206,15 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
         fprintf(data_file, "}}");
     }
     fprintf(data_file, "};\n");
+
+    // Add condition clause for path value
+    char clause[100];
+    char path_name[strlen(path_value)];
+    strcpy(path_name, path_value);
+    replace_char(path_name, '_', '/');
+    sprintf(clause, "\n\tif (STR_EQ(\"%s\", path))\n\t\treturn &%s;\n", path_name, path_value);
+    strcat(clauses, clause);
+
     fclose(data_file);
 }
 
@@ -340,4 +368,5 @@ int main(void)
         remove(DATA_FILE);
     walk_dirs("../_data/");
     prepend_to_data_file();
+    append_to_data_file();
 }

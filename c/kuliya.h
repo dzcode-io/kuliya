@@ -2,6 +2,7 @@
 #define KULIYA_H
 
 #include "helpers/jsmn.h"
+#include "helpers/string.h"
 #include "data.h"
 
 #define KULIYA_API extern
