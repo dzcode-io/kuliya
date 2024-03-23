@@ -2,3 +2,5 @@ test/test.dSYM
 test/test
 build.dSYM
 build
+example/example.dSYM
+example/example
