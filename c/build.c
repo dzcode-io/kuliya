@@ -203,7 +203,7 @@ void append_to_data_file()
     fprintf(data_file, "}\n");
 
     // Prepare get node by path API
-    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char* path)\n{");
+    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char *path)\n{");
     fprintf(data_file, "%s\n", clauses);
     fprintf(data_file, "\treturn NULL;\n");
     fprintf(data_file, "}\n");
