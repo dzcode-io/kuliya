@@ -264,7 +264,7 @@ void __kuliya_deinit()
 	free(umkb_fst_dee_sec.terms);
 }
 
-kuliya_schema *__get_node_by_path(const char* path)
+kuliya_schema *__get_node_by_path(const char *path)
 {
 	if (STR_EQ("umbm", path))
 		return &umbm;
