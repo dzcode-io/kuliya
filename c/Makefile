@@ -17,4 +17,6 @@ clean:
 	rm -f ./build
 	rm -f ./example/example
 
-.PHONY: test build example clean
+all: clean build test example
+
+.PHONY: test build example clean all

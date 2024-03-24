@@ -15,7 +15,6 @@
 #define DATA_FILE "data.h"
 #define TEMP_FILE "temp.h"
 
-static size_t max_slots_length = 0;
 static char clauses[100000];
 
 /**
@@ -46,6 +45,16 @@ typedef struct
     char *type;
     kuliya_terms *terms;
 } kuliya_schema;
+
+typedef struct
+{
+    kuliya_terms terms;
+    char *__varname;
+    size_t __slots_length;
+} __s_kuliya_schema;
+
+static size_t kuliya_with_terms_idx = 0;
+static __s_kuliya_schema kuliyas_with_terms[1000];
 
 void parse_info_json(const char *);
 
@@ -134,12 +143,12 @@ void prepend_to_data_file()
 
     fprintf(data_file, "// This is an auto generated file, do not edit it!\n");
     fprintf(data_file, "#ifndef DATA_H\n#define DATA_H\n");
-    fprintf(data_file, "\n#include <string.h>\n");
+    fprintf(data_file, "\n#include <stdlib.h>\n#include <string.h>\n");
     fprintf(data_file, "\n#define STR_EQ(str1, str2) (strcmp(str1, str2) == 0)\n");
     fprintf(data_file, "\ntypedef enum\n{\n\tUNIVERSITY,\n\tACADEMY,\n\tPRIVATE_SCHOOL,\n\tINSTITUTE,\n\tFACULTY,\n\tDEPARTMENT,\n\tSPECIALTY,\n\tSECTOR\n} node_type;\n");
     fprintf(data_file, "\ntypedef struct\n{\n\tconst char *ar;\n\tconst char *en;\n\tconst char *fr;\n} kuliya_name;\n");
-    fprintf(data_file, "\ntypedef struct\n{\n\tint per_year;\n\tconst int slots[%zu];\n} kuliya_terms;\n", max_slots_length);
-    fprintf(data_file, "\ntypedef struct\n{\n\tkuliya_name name;\n\tnode_type type;\n\tkuliya_terms terms;\n} kuliya_schema;\n\n");
+    fprintf(data_file, "\ntypedef struct\n{\n\tint per_year;\n\tint *slots;\n\tsize_t number_of_slots;\n} kuliya_terms;\n");
+    fprintf(data_file, "\ntypedef struct\n{\n\tkuliya_name name;\n\tnode_type type;\n\tkuliya_terms *terms;\n} kuliya_schema;\n\n");
 
     char *line = NULL;
     size_t len = 0;
@@ -167,7 +176,34 @@ void append_to_data_file()
     if (data_file == NULL)
         exit(EXIT_FAILURE);
 
-    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char* path) {");
+    // Add init function to allocate memory for necessary heap allocated data
+    fprintf(data_file, "\nvoid __kuliya_init()\n{\n");
+    for (size_t i = 0; i < kuliya_with_terms_idx; ++i)
+    {
+        __s_kuliya_schema schema = kuliyas_with_terms[i];
+        fprintf(data_file, "\t%s.terms = malloc(sizeof(kuliya_terms));\n", schema.__varname);
+        fprintf(data_file, "\t%s.terms->per_year = %d;\n", schema.__varname, schema.terms.per_year);
+        fprintf(data_file, "\t%s.terms->number_of_slots = %zu;\n", schema.__varname, schema.__slots_length);
+        fprintf(data_file, "\t%s.terms->slots = malloc(%zu * sizeof(int));\n", schema.__varname, schema.__slots_length);
+        for (size_t j = 0; j < schema.__slots_length; ++j)
+        {
+            fprintf(data_file, "\t%s.terms->slots[%zu] = %d;\n", schema.__varname, j, schema.terms.slots[j]);
+        }
+    }
+    fprintf(data_file, "}\n");
+
+    // Add deinit function to free heap allocated data
+    fprintf(data_file, "\nvoid __kuliya_deinit()\n{\n");
+    for (size_t i = 0; i < kuliya_with_terms_idx; ++i)
+    {
+        __s_kuliya_schema schema = kuliyas_with_terms[i];
+        fprintf(data_file, "\tfree(%s.terms->slots);\n", schema.__varname);
+        fprintf(data_file, "\tfree(%s.terms);\n", schema.__varname);
+    }
+    fprintf(data_file, "}\n");
+
+    // Prepare get node by path API
+    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char* path)\n{");
     fprintf(data_file, "%s\n", clauses);
     fprintf(data_file, "\treturn NULL;\n");
     fprintf(data_file, "}\n");
@@ -183,7 +219,7 @@ void append_to_data_file()
  * @param json_path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void save_to_file(const kuliya_schema *schema, const size_t slots_length, const char *json_path)
+void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *json_path)
 {
     FILE *data_file = fopen(TEMP_FILE, "a");
     size_t prefix_length = strlen("../_data/");
@@ -192,7 +228,7 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
     path_value[strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
-    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s",
+    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s, .terms = NULL};\n",
             path_value,
             schema->name->ar,
             schema->name->en,
@@ -201,14 +237,18 @@ void save_to_file(const kuliya_schema *schema, const size_t slots_length, const 
 
     if (schema->terms != NULL)
     {
-        fprintf(data_file, ", .terms = {.per_year = %d, .slots = {%d", schema->terms->per_year, schema->terms->slots[0]);
-        for (size_t i = 1; i < slots_length; i++)
-        {
-            fprintf(data_file, ", %d", schema->terms->slots[i]);
-        }
-        fprintf(data_file, "}}");
+        size_t varname_length = strlen(path_value);
+        kuliyas_with_terms[kuliya_with_terms_idx].__varname = malloc(varname_length + 1);
+        memcpy(kuliyas_with_terms[kuliya_with_terms_idx].__varname, path_value, varname_length);
+        kuliyas_with_terms[kuliya_with_terms_idx]
+            .__varname[varname_length + 1] = '\0';
+        kuliyas_with_terms[kuliya_with_terms_idx]
+            .__slots_length = slots_length;
+        kuliyas_with_terms[kuliya_with_terms_idx].terms.per_year = schema->terms->per_year;
+        kuliyas_with_terms[kuliya_with_terms_idx].terms.slots = malloc(slots_length * sizeof(int));
+        memcpy(kuliyas_with_terms[kuliya_with_terms_idx].terms.slots, schema->terms->slots, slots_length * sizeof(int));
+        kuliya_with_terms_idx++;
     }
-    fprintf(data_file, "};\n");
 
     // Add condition clause for path value
     char clause[100];
@@ -347,8 +387,6 @@ void parse_info_json(const char *json_path)
                     tmp_slots[s_idx++] = val;
                     ptr = strtok(NULL, ",");
                 }
-                if (s_idx > max_slots_length)
-                    max_slots_length = s_idx;
                 schema->terms->slots = calloc(1, s_idx * sizeof(*schema->terms->slots));
                 memcpy(schema->terms->slots, tmp_slots, s_idx * sizeof(int));
             }

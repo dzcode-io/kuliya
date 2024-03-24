@@ -41,24 +41,29 @@ void print_kuliya_schema(const kuliya_schema *schema)
     printf("\t\t\"en\": \"%s\",\n", schema->name.en);
     printf("\t\t\"fr\": \"%s\"\n", schema->name.fr);
     printf("\t},\n");
-    printf("\t\"type\": \"%s\",\n", match_node_type(schema->type));
-    printf("\t\"terms\": {\n");
-    printf("\t\t\"per_year\": %d,\n", schema->terms.per_year);
-    printf("\t\t\"slots\": [%d", schema->terms.slots[0]);
-    for (size_t i = 1; i < 4; i++)
+    printf("\t\"type\": \"%s\"%s\n", match_node_type(schema->type), schema->terms != NULL ? "," : "");
+    if (schema->terms != NULL)
     {
-        printf(", %d", schema->terms.slots[i]);
+        printf("\t\"terms\": {\n");
+        printf("\t\t\"per_year\": %d,\n", schema->terms->per_year);
+        printf("\t\t\"slots\": [%d", schema->terms->slots[0]);
+        for (size_t i = 1; i < schema->terms->number_of_slots; i++)
+        {
+            printf(", %d", schema->terms->slots[i]);
+        }
+        printf("]\n");
+        printf("\t}\n");
     }
-    printf("]\n");
-    printf("\t}\n");
     printf("}\n");
 }
 
 int main(void)
 {
+    kuliya_init();
     kuliya_schema *res = get_node_by_path("umkb/fst/dee/sec");
     if (res != NULL)
     {
         print_kuliya_schema(res);
     }
+    kuliya_deinit();
 }
