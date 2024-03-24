@@ -45,7 +45,7 @@ void print_kuliya_schema(const kuliya_schema *schema)
     if (schema->terms != NULL)
     {
         printf("\t\"terms\": {\n");
-        printf("\t\t\"per_year\": %d,\n", schema->terms->per_year);
+        printf("\t\t\"perYear\": %d,\n", schema->terms->per_year);
         printf("\t\t\"slots\": [%d", schema->terms->slots[0]);
         for (size_t i = 1; i < schema->terms->number_of_slots; i++)
         {
