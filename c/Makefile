@@ -8,8 +8,15 @@ build:
 	gcc build.c $(INCLUDES) -g -o $@
 	./$@
 
+example:
+	gcc example/main.c $(INCLUDES) -g -o example/$@
+	./example/$@
+
 clean:
 	rm -f ./test/test
 	rm -f ./build
+	rm -f ./example/example
 
-.PHONY: test build clean
+all: clean build test example
+
+.PHONY: test build example clean all
