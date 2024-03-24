@@ -30,31 +30,32 @@ const char *match_node_type(const node_type type)
 }
 
 /**
- * Print kuliya schema with JSON format in `stdout`.
+ * Print kuliya schema with JSON format to a file (.e.g `stdout`).
+ * @param out File output.
  * @param schema Kuliya node schema.
  */
-void print_kuliya_schema(const kuliya_schema *schema)
+void print_kuliya_schema(FILE *out, const kuliya_schema *schema)
 {
-    printf("{\n");
-    printf("\t\"name\": {\n");
-    printf("\t\t\"ar\": \"%s\",\n", schema->name.ar);
-    printf("\t\t\"en\": \"%s\",\n", schema->name.en);
-    printf("\t\t\"fr\": \"%s\"\n", schema->name.fr);
-    printf("\t},\n");
-    printf("\t\"type\": \"%s\"%s\n", match_node_type(schema->type), schema->terms != NULL ? "," : "");
+    fprintf(out, "{\n");
+    fprintf(out, "\t\"name\": {\n");
+    fprintf(out, "\t\t\"ar\": \"%s\",\n", schema->name.ar);
+    fprintf(out, "\t\t\"en\": \"%s\",\n", schema->name.en);
+    fprintf(out, "\t\t\"fr\": \"%s\"\n", schema->name.fr);
+    fprintf(out, "\t},\n");
+    fprintf(out, "\t\"type\": \"%s\"%s\n", match_node_type(schema->type), schema->terms != NULL ? "," : "");
     if (schema->terms != NULL)
     {
-        printf("\t\"terms\": {\n");
-        printf("\t\t\"perYear\": %d,\n", schema->terms->per_year);
-        printf("\t\t\"slots\": [%d", schema->terms->slots[0]);
+        fprintf(out, "\t\"terms\": {\n");
+        fprintf(out, "\t\t\"perYear\": %d,\n", schema->terms->per_year);
+        fprintf(out, "\t\t\"slots\": [%d", schema->terms->slots[0]);
         for (size_t i = 1; i < schema->terms->number_of_slots; i++)
         {
-            printf(", %d", schema->terms->slots[i]);
+            fprintf(out, ", %d", schema->terms->slots[i]);
         }
-        printf("]\n");
-        printf("\t}\n");
+        fprintf(out, "]\n");
+        fprintf(out, "\t}\n");
     }
-    printf("}\n");
+    fprintf(out, "}\n");
 }
 
 int main(void)
@@ -63,7 +64,7 @@ int main(void)
     kuliya_schema *res = get_node_by_path("umkb/fst/dee/sec");
     if (res != NULL)
     {
-        print_kuliya_schema(res);
+        print_kuliya_schema(stdout, res);
     }
     kuliya_deinit();
 }
