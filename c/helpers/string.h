@@ -48,6 +48,15 @@ void remove_chars(char *str, int c, ...)
     }
 
     va_end(args);
+
+    // This is to confirm deleting the first vararg character
+    size_t j = 0;
+    for (size_t i = 0; i < str[i] != '\0'; ++i)
+    {
+        if (str[i] != c)
+            str[j++] = str[i];
+    }
+    str[j] = '\0';
 }
 
 /**
