@@ -39,7 +39,7 @@ void remove_chars(char *str, int c, ...)
             break;
 
         size_t j = 0;
-        for (size_t i = 0; i < str[i] != '\0'; ++i)
+        for (size_t i = 0; str[i] != '\0'; ++i)
         {
             if (str[i] != char_to_remove)
                 str[j++] = str[i];
@@ -51,7 +51,7 @@ void remove_chars(char *str, int c, ...)
 
     // This is to confirm deleting the first vararg character
     size_t j = 0;
-    for (size_t i = 0; i < str[i] != '\0'; ++i)
+    for (size_t i = 0; str[i] != '\0'; ++i)
     {
         if (str[i] != c)
             str[j++] = str[i];
