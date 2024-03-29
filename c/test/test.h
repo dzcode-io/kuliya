@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#include "../kuliya.h"
+#include <kuliya.h>
 
 static int tests_passed = 0;
 static int tests_failed = 0;

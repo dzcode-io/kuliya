@@ -1,15 +1,28 @@
-name: "C Checks"
+name: C Checks
 
 on:
   pull_request:
     paths:
-     - ".github/workflows/c-checks.yml"
-     - "c/**"
+      - ".github/workflows/c-checks.yml"
+      - "c/**"
 
 jobs:
   build_and_test:
     name: kuliya - latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: cd c && make
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up build environment
+        run: |
+          cd c
+          mkdir -p build
+          cd build
+          cmake ..
+
+      - name: Build and run tests
+        run: |
+          cd c/build
+          make test
+          ./test

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "kuliya.h"
+#include <kuliya.h>
 
 /**
  * Match `node_type` enum to a string.
