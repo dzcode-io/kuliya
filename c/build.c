@@ -11,7 +11,7 @@
 #include "helpers/file.h"
 
 #define TOK_SIZE 128
-#define PATH_MAX 128
+#define __PATH_MAX 128
 #define DATA_FILE "data.h"
 #define TEMP_FILE "temp.h"
 
@@ -89,11 +89,11 @@ void walk_dirs(const char *path)
 
         if (S_ISDIR(st.st_mode))
         {
-            char tmp_path[PATH_MAX];
+            char tmp_path[__PATH_MAX];
             strcpy(tmp_path, path);
             strcat(tmp_path, dent->d_name);
             strcat(tmp_path, "/");
-            char info_path[PATH_MAX];
+            char info_path[__PATH_MAX];
             strcpy(info_path, tmp_path);
             strcat(info_path, "info.json");
             if (FILE_EXISTS(info_path))
@@ -241,7 +241,7 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *
         kuliyas_with_terms[kuliya_with_terms_idx].__varname = malloc(varname_length + 1);
         memcpy(kuliyas_with_terms[kuliya_with_terms_idx].__varname, path_value, varname_length);
         kuliyas_with_terms[kuliya_with_terms_idx]
-            .__varname[varname_length + 1] = '\0';
+            .__varname[varname_length] = '\0';
         kuliyas_with_terms[kuliya_with_terms_idx]
             .__slots_length = slots_length;
         kuliyas_with_terms[kuliya_with_terms_idx].terms.per_year = schema->terms->per_year;
