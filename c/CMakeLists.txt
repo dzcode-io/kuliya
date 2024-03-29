@@ -12,3 +12,5 @@ add_executable(build build.c)
 
 target_link_libraries(test kuliya)
 target_link_libraries(example kuliya)
+find_package(jsmn REQUIRED)
+target_link_libraries(build jsmn::jsmn)

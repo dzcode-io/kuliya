@@ -5,8 +5,8 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <jsmn.h>
 
-#include "helpers/jsmn.h"
 #include "helpers/string.h"
 #include "helpers/file.h"
 
