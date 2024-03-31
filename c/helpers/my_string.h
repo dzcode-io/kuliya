@@ -28,7 +28,7 @@
  * @param c Characters to be removed from the given string.
  * @returns This function do not return anything.
  */
-void remove_chars(char *str, int c, ...);
+void remove_chars(unsigned char *str, int c, ...);
 
 /**
  * Replace a character with another character from a given string.

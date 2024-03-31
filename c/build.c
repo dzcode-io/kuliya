@@ -315,7 +315,7 @@ void parse_info_json(const unsigned char *json_path)
         {
             token = &tokens[i];
             unsigned int length = token->end - token->start;
-            char data[length + 1];
+            unsigned char data[length + 1];
             memcpy(data, &buf[token->start], length);
             data[length] = '\0';
             if (STR_EQ("ar", data))
@@ -375,17 +375,18 @@ void parse_info_json(const unsigned char *json_path)
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
-                char data[length + 1];
+                unsigned char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
                 remove_chars(data, '[', ']', ' ');
-                char *ptr = strtok(data, ",");
+                unsigned char *rest = data;
+                unsigned char *ptr = u8_strtok(data, ",", &rest);
                 int tmp_slots[50];
                 while (ptr != NULL)
                 {
                     int val = atoi(ptr);
                     tmp_slots[s_idx++] = val;
-                    ptr = strtok(NULL, ",");
+                    ptr = u8_strtok(NULL, ",", &rest);
                 }
                 schema->terms->slots = calloc(1, s_idx * sizeof(*schema->terms->slots));
                 memcpy(schema->terms->slots, tmp_slots, s_idx * sizeof(int));
