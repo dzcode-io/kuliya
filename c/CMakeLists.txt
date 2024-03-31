@@ -18,6 +18,7 @@ add_executable(test test/test.c)
 
 # Create the example executable
 add_executable(example example/main.c)
+add_executable(example1 example/main.cpp)
 
 # Create the build executable
 add_executable(build build.c)
@@ -25,6 +26,7 @@ add_executable(build build.c)
 # Link the test and example executables with the "kuliya" library
 target_link_libraries(test kuliya)
 target_link_libraries(example kuliya)
+target_link_libraries(example1 kuliya)
 
 # Link the build and test executables with the "helpers" library
 target_link_libraries(build helpers)
