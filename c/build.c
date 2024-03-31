@@ -5,13 +5,13 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <jsmn.h>
 
-#include "helpers/jsmn.h"
-#include "helpers/string.h"
+#include "helpers/my_string.h"
 #include "helpers/file.h"
 
 #define TOK_SIZE 128
-#define PATH_MAX 128
+#define __PATH_MAX 128
 #define DATA_FILE "data.h"
 #define TEMP_FILE "temp.h"
 
@@ -56,17 +56,17 @@ typedef struct
 static size_t kuliya_with_terms_idx = 0;
 static __s_kuliya_schema kuliyas_with_terms[1000];
 
-void parse_info_json(const char *);
+void parse_info_json(const unsigned char *);
 
 /**
  * Walk `_data/` sub-directories to parse the located `info.json` file.
  * @param path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void walk_dirs(const char *path)
+void walk_dirs(const unsigned char *path)
 {
     struct dirent *dent;
-    DIR *srcdir = opendir(path);
+    DIR *srcdir = opendir((const char *)path);
 
     if (srcdir == NULL)
     {
@@ -89,14 +89,14 @@ void walk_dirs(const char *path)
 
         if (S_ISDIR(st.st_mode))
         {
-            char tmp_path[PATH_MAX];
-            strcpy(tmp_path, path);
-            strcat(tmp_path, dent->d_name);
-            strcat(tmp_path, "/");
-            char info_path[PATH_MAX];
-            strcpy(info_path, tmp_path);
-            strcat(info_path, "info.json");
-            if (FILE_EXISTS(info_path))
+            unsigned char tmp_path[__PATH_MAX];
+            u8_strcpy(tmp_path, path);
+            u8_strcat(tmp_path, (const unsigned char *)dent->d_name);
+            u8_strcat(tmp_path, (const unsigned char *)"/");
+            unsigned char info_path[__PATH_MAX];
+            u8_strcpy(info_path, tmp_path);
+            u8_strcat(info_path, (const unsigned char *)"info.json");
+            if (FILE_EXISTS((const char *)info_path))
                 parse_info_json(info_path);
             walk_dirs(tmp_path);
         }
@@ -219,13 +219,13 @@ void append_to_data_file()
  * @param json_path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *json_path)
+void save_to_file(kuliya_schema *schema, const size_t slots_length, const unsigned char *json_path)
 {
     FILE *data_file = fopen(TEMP_FILE, "a");
     size_t prefix_length = strlen("../_data/");
     size_t suffix_length = strlen("/info.json");
-    char *path_value = (char *)json_path + prefix_length;
-    path_value[strlen(path_value) - suffix_length] = '\0';
+    unsigned char *path_value = (unsigned char *)json_path + prefix_length;
+    path_value[u8_strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
     fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s, .terms = NULL};\n",
@@ -237,11 +237,11 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *
 
     if (schema->terms != NULL)
     {
-        size_t varname_length = strlen(path_value);
+        size_t varname_length = u8_strlen(path_value);
         kuliyas_with_terms[kuliya_with_terms_idx].__varname = malloc(varname_length + 1);
         memcpy(kuliyas_with_terms[kuliya_with_terms_idx].__varname, path_value, varname_length);
         kuliyas_with_terms[kuliya_with_terms_idx]
-            .__varname[varname_length + 1] = '\0';
+            .__varname[varname_length] = '\0';
         kuliyas_with_terms[kuliya_with_terms_idx]
             .__slots_length = slots_length;
         kuliyas_with_terms[kuliya_with_terms_idx].terms.per_year = schema->terms->per_year;
@@ -252,8 +252,8 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *
 
     // Add condition clause for path value
     char clause[100];
-    char path_name[strlen(path_value)];
-    strcpy(path_name, path_value);
+    unsigned char path_name[u8_strlen(path_value)];
+    u8_strcpy(path_name, path_value);
     replace_char(path_name, '_', '/');
     sprintf(clause, "\n\tif (STR_EQ(\"%s\", path))\n\t\treturn &%s;\n", path_name, path_value);
     strcat(clauses, clause);
@@ -266,10 +266,10 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const char *
  * @param json_path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void parse_info_json(const char *json_path)
+void parse_info_json(const unsigned char *json_path)
 {
     // Open file in read mode
-    FILE *info_json_file = fopen(json_path, "r");
+    FILE *info_json_file = fopen((const char *)json_path, "r");
     if (info_json_file != NULL)
     {
         // Read file content into a dynamically allocated buffer
@@ -315,7 +315,7 @@ void parse_info_json(const char *json_path)
         {
             token = &tokens[i];
             unsigned int length = token->end - token->start;
-            char data[length + 1];
+            unsigned char data[length + 1];
             memcpy(data, &buf[token->start], length);
             data[length] = '\0';
             if (STR_EQ("ar", data))
@@ -375,17 +375,18 @@ void parse_info_json(const char *json_path)
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
-                char data[length + 1];
+                unsigned char data[length + 1];
                 memcpy(data, &buf[token->start], length);
                 data[length] = '\0';
                 remove_chars(data, '[', ']', ' ');
-                char *ptr = strtok(data, ",");
+                unsigned char *rest = data;
+                unsigned char *ptr = u8_strtok(data, ",", &rest);
                 int tmp_slots[50];
                 while (ptr != NULL)
                 {
                     int val = atoi(ptr);
                     tmp_slots[s_idx++] = val;
-                    ptr = strtok(NULL, ",");
+                    ptr = u8_strtok(NULL, ",", &rest);
                 }
                 schema->terms->slots = calloc(1, s_idx * sizeof(*schema->terms->slots));
                 memcpy(schema->terms->slots, tmp_slots, s_idx * sizeof(int));
@@ -407,7 +408,7 @@ int main(void)
 {
     if (FILE_EXISTS(DATA_FILE))
         remove(DATA_FILE);
-    walk_dirs("../_data/");
+    walk_dirs((const unsigned char *)"../_data/");
     prepend_to_data_file();
     append_to_data_file();
 }

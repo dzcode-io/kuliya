@@ -1,6 +1,4 @@
-#include <assert.h>
 #include "test.h"
-#include "helpers/string.h"
 
 int test_get_existing_schema(void)
 {

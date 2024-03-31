@@ -14,15 +14,38 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up build environment
+      - name: Get Conan
+        uses: turtlebrowser/get-conan@v1.2
+
+      - name: Create default profile
+        run: conan profile detect --force
+
+      - name: Install dependencies
         run: |
           cd c
-          mkdir -p build
-          cd build
-          cmake ..
+          conan install . --output-folder=build --build=missing
+
+      - name: Set up build environment
+        run: |
+          cd c/build
+          sh conanbuild.sh
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build and run build script
+        run: |
+          cd c/build
+          make build
+          cd ..
+          ./build/build
 
       - name: Build and run tests
         run: |
           cd c/build
           make test
           ./test
+
+      - name: Build and run example
+        run: |
+          cd c/build
+          make example
+          ./example
