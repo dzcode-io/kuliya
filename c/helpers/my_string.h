@@ -38,6 +38,6 @@ void remove_chars(char *str, int c, ...);
  * @param replace Character to replace the origin character.
  * @returns This function do not return anything.
  */
-void replace_char(char *str, char find, char replace);
+void replace_char(unistring_uint8_t *str, unistring_uint8_t find, unistring_uint8_t replace);
 
 #endif

@@ -36,7 +36,6 @@ target_link_libraries(build jsmn::jsmn)
 
 # Link the "helpers" shared library with libunistring
 find_package(libunistring REQUIRED)
-target_link_libraries(helpers PRIVATE libunistring::libunistring)
 target_link_libraries(test libunistring::libunistring)
 target_link_libraries(build libunistring::libunistring)
 
