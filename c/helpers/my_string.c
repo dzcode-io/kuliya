@@ -23,9 +23,9 @@ void remove_chars(char *str, int c, ...)
     va_end(args);
 }
 
-void replace_char(unistring_uint8_t *str, unistring_uint8_t find, unistring_uint8_t replace)
+void replace_char(unsigned char *str, unsigned char find, unsigned char replace)
 {
-    unistring_uint8_t *current_pos = u8_strchr(str, find);
+    unsigned char *current_pos = u8_strchr(str, find);
     while (current_pos)
     {
         *current_pos = replace;

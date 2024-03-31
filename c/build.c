@@ -56,14 +56,14 @@ typedef struct
 static size_t kuliya_with_terms_idx = 0;
 static __s_kuliya_schema kuliyas_with_terms[1000];
 
-void parse_info_json(const unistring_uint8_t *);
+void parse_info_json(const unsigned char *);
 
 /**
  * Walk `_data/` sub-directories to parse the located `info.json` file.
  * @param path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void walk_dirs(const unistring_uint8_t *path)
+void walk_dirs(const unsigned char *path)
 {
     struct dirent *dent;
     DIR *srcdir = opendir((const char *)path);
@@ -89,13 +89,13 @@ void walk_dirs(const unistring_uint8_t *path)
 
         if (S_ISDIR(st.st_mode))
         {
-            unistring_uint8_t tmp_path[__PATH_MAX];
+            unsigned char tmp_path[__PATH_MAX];
             u8_strcpy(tmp_path, path);
-            u8_strcat(tmp_path, (const unistring_uint8_t *)dent->d_name);
-            u8_strcat(tmp_path, (const unistring_uint8_t *)"/");
-            unistring_uint8_t info_path[__PATH_MAX];
+            u8_strcat(tmp_path, (const unsigned char *)dent->d_name);
+            u8_strcat(tmp_path, (const unsigned char *)"/");
+            unsigned char info_path[__PATH_MAX];
             u8_strcpy(info_path, tmp_path);
-            u8_strcat(info_path, (const unistring_uint8_t *)"info.json");
+            u8_strcat(info_path, (const unsigned char *)"info.json");
             if (FILE_EXISTS((const char *)info_path))
                 parse_info_json(info_path);
             walk_dirs(tmp_path);
@@ -219,12 +219,12 @@ void append_to_data_file()
  * @param json_path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void save_to_file(kuliya_schema *schema, const size_t slots_length, const unistring_uint8_t *json_path)
+void save_to_file(kuliya_schema *schema, const size_t slots_length, const unsigned char *json_path)
 {
     FILE *data_file = fopen(TEMP_FILE, "a");
     size_t prefix_length = strlen("../_data/");
     size_t suffix_length = strlen("/info.json");
-    unistring_uint8_t *path_value = (unistring_uint8_t *)json_path + prefix_length;
+    unsigned char *path_value = (unsigned char *)json_path + prefix_length;
     path_value[u8_strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
@@ -252,7 +252,7 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const unistr
 
     // Add condition clause for path value
     char clause[100];
-    unistring_uint8_t path_name[u8_strlen(path_value)];
+    unsigned char path_name[u8_strlen(path_value)];
     u8_strcpy(path_name, path_value);
     replace_char(path_name, '_', '/');
     sprintf(clause, "\n\tif (STR_EQ(\"%s\", path))\n\t\treturn &%s;\n", path_name, path_value);
@@ -266,7 +266,7 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const unistr
  * @param json_path Path of the `info.json` file.
  * @returns This function do not return anything.
  */
-void parse_info_json(const unistring_uint8_t *json_path)
+void parse_info_json(const unsigned char *json_path)
 {
     // Open file in read mode
     FILE *info_json_file = fopen((const char *)json_path, "r");
@@ -407,7 +407,7 @@ int main(void)
 {
     if (FILE_EXISTS(DATA_FILE))
         remove(DATA_FILE);
-    walk_dirs((const unistring_uint8_t *)"../_data/");
+    walk_dirs((const unsigned char *)"../_data/");
     prepend_to_data_file();
     append_to_data_file();
 }
