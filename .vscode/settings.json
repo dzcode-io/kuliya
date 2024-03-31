@@ -1,4 +1,12 @@
 {
   "rust-analyzer.checkOnSave": true,
-  "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json"]
+  "rust-analyzer.check.overrideCommand": [
+    "cargo",
+    "clippy",
+    "--message-format=json"
+  ],
+  "files.associations": {
+    "*.h": "c",
+  },
+  "cmake.sourceDirectory": "${workspaceFolder}/c"
 }

@@ -1,8 +1,9 @@
-#ifndef __STRING_H__
-#define __STRING_H__
+#ifndef __MY_STRING_H__
+#define __MY_STRING_H__
 
 #include <string.h>
 #include <stdarg.h>
+#include <unistr.h>
 
 /**
  * Perfom a string comparison between two strings.
@@ -27,37 +28,7 @@
  * @param c Characters to be removed from the given string.
  * @returns This function do not return anything.
  */
-void remove_chars(char *str, int c, ...)
-{
-    va_list args;
-    va_start(args, c);
-
-    while (42) // The answer for everything
-    {
-        char char_to_remove = va_arg(args, int);
-        if (char_to_remove == '\0')
-            break;
-
-        size_t j = 0;
-        for (size_t i = 0; str[i] != '\0'; ++i)
-        {
-            if (str[i] != char_to_remove)
-                str[j++] = str[i];
-        }
-        str[j] = '\0';
-    }
-
-    va_end(args);
-
-    // This is to confirm deleting the first vararg character
-    size_t j = 0;
-    for (size_t i = 0; str[i] != '\0'; ++i)
-    {
-        if (str[i] != c)
-            str[j++] = str[i];
-    }
-    str[j] = '\0';
-}
+void remove_chars(char *str, int c, ...);
 
 /**
  * Replace a character with another character from a given string.
@@ -67,14 +38,6 @@ void remove_chars(char *str, int c, ...)
  * @param replace Character to replace the origin character.
  * @returns This function do not return anything.
  */
-void replace_char(char *str, char find, char replace)
-{
-    char *current_pos = strchr(str, find);
-    while (current_pos)
-    {
-        *current_pos = replace;
-        current_pos = strchr(current_pos, find);
-    }
-}
+void replace_char(char *str, char find, char replace);
 
 #endif

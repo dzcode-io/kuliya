@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <jsmn.h>
 
-#include "helpers/string.h"
+#include "helpers/my_string.h"
 #include "helpers/file.h"
 
 #define TOK_SIZE 128
