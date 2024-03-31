@@ -2,8 +2,10 @@
 #define __TEST_H__
 
 #include <stdio.h>
+#include <assert.h>
+#include <kuliya.h>
 
-#include "../kuliya.h"
+#include "helpers/my_string.h"
 
 static int tests_passed = 0;
 static int tests_failed = 0;
