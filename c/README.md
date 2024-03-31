@@ -2,13 +2,33 @@
 
 Algeria's college hierarchy dataset as a C library
 
-# Get started
+# Prerequisites
 
-Make sure you have both `kuliya.h` and `data.h` files in your path.
+- [CMake](https://cmake.org/download/) build system (minimum required version 3.19)
+- [Conan](https://conan.io/downloads) package manager
+- [Clang](https://clang.llvm.org/get_started.html) or [GCC](https://gcc.gnu.org/releases.html) compiler (on macOS clang comes with the developer tools)
+- Any IDE out there, preferably [VSCode](https://code.visualstudio.com/download) with the following extensions:
+  - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+  - [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+  - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+  - [conan-extension](https://marketplace.visualstudio.com/items?itemName=konicy.conan-extension)
+
+# Get Started
+
+- Install build dependencies:
+  ```sh
+  conan install . --output-folder=build --build=missing
+  ```
+- Click on CMake Tools icon <img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.18.16/1711685798086/Microsoft.VisualStudio.Services.Icons.Default" width="20px"/> in the extensions sidebar (Open [CMakeLists.txt](./CMakeLists.txt) if it doesn't appear for some reason).
+- Follow these steps:
+  
+https://github.com/dzcode-io/kuliya/assets/48713070/3f693a1c-050d-4ee2-bfce-9ade59e772ed
+
+# Usage
 
 ```c
 #include <stdio.h>
-#include "kuliya.h"
+#include <kuliya.h>
 
 int main(void)
 {
