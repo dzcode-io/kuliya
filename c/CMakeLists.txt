@@ -18,7 +18,7 @@ add_executable(test test/test.c)
 
 # Create the example executable
 add_executable(example example/main.c)
-add_executable(example1 example/main.cpp)
+add_executable(example2 example/main.cpp)
 
 # Create the build executable
 add_executable(build build.c)

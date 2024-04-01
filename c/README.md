@@ -17,7 +17,7 @@ Algeria's college hierarchy dataset as a C library
 
 - Install build dependencies:
   ```sh
-  conan install . --output-folder=build --build=missing
+  cd c && conan install . --output-folder=build --build=missing
   ```
 - Click on CMake Tools icon <img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.18.16/1711685798086/Microsoft.VisualStudio.Services.Icons.Default" width="20px"/> in the extensions sidebar (Open [CMakeLists.txt](./CMakeLists.txt) if it doesn't appear for some reason).
 - Follow these steps:
