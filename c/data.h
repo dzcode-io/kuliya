@@ -248,10 +248,10 @@ kuliya_schema ua2aks_falaol_dala = {.name = {.ar = "قسم اللغة العرب
 
 void __kuliya_init()
 {
-	umkb_fst_dee_sec.terms = malloc(sizeof(kuliya_terms));
+	umkb_fst_dee_sec.terms = (kuliya_terms *)malloc(sizeof(kuliya_terms));
 	umkb_fst_dee_sec.terms->per_year = 2;
 	umkb_fst_dee_sec.terms->number_of_slots = 4;
-	umkb_fst_dee_sec.terms->slots = malloc(4 * sizeof(int));
+	umkb_fst_dee_sec.terms->slots = (int *)malloc(4 * sizeof(int));
 	umkb_fst_dee_sec.terms->slots[0] = 7;
 	umkb_fst_dee_sec.terms->slots[1] = 8;
 	umkb_fst_dee_sec.terms->slots[2] = 9;

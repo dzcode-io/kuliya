@@ -181,10 +181,10 @@ void append_to_data_file()
     for (size_t i = 0; i < kuliya_with_terms_idx; ++i)
     {
         __s_kuliya_schema schema = kuliyas_with_terms[i];
-        fprintf(data_file, "\t%s.terms = malloc(sizeof(kuliya_terms));\n", schema.__varname);
+        fprintf(data_file, "\t%s.terms = (kuliya_terms *)malloc(sizeof(kuliya_terms));\n", schema.__varname);
         fprintf(data_file, "\t%s.terms->per_year = %d;\n", schema.__varname, schema.terms.per_year);
         fprintf(data_file, "\t%s.terms->number_of_slots = %zu;\n", schema.__varname, schema.__slots_length);
-        fprintf(data_file, "\t%s.terms->slots = malloc(%zu * sizeof(int));\n", schema.__varname, schema.__slots_length);
+        fprintf(data_file, "\t%s.terms->slots = (int *)malloc(%zu * sizeof(int));\n", schema.__varname, schema.__slots_length);
         for (size_t j = 0; j < schema.__slots_length; ++j)
         {
             fprintf(data_file, "\t%s.terms->slots[%zu] = %d;\n", schema.__varname, j, schema.terms.slots[j]);
@@ -318,7 +318,7 @@ void parse_info_json(const unsigned char *json_path)
             unsigned char data[length + 1];
             memcpy(data, &buf[token->start], length);
             data[length] = '\0';
-            if (STR_EQ("ar", data))
+            if (STR_EQ("ar", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -328,7 +328,7 @@ void parse_info_json(const unsigned char *json_path)
                 schema->name->ar = calloc(1, length + 1);
                 memcpy(schema->name->ar, data, length + 1);
             }
-            if (STR_EQ("en", data))
+            if (STR_EQ("en", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -338,7 +338,7 @@ void parse_info_json(const unsigned char *json_path)
                 schema->name->en = calloc(1, length + 1);
                 memcpy(schema->name->en, data, length + 1);
             }
-            if (STR_EQ("fr", data))
+            if (STR_EQ("fr", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -348,7 +348,7 @@ void parse_info_json(const unsigned char *json_path)
                 schema->name->fr = calloc(1, length + 1);
                 memcpy(schema->name->fr, data, length + 1);
             }
-            if (STR_EQ("type", data))
+            if (STR_EQ("type", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -358,11 +358,11 @@ void parse_info_json(const unsigned char *json_path)
                 schema->type = calloc(1, length + 1);
                 memcpy(schema->type, data, length + 1);
             }
-            if (STR_EQ("terms", data))
+            if (STR_EQ("terms", (char *)data))
             {
                 schema->terms = calloc(1, sizeof(kuliya_terms));
             }
-            if (STR_EQ("perYear", data))
+            if (STR_EQ("perYear", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -371,7 +371,7 @@ void parse_info_json(const unsigned char *json_path)
                 data[length] = '\0';
                 schema->terms->per_year = atoi(data);
             }
-            if (STR_EQ("slots", data))
+            if (STR_EQ("slots", (char *)data))
             {
                 token = &tokens[i + 1];
                 unsigned int length = token->end - token->start;
@@ -380,13 +380,13 @@ void parse_info_json(const unsigned char *json_path)
                 data[length] = '\0';
                 remove_chars(data, '[', ']', ' ');
                 unsigned char *rest = data;
-                unsigned char *ptr = u8_strtok(data, ",", &rest);
+                unsigned char *ptr = u8_strtok(data, (unsigned char *)",", &rest);
                 int tmp_slots[50];
                 while (ptr != NULL)
                 {
-                    int val = atoi(ptr);
+                    int val = atoi((const char *)ptr);
                     tmp_slots[s_idx++] = val;
-                    ptr = u8_strtok(NULL, ",", &rest);
+                    ptr = u8_strtok(NULL, (unsigned char *)",", &rest);
                 }
                 schema->terms->slots = calloc(1, s_idx * sizeof(*schema->terms->slots));
                 memcpy(schema->terms->slots, tmp_slots, s_idx * sizeof(int));
