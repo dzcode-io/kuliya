@@ -13,7 +13,6 @@
 typedef enum
 {
 	/** University. */
-	
 	UNIVERSITY,
 	/** Academy. */
 	ACADEMY,
