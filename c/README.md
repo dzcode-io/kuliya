@@ -22,8 +22,8 @@ Algeria's college hierarchy dataset as a C library
   ```
 - Click on CMake Tools icon <img src="https://ms-vscode.gallerycdn.vsassets.io/extensions/ms-vscode/cmake-tools/1.18.16/1711685798086/Microsoft.VisualStudio.Services.Icons.Default" width="20px"/> in the extensions sidebar (Open [CMakeLists.txt](./CMakeLists.txt) if it doesn't appear for some reason).
 - Follow these steps:
-  
-https://github.com/dzcode-io/kuliya/assets/48713070/3f693a1c-050d-4ee2-bfce-9ade59e772ed
+
+https://github.com/dzcode-io/kuliya/assets/48713070/f2037ee9-68a9-462d-aa1c-c33699d8f05f
 
 - To build docs locally:
   ```sh
