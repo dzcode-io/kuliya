@@ -7,6 +7,17 @@ include_directories(helpers)
 # Add the helpers subdirectory
 add_subdirectory(helpers)
 
+# Create the build executable
+add_executable(build build.c)
+
+# Add a custom target that depends on the 'build' target
+add_custom_target(run_build
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/build
+    DEPENDS build
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMENT "Running build executable"
+)
+
 # Create the shared library "kuliya"
 add_library(kuliya SHARED kuliya.h)
 
@@ -20,8 +31,6 @@ add_executable(test test/test.c)
 add_executable(example example/main.c)
 add_executable(example2 example/main.cpp)
 
-# Create the build executable
-add_executable(build build.c)
 
 # Link the test and example executables with the "kuliya" library
 target_link_libraries(test kuliya)
