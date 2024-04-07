@@ -32,7 +32,7 @@ add_executable(example example/main.c)
 add_executable(example2 example/main.cpp)
 
 
-# Link the test and example executables with the "kuliya" library
+# Link the example executable with the "kuliya" library
 target_link_libraries(example kuliya)
 target_link_libraries(example2 kuliya)
 
@@ -47,7 +47,7 @@ target_link_libraries(build jsmn::jsmn)
 find_package(libunistring REQUIRED)
 target_link_libraries(build libunistring::libunistring)
 
-# Link test executable with "CppUTest" library
+# Link test executable with required libraries
 find_package(CppUTest REQUIRED)
 target_link_libraries(test PRIVATE kuliya helpers cpputest::cpputest libunistring::libunistring)
 
