@@ -1,6 +1,3 @@
-#include <CppUTest/TestHarness_c.h>
-#include <CppUTest/CommandLineTestRunner.h>
-
 #include "test.h"
 
 TEST_GROUP(KuliyaSchemaTests){
