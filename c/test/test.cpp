@@ -1,7 +1,15 @@
 #include "test.h"
 
 TEST_GROUP(KuliyaSchemaTests){
-    void setup(){} void teardown(){}};
+    void setup(){
+        kuliya_init();
+}
+void teardown()
+{
+    kuliya_deinit();
+}
+}
+;
 
 TEST(KuliyaSchemaTests, GetExistingSchema)
 {
