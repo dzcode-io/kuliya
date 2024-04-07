@@ -145,10 +145,10 @@ void prepend_to_data_file()
     fprintf(data_file, "#ifndef DATA_H\n#define DATA_H\n");
     fprintf(data_file, "\n#include <stdlib.h>\n#include <string.h>\n");
     fprintf(data_file, "\n#define STR_EQ(str1, str2) (strcmp(str1, str2) == 0)\n");
-    fprintf(data_file, "\ntypedef enum\n{\n\tUNIVERSITY,\n\tACADEMY,\n\tPRIVATE_SCHOOL,\n\tINSTITUTE,\n\tFACULTY,\n\tDEPARTMENT,\n\tSPECIALTY,\n\tSECTOR\n} node_type;\n");
-    fprintf(data_file, "\ntypedef struct\n{\n\tconst char *ar;\n\tconst char *en;\n\tconst char *fr;\n} kuliya_name;\n");
-    fprintf(data_file, "\ntypedef struct\n{\n\tint per_year;\n\tint *slots;\n\tsize_t number_of_slots;\n} kuliya_terms;\n");
-    fprintf(data_file, "\ntypedef struct\n{\n\tkuliya_name name;\n\tnode_type type;\n\tkuliya_terms *terms;\n} kuliya_schema;\n\n");
+    fprintf(data_file, "\n/**\n * Node type.\n */\ntypedef enum\n{\n\t/** University. */\n\tUNIVERSITY,\n\t/** Academy. */\n\tACADEMY,\n\t/** Private school. */\n\tPRIVATE_SCHOOL,\n\t/** Institute */\n\tINSTITUTE,\n\t/** Faculty */\n\tFACULTY,\n\t/** Department */\n\tDEPARTMENT,\n\t/** Specialty. */\n\tSPECIALTY,\n\t/** Sector. */\n\tSECTOR\n} node_type;\n");
+    fprintf(data_file, "\n/**\n * Kuliya names in Arabic, English and French.\n */\ntypedef struct\n{\n\t/** Arabic name. */\n\tconst char *ar;\n\t/** English name. */\n\tconst char *en;\n\t/** French name. */\n\tconst char *fr;\n} kuliya_name;\n");
+    fprintf(data_file, "\n/**\n * Kuliya terms.\n */\ntypedef struct\n{\n\t/** Slots per year. */\n\tint per_year;\n\t/** Slots. */\n\tint *slots;\n\t/** Number of slots. */\n\tsize_t number_of_slots;\n} kuliya_terms;\n");
+    fprintf(data_file, "\n/**\n * Kuliya schema.\n */\ntypedef struct\n{\n\t/** Name. */\n\tkuliya_name name;\n\t/** Node type. */\n\tnode_type type;\n\t/** Terms. */\n\tkuliya_terms *terms;\n} kuliya_schema;\n\n");
 
     char *line = NULL;
     size_t len = 0;
@@ -177,7 +177,7 @@ void append_to_data_file()
         exit(EXIT_FAILURE);
 
     // Add init function to allocate memory for necessary heap allocated data
-    fprintf(data_file, "\nvoid __kuliya_init()\n{\n");
+    fprintf(data_file, "\nstatic void __kuliya_init()\n{\n");
     for (size_t i = 0; i < kuliya_with_terms_idx; ++i)
     {
         __s_kuliya_schema schema = kuliyas_with_terms[i];
@@ -193,7 +193,7 @@ void append_to_data_file()
     fprintf(data_file, "}\n");
 
     // Add deinit function to free heap allocated data
-    fprintf(data_file, "\nvoid __kuliya_deinit()\n{\n");
+    fprintf(data_file, "\nstatic void __kuliya_deinit()\n{\n");
     for (size_t i = 0; i < kuliya_with_terms_idx; ++i)
     {
         __s_kuliya_schema schema = kuliyas_with_terms[i];
@@ -203,7 +203,7 @@ void append_to_data_file()
     fprintf(data_file, "}\n");
 
     // Prepare get node by path API
-    fprintf(data_file, "\nkuliya_schema *__get_node_by_path(const char *path)\n{");
+    fprintf(data_file, "\nstatic kuliya_schema *__get_node_by_path(const char *path)\n{");
     fprintf(data_file, "%s\n", clauses);
     fprintf(data_file, "\treturn NULL;\n");
     fprintf(data_file, "}\n");
@@ -228,7 +228,7 @@ void save_to_file(kuliya_schema *schema, const size_t slots_length, const unsign
     path_value[u8_strlen(path_value) - suffix_length] = '\0';
     replace_char(path_value, '/', '_');
 
-    fprintf(data_file, "kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s, .terms = NULL};\n",
+    fprintf(data_file, "static kuliya_schema %s = {.name = {.ar = \"%s\", .en = \"%s\", .fr = \"%s\"}, .type = %s, .terms = NULL};\n",
             path_value,
             schema->name->ar,
             schema->name->en,

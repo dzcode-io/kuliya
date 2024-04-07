@@ -1,0 +1,49 @@
+name: C publish Doxygen
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_docs_and_publish:
+    name: kuliya - latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Conan
+        uses: turtlebrowser/get-conan@v1.2
+
+      - name: Create default profile
+        run: conan profile detect --force
+
+      - name: Install dependencies
+        run: |
+          cd c
+          conan install . --output-folder=build --build=missing
+
+      - name: Set up build environment
+        run: |
+          cd c/build
+          sh conanbuild.sh
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build and run build script
+        run: |
+          cd c/build
+          make build
+          cd ..
+          ./build/build
+
+      - name: Build docs with Doxygen
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          working-directory: 'c/'
+          doxyfile-path: 'Doxyfile'
+
+      - name: Publish to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./c/docs/html
