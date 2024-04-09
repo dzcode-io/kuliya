@@ -51,5 +51,10 @@ target_link_libraries(build libunistring::libunistring)
 find_package(CppUTest REQUIRED)
 target_link_libraries(test PRIVATE kuliya helpers cpputest::cpputest libunistring::libunistring)
 
+# Make all targets depend on the 'run_build' target, which in itself depends on the 'build' target
+add_dependencies(kuliya run_build)
+add_dependencies(test run_build)
+add_dependencies(example run_build)
+add_dependencies(example2 run_build)
 # Print a success message
 message("CMakeLists.txt updated successfully.")
