@@ -43,6 +43,7 @@ jobs:
           type: 'tar'
           filename: 'c-release.tar.gz'
           directory: 'c'
+          exclusions: './build/*'
 
       - name: Upload release
         uses: ncipollo/release-action@v1.14.0
