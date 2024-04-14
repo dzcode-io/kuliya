@@ -47,5 +47,6 @@ jobs:
       - name: Upload release
         uses: ncipollo/release-action@v1.14.0
         with:
+          name: 'Kuliya latest'
           artifacts: 'c-release.tar.gz'
           token: ${{ secrets.GITHUB_TOKEN }}
