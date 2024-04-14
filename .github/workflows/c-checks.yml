@@ -31,21 +31,17 @@ jobs:
           sh conanbuild.sh
           cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
 
-      - name: Build and run build script
+      - name: Build all targets
         run: |
           cd c/build
-          make build
-          cd ..
-          ./build/build
+          make all
 
-      - name: Build and run tests
+      - name: Run tests
         run: |
-          cd c/build
-          make test
-          ./test
+          cd c
+          ctest
 
-      - name: Build and run example
+      - name: Run example
         run: |
-          cd c/build
-          make example
-          ./example
+          cd c
+          ./build/example
