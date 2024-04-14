@@ -42,18 +42,21 @@ jobs:
           cd c
           ./build/build
 
+      - name: Create release folder
+        run: mkdir -p github-release
+
       - name: Create archive
         uses: TheDoctor0/zip-release@0.7.6
         with:
           type: 'tar'
-          filename: 'c-release.tar.gz'
+          filename: 'github-release/c-release.tar.gz'
           directory: 'c'
-          exclusions: './build/*'
+          exclusions: './build/* github-release'
 
       - name: Upload release
         uses: ncipollo/release-action@v1.14.0
         with:
           name: 'Kuliya latest'
-          artifacts: 'c-release.tar.gz'
+          artifacts: 'github-release/c-release.tar.gz'
           tag: 'c-${{ inputs.tag }}'
           token: ${{ secrets.GITHUB_TOKEN }}
