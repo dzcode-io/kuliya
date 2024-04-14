@@ -2,6 +2,11 @@ name: C Releases
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (.eg c-v1.0.0)'
+        required: true
+        type: string
 
 jobs:
   build_and_upload_c_lib_release:
@@ -50,4 +55,5 @@ jobs:
         with:
           name: 'Kuliya latest'
           artifacts: 'c-release.tar.gz'
+          tag: ${{ inputs.tag }}
           token: ${{ secrets.GITHUB_TOKEN }}
