@@ -1,0 +1,51 @@
+name: C Releases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_upload_c_lib_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Conan
+        uses: turtlebrowser/get-conan@v1.2
+
+      - name: Create default profile
+        run: conan profile detect --force
+
+      - name: Install dependencies
+        run: |
+          cd c
+          conan install . --output-folder=build --build=missing
+
+      - name: Set up build environment
+        run: |
+          cd c/build
+          sh conanbuild.sh
+          cmake .. -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build all targets
+        run: |
+          cd c/build
+          make build
+
+      - name: Build `data.h`
+        run: |
+          cd c
+          ./build/build
+
+      - name: Create archive
+        uses: TheDoctor0/zip-release@0.7.6
+        with:
+          type: 'tar'
+          filename: 'c-release.tar.gz'
+          directory: 'c'
+
+      - name: Upload release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          artifacts: 'c-release.tar.gz'
+          token: ${{ secrets.GITHUB_TOKEN }}
