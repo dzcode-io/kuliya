@@ -2,6 +2,41 @@
 
 Algeria's college hierarchy dataset as a C library
 
+# Installation
+
+You can use `kuliya` library with one of these 2 options:
+
+1. Build it locally as it shown in [Get Started](#get-started) section then copy `kuliya.h` and `data.h` to your project.
+   
+2. Use conan package manager in your CMake project by following these steps:
+    - Add `kuliya` recipe to your `conanfile.txt`:
+    ```
+    [requires]
+    kuliya/1.0.0
+
+    [generators]
+    CMakeDeps
+    CMakeToolchain
+    ```
+    - Install the recipe with conan:
+    ```sh
+    conan install . --output-folder=build --build=missing
+    ```
+    - Update your `CMakeLists.txt` file accordingly:
+    ```cmake
+    cmake_minimum_required(VERSION 3.15)
+    project(sandbox C)
+
+    find_package(kuliya REQUIRED)
+
+    add_executable(${PROJECT_NAME} src/main.c)
+
+    target_link_libraries(${PROJECT_NAME} kuliya::kuliya)
+    ```
+    - Build and run your executable.
+
+You can check the usage [here](#usage).
+
 # Prerequisites
 
 - [CMake](https://cmake.org/download/) build system (minimum required version 3.19)
