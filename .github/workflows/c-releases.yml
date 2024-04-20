@@ -45,6 +45,9 @@ jobs:
       - name: Create release folder
         run: mkdir -p c/github-release
 
+      - name: Copy LICENSE file to c folder
+        run: cp LICENSE c/
+
       - name: Create archive
         uses: TheDoctor0/zip-release@0.7.6
         with:
