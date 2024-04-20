@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/kuliya
+kuliya.so
+kuliya.dylib
+kuliya.dll
+kuliya.a
+kuliya.lib
+kuliya-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
+d-test-library
