@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/kuliya
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+d-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst

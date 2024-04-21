@@ -1,0 +1,10 @@
+{
+  "authors": ["Omar Belghaouti"],
+  "copyright": "Copyright © 2024, dzCode.io",
+  "description": "Algeria's college hierarchy dataset as a D package.",
+  "license": "MIT",
+  "name": "kuliya",
+  "sourcePaths": ["d/source"],
+  "targetType": "library",
+  "subPackages": ["d"]
+}
