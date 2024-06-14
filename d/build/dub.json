@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"asdf": "~>0.7.17"
+	},
+	"name": "build"
+}
