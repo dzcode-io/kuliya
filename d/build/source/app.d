@@ -78,7 +78,7 @@ Params:
     schema = Schema to save
     path = Path of the info.json file
 +/
-void saveToFile(const Schema schema, string path)
+void saveToFile(const Schema schema, string path) @trusted
 {
     // remove ../_data/ prefix and /info.json suffix from path
     const auto pathParts = path.splitter('/').array;
@@ -86,18 +86,17 @@ void saveToFile(const Schema schema, string path)
     // replace / with _ in filePath
     const auto filePathUnderscored = filePath.replace("/", "_");
     File file = File(DATA_FILE, "a");
-    file.writeln("immutable Schema ", filePathUnderscored, " = ");
-    file.writeln("{");
+    file.writeln("immutable Schema ", filePathUnderscored, " = Schema(");
     file.writeln("    Name(\"", schema.name.ar, "\", \"", schema.name.en, "\", \"", schema.name.fr, "\"),");
     file.writeln("    Type.", schema.type, ",");
     if (schema.terms.isNull)
     {
-        file.writeln("    Nullable!Terms.init");
+        file.writeln("    Terms.init");
     }
     else
     {
         // file.writeln("    Nullable!Terms({", schema.terms.get.perYear, ", [", schema.terms.get.slots.join(", "), "]});"); // no propery join on const(int[]) error
-        file.write("    Nullable!Terms(", schema.terms.get.perYear, ", [", schema
+        file.write("    Terms(", schema.terms.get.perYear, ", [", schema
                 .terms.get.slots[0]);
         foreach (i, slot; schema.terms.get.slots[1 .. $])
         {
@@ -105,7 +104,7 @@ void saveToFile(const Schema schema, string path)
         }
         file.writeln("])");
     }
-    file.writeln("};");
+    file.writeln(");");
     file.writeln();
     file.close();
 }
@@ -117,7 +116,7 @@ Params:
 Returns:
     Schema
 +/
-Schema parseInfoJson(string path)
+Schema parseInfoJson(string path) @trusted
 {
     const auto data = readText(path);
     Schema schema;
@@ -130,7 +129,7 @@ Walk through directories and parse info.json files
 Params:
     path = Path of the directory
 +/
-void walkDirs(string path)
+void walkDirs(string path) @trusted
 {
     import std.file : DirEntry, dirEntries, isDir, isFile, SpanMode;
 
@@ -151,11 +150,13 @@ void walkDirs(string path)
 /++
 Prepare data file with the schema structure
 +/
-void prepareDataFile()
+void prepareDataFile() @trusted
 {
     File file = File(DATA_FILE, "w");
     file.writeln("// This is an auto generated file, do not edit it!");
     file.writeln("module kuliya.data;");
+    file.writeln();
+    file.writeln("import std.typecons : Nullable;");
     file.writeln();
     file.writeln("enum Type");
     file.writeln("{");
@@ -187,12 +188,19 @@ void prepareDataFile()
     file.writeln("    Name name;");
     file.writeln("    Type type;");
     file.writeln("    Nullable!Terms terms;");
+    file.writeln();
+    file.writeln("    this(Name name, Type type, Terms terms)");
+    file.writeln("    {");
+    file.writeln("        this.name = name;");
+    file.writeln("        this.type = type;");
+    file.writeln("        this.terms = Nullable!Terms(terms);");
+    file.writeln("    }");
     file.writeln("}");
     file.writeln();
     file.close();
 }
 
-void main()
+void main() @trusted
 {
     try
     {
