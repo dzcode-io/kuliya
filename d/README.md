@@ -21,6 +21,11 @@ Algeria's college hierarchy dataset as a D package
 cd d && dub test
 ```
 
+- Build data:
+```sh
+cd d/build && dub
+```
+
 # Contribute
 
 Feel free to ask for help in [#kuliya](https://dzcode.slack.com/archives/C01C0155CKC) group chat
