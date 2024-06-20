@@ -86,7 +86,7 @@ void saveToFile(const Schema schema, string path) @trusted
     // replace / with _ in filePath
     const auto filePathUnderscored = filePath.replace("/", "_");
     File file = File(DATA_FILE, "a");
-    file.writeln("immutable Schema ", filePathUnderscored, " = Schema(");
+    file.writeln("static Schema ", filePathUnderscored, " = Schema(");
     file.writeln("    Name(\"", schema.name.ar, "\", \"", schema.name.en, "\", \"", schema.name.fr, "\"),");
     file.writeln("    Type.", schema.type, ",");
     if (schema.terms.isNull)
