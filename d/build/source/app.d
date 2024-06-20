@@ -18,6 +18,10 @@ const string DATA_PATH = "../../_data/";
 Data D file to save the schema
 +/
 const string DATA_FILE = "../source/kuliya/data.d";
+/++
+Schemas with file paths
++/
+SchemaWithFilePath[] schemas;
 
 /++
 Kuliya types
@@ -73,6 +77,16 @@ struct Schema
 }
 
 /++
+Schema with file path
++/
+struct SchemaWithFilePath
+{
+    const Schema schema;
+    string filePath;
+    string filePathUnderscored;
+}
+
+/++
 Save schema to file
 Params:
     schema = Schema to save
@@ -85,18 +99,20 @@ void saveToFile(const Schema schema, string path) @trusted
     const auto filePath = pathParts[3 .. $ - 1].join("/");
     // replace / with _ in filePath
     const auto filePathUnderscored = filePath.replace("/", "_");
+    // save schema with file path
+    schemas ~= SchemaWithFilePath(schema, filePath, filePathUnderscored);
+    // save schema to data file
     File file = File(DATA_FILE, "a");
     file.writeln("static Schema ", filePathUnderscored, " = Schema(");
     file.writeln("    Name(\"", schema.name.ar, "\", \"", schema.name.en, "\", \"", schema.name.fr, "\"),");
     file.writeln("    Type.", schema.type, ",");
     if (schema.terms.isNull)
     {
-        file.writeln("    Terms.init");
+        file.writeln("    null");
     }
     else
     {
-        // file.writeln("    Nullable!Terms({", schema.terms.get.perYear, ", [", schema.terms.get.slots.join(", "), "]});"); // no propery join on const(int[]) error
-        file.write("    Terms(", schema.terms.get.perYear, ", [", schema
+        file.write("    new Terms(", schema.terms.get.perYear, ", [", schema
                 .terms.get.slots[0]);
         foreach (i, slot; schema.terms.get.slots[1 .. $])
         {
@@ -156,8 +172,6 @@ void prepareDataFile() @trusted
     file.writeln("// This is an auto generated file, do not edit it!");
     file.writeln("module kuliya.data;");
     file.writeln();
-    file.writeln("import std.typecons : Nullable;");
-    file.writeln();
     file.writeln("/++");
     file.writeln("Kuliya types");
     file.writeln("+/");
@@ -207,13 +221,36 @@ void prepareDataFile() @trusted
     file.writeln("    /// Type");
     file.writeln("    Type type;");
     file.writeln("    /// Terms");
-    file.writeln("    Nullable!Terms terms;");
+    file.writeln("    Terms* terms;");
+    file.writeln("}");
     file.writeln();
-    file.writeln("    this(Name name, Type type, Terms terms)");
+    file.close();
+}
+
+/++
+Save to data the implementation of the getNodeByPath function
++/
+void saveGetNodeByPath() @trusted
+{
+    File file = File(DATA_FILE, "a");
+    file.writeln("/++");
+    file.writeln("Get node by path");
+    file.writeln("Params:");
+    file.writeln("    path = Path of the node");
+    file.writeln("Returns:");
+    file.writeln("    Schema");
+    file.writeln("+/");
+    file.writeln("Schema* _getNodeByPath(string path)");
+    file.writeln("{");
+    file.writeln("    switch (path)");
     file.writeln("    {");
-    file.writeln("        this.name = name;");
-    file.writeln("        this.type = type;");
-    file.writeln("        this.terms = Nullable!Terms(terms);");
+    foreach (schema; schemas)
+    {
+        file.writeln("        case \"", schema.filePath, "\":");
+        file.writeln("            return &", schema.filePathUnderscored, ";");
+    }
+    file.writeln("        default:");
+    file.writeln("            return null;");
     file.writeln("    }");
     file.writeln("}");
     file.writeln();
@@ -228,6 +265,7 @@ void main() @trusted
             remove(DATA_FILE);
         prepareDataFile();
         walkDirs(DATA_PATH);
+        saveGetNodeByPath();
     }
     catch (Exception e)
     {
