@@ -14,8 +14,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dlang-community/setup-dlang@4c99aa991ce7d19dd3064de0a4f2f6b2f152e2d7
 
-      - name: Build & Test
+      - name: Build data.d
+        run: |
+          cd d/build
+          dub
+
+      - name: Run tests
         run: |
           cd d
-          dub build --compiler=$DC
-          dub test --compiler=$DC
+          dub test
