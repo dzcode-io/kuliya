@@ -10,6 +10,7 @@ serde_derive = ["dep:serde", "dep:serde_json"]
 storage = ["serde_derive"]
 
 [dependencies]
+nest_struct = "0.5.2"
 serde = { version = "1.0.194", features = ["derive"], optional = true }
 serde_json = { version = "1.0.110", optional = true }
 
