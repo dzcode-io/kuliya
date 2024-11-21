@@ -3,6 +3,9 @@ name = "kuliya"
 version = "0.1.0"
 edition = "2021"
 
+[package.metadata.docs.rs]
+all-features = true
+
 [features]
 default = ["static"]
 static = []
@@ -17,6 +20,3 @@ serde_json = { version = "1.0.110", optional = true }
 [build-dependencies]
 serde = { version = "1.0.194", features = ["derive"] }
 serde_json = { version = "1.0.110", features = ["preserve_order"] }
-
-[package.metadata.docs.rs]
-all-features = true
