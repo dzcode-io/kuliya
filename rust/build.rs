@@ -1,4 +1,4 @@
-#![cfg(feature = "const")]
+#![cfg(feature = "static")]
 use serde_json::Value;
 use std::{fs, io, path::Path};
 

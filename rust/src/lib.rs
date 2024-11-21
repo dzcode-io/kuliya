@@ -1,5 +1,4 @@
-// @TODO-ZM: change const to static
-#[cfg(feature = "const")]
+#[cfg(feature = "static")]
 pub mod r#static;
 #[cfg(feature = "storage")]
 pub mod storage;
