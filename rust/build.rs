@@ -83,22 +83,26 @@ mod r#static {
         };
 
         let sub_dirs = fs::read_dir(&dir).unwrap();
-        let children = sub_dirs.filter_map(|entry| {
-            let entry = entry.unwrap();
-            let ty = entry.file_type().unwrap();
-            if ty.is_dir() {
-                Some(dir_tree_to_list(entry.path()))
-            } else {
-                None
-            }
-        });
+        let mut children: Vec<(String, String)> = sub_dirs
+            .filter_map(|entry| {
+                let entry = entry.unwrap();
+                let ty = entry.file_type().unwrap();
+                if ty.is_dir() {
+                    Some(dir_tree_to_list(entry.path()))
+                } else {
+                    None
+                }
+            })
+            .collect();
+        // to ensure deterministic output on different platforms
+        children.sort();
 
         let mut constants = String::new();
         let mut matches = String::new();
-        children.for_each(|(c, m)| {
+        for (c, m) in children {
             constants.push_str(&c);
             matches.push_str(&m);
-        });
+        }
 
         (
             format!("{}{}", this_node, constants),
@@ -134,7 +138,11 @@ pub mod data;
     }
 
     pub fn main() {
-        generate_data_file().unwrap();
+        if Path::new("../_data").exists() {
+            generate_data_file().unwrap();
+        } else {
+            println!("No _data directory found. Skipping data generation.");
+        }
     }
 }
 
