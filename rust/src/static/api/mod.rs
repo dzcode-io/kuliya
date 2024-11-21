@@ -1,6 +1,17 @@
+//! This module contains the API for the `static` feature.
+
 use super::_auto_generated;
 use super::node::Node;
 
+/// Retrieves a node by its path.
+///
+/// # Arguments
+///
+/// * `path` - A string slice that holds the path of the node.
+///
+/// # Returns
+///
+/// * `Option<&Node>` - An optional reference to the node if found, otherwise `None`.
 pub fn get_node_by_path(path: &str) -> Option<&Node> {
     _auto_generated::data::get_node_by_path(path)
 }
