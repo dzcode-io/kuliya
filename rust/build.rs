@@ -134,7 +134,11 @@ pub mod data;
     }
 
     pub fn main() {
-        generate_data_file().unwrap();
+        if Path::new("../_data").exists() {
+            generate_data_file().unwrap();
+        } else {
+            println!("No _data directory found. Skipping data generation.");
+        }
     }
 }
 
