@@ -13,20 +13,29 @@ jobs:
   build_and_test:
     name: kuliya - latest
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        toolchain:
-          - stable
-          - beta
-          - nightly
+    env:
+      CWD: "rust"
     steps:
       - uses: actions/checkout@v4
-      - run: rustup update ${{ matrix.toolchain }}
-      - run: rustup default ${{ matrix.toolchain }}
-      - run: rustup component add clippy
-      - run: cd rust && cargo clippy --all-features -- -Dwarnings
-      - run: cd rust && cargo build --verbose
-      - run: cd rust && cargo test --verbose
-      - run: cd rust && cargo test --verbose --lib --bins --tests --features serde_derive
-      - run: cd rust && cargo test --verbose  --lib --bins --tests --no-default-features --features storage
-      - run: cd rust && cargo test --verbose --all-features
+        with:
+          fetch-depth: 0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          components: clippy
+      - run: cargo install cargo-readme
+      - run: cargo readme > README.md
+        working-directory: ${{ env.CWD }}
+      - run: cargo clippy --all-features -- -Dwarnings
+        working-directory: ${{ env.CWD }}
+      - run: cargo build --verbose
+        working-directory: ${{ env.CWD }}
+      - name: "is docs updated and generated files are committed"
+        run: exit $(git status --porcelain | wc -l)
+      - run: cargo test --verbose
+        working-directory: ${{ env.CWD }}
+      - run: cargo test --verbose --lib --bins --tests --features serde_derive
+        working-directory: ${{ env.CWD }}
+      - run: cargo test --verbose  --lib --bins --tests --no-default-features --features storage
+        working-directory: ${{ env.CWD }}
+      - run: cargo test --verbose --all-features
+        working-directory: ${{ env.CWD }}

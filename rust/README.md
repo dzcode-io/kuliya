@@ -1,13 +1,24 @@
-# kuliya for Rust
+# kuliya
 
-Algeria's college hierarchy dataset as Cargo package
+Algeria's college hierarchy dataset as a crate with useful APIs.
 
-# Get started
+Example
 
-WIP
+```rust
+use kuliya::r#static::api::get_node_by_path;
 
-# Contribute
+let faculty_of_science_and_technology = get_node_by_path("umkb/fst");
 
-Please install Rust compiler using https://rustup.rs/
+assert_eq!(faculty_of_science_and_technology.is_some(), true);
 
-Feel free to ask for help in [#kuliya](https://dzcode.slack.com/archives/C01C0155CKC) group chat
+let faculty_of_science_and_technology = faculty_of_science_and_technology.unwrap();
+
+assert_eq!(faculty_of_science_and_technology.name.ar, "كلية العلوم والتكنلوجيا");
+
+// when the path is not found, the function returns None
+let non_existing_node = get_node_by_path("umkb/fst/unknown");
+
+assert_eq!(non_existing_node.is_none(), true);
+```
+
+License: MIT
