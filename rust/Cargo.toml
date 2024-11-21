@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["static", "serde_derive", "storage"]
+default = ["static"]
 static = []
 serde_derive = ["dep:serde", "dep:serde_json"]
 storage = ["serde_derive"]

@@ -1,3 +1,4 @@
+#[cfg(feature = "serde_derive")]
 use serde::Serialize;
 
 #[derive(Debug, PartialEq)]
