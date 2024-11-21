@@ -1,9 +1,7 @@
-#[cfg(feature = "const")]
+#![cfg(feature = "const")]
 use serde_json::Value;
-#[cfg(feature = "const")]
 use std::{fs, io, path::Path};
 
-#[cfg(feature = "const")]
 fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
     let info_path = dir.as_ref().join("info.json");
     let info_dot_json = match info_path.exists() {
@@ -107,14 +105,13 @@ fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
     )
 }
 
-#[cfg(feature = "const")]
 fn generate_data_file() -> Result<(), io::Error> {
     let string_tree = dir_tree_to_list("../_data");
 
     let data = format!(
         r##"// This is auto-generated. Do not edit manually.
 
-use crate::node::model::{{Node, NodeName, NodeType, NodeTerms}};
+use super::super::node::{{Node, NodeName, NodeType, NodeTerms}};
 
 {}
 pub fn get_node_by_path(path: &str) -> Option<&Node> {{
@@ -124,10 +121,10 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {{
 }}"##,
         string_tree.0, string_tree.1
     );
-    fs::create_dir_all("./src/_auto_generated")?;
-    fs::write("./src/_auto_generated/data.rs", data)?;
+    fs::create_dir_all("./src/static/_auto_generated")?;
+    fs::write("./src/static/_auto_generated/data.rs", data)?;
     fs::write(
-        "./src/_auto_generated/mod.rs",
+        "./src/static/_auto_generated/mod.rs",
         r#"// This is auto-generated. Do not edit manually
 pub mod data;
 "#,
@@ -136,6 +133,5 @@ pub mod data;
 }
 
 fn main() {
-    #[cfg(feature = "const")]
     generate_data_file().unwrap();
 }
