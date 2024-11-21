@@ -1,0 +1,22 @@
+name: "CD"
+run-name: "Publish: ${{ github.ref_name }}"
+
+on:
+    push:
+        tags:
+            - "rust-*"
+
+jobs:
+    publish:
+        name: cargo publish
+        runs-on: ubuntu-latest
+        env:
+            CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+            CWD: "rust"
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions-rust-lang/setup-rust-toolchain@v1
+            - run: cargo test --all-features
+              working-directory: ${{ env.CWD }}
+            - run: cargo publish
+              working-directory: ${{ env.CWD }}
