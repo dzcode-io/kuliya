@@ -27,6 +27,6 @@ jobs:
       - run: cd rust && cargo clippy --all-features -- -Dwarnings
       - run: cd rust && cargo build --verbose
       - run: cd rust && cargo test --verbose
-      - run: cd rust && cargo test --verbose --features serde_derive
-      - run: cd rust && cargo test --verbose --no-default-features --features storage
+      - run: cd rust && cargo test --verbose --lib --bins --tests --features serde_derive
+      - run: cd rust && cargo test --verbose  --lib --bins --tests --no-default-features --features storage
       - run: cd rust && cargo test --verbose --all-features
