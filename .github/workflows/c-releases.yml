@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag (.eg v1.0.0)'
+        description: "Release tag (.eg v1.0.0)"
         required: true
         type: string
 
@@ -51,15 +51,15 @@ jobs:
       - name: Create archive
         uses: TheDoctor0/zip-release@0.7.6
         with:
-          type: 'tar'
-          filename: 'github-release/c-release.tar.gz'
-          directory: 'c'
-          exclusions: './build/* github-release'
+          type: "tar"
+          filename: "github-release/c-release.tar.gz"
+          directory: "c"
+          exclusions: "./build/* github-release"
 
       - name: Upload release
         uses: ncipollo/release-action@v1.14.0
         with:
-          name: 'Kuliya latest'
-          artifacts: 'c/github-release/c-release.tar.gz'
-          tag: 'c-${{ inputs.tag }}'
+          name: "Kuliya latest"
+          artifacts: "c/github-release/c-release.tar.gz"
+          tag: "c-${{ inputs.tag }}"
           token: ${{ secrets.GITHUB_TOKEN }}

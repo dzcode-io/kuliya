@@ -32,8 +32,8 @@ rust:
 
 c:
   - changed-files:
-     - any-glob-to-any-file: "c/**"
+      - any-glob-to-any-file: "c/**"
 
 d:
   - changed-files:
-     - any-glob-to-any-file: "d/**"
+      - any-glob-to-any-file: "d/**"

@@ -2,21 +2,21 @@ name: "CD"
 run-name: "Publish: ${{ github.ref_name }}"
 
 on:
-    push:
-        tags:
-            - "rust-*"
+  push:
+    tags:
+      - "rust-*"
 
 jobs:
-    publish:
-        name: cargo publish
-        runs-on: ubuntu-latest
-        env:
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-          CWD: "rust"
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                fetch-depth: 0
-            - uses: actions-rust-lang/setup-rust-toolchain@v1
-            - run: cargo publish
-              working-directory: ${{ env.CWD }}
+  publish:
+    name: cargo publish
+    runs-on: ubuntu-latest
+    env:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      CWD: "rust"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - run: cargo publish
+        working-directory: ${{ env.CWD }}
