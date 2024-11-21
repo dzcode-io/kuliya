@@ -13,6 +13,7 @@ pub struct Node {
     pub name: nest! {
         /// A NodeName is a struct that contains the name of the node in three languages
         #[derive(Debug, PartialEq)]
+        #[cfg_attr(feature = "serde_derive", derive(Serialize))]
         pub struct NodeName {
             /// Arabic name
             pub ar: &'static str,

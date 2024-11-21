@@ -1,11 +1,25 @@
+//! This module contains the API for the `storage` feature.
+
 use super::node::Node;
 use std::path::Path;
 
+/// An error that can occur when interacting with the storage.
 pub enum StorageError {
+    /// An error that occurs when reading or writing to the file system.
     Io(std::io::Error),
+    /// An error that occurs when serializing or deserializing JSON.
     Json(serde_json::Error),
 }
 
+/// Retrieves a node by its path.
+///
+/// # Arguments
+///
+/// * `path` - A string slice that holds the path of the node.
+///
+/// # Returns
+///
+/// * `Result<Node, StorageError>` - A result that holds the node if found, otherwise an error.
 pub fn get_node_by_path(path: impl AsRef<Path>) -> Result<Node, StorageError> {
     let json_file_path = path.as_ref().join("info.json");
     let json_file_content = std::fs::read_to_string(json_file_path).map_err(StorageError::Io)?;
