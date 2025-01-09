@@ -1,3 +1,6 @@
 # kuliya for python
-
-Algeria's college hierarchy dataset as python package
+## **How to Use**
+1. **Run the script** with the JSON file path as an argument:
+   ```bash
+   python3 main.py <path-to-json-file>
+   ```
