@@ -15,10 +15,10 @@ serde_derive = ["dep:serde", "dep:serde_json"]
 storage = ["serde_derive"]
 
 [dependencies]
-nest_struct = "0.5.2"
-serde = { version = "1.0.194", features = ["derive"], optional = true }
-serde_json = { version = "1.0.110", optional = true }
+nest_struct = "0.5"
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
 
 [build-dependencies]
-serde = { version = "1.0.194", features = ["derive"] }
-serde_json = { version = "1.0.110", features = ["preserve_order"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
