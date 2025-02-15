@@ -16,6 +16,18 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
     _auto_generated::data::get_node_by_path(path)
 }
 
+/// Retrieves the children of a node by its path.
+/// # Arguments
+///
+/// * `path` - A string slice that holds the path of the node.
+///
+/// # Returns
+///
+/// * `Vec<&Node>` - A vector of references to the children nodes.
+pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
+    _auto_generated::data::get_node_children_by_path(path)
+}
+
 #[cfg(test)]
 mod test {
     use super::get_node_by_path;

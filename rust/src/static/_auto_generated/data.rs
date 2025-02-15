@@ -1859,7 +1859,7 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
     }
 }
 
-pub fn get_children_by_path(path: &str) -> Vec<&Node> {
+pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
     match path {
         "ua2aks" => vec![&UA2AKS_FLE, &UA2AKS_IT, &UA2AKS_IA, &UA2AKS_FSS, &UA2AKS_FSH, &UA2AKS_FALAOL],
         "ua2aks/falaol" => vec![&UA2AKS_FALAOL_DTS, &UA2AKS_FALAOL_DART, &UA2AKS_FALAOL_DTRL, &UA2AKS_FALAOL_DALA],

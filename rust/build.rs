@@ -158,7 +158,7 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {{
     }}
 }}
 
-pub fn get_children_by_path(path: &str) -> Vec<&Node> {{
+pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {{
     match path {{
 {}        _ => vec![],
     }}
