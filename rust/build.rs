@@ -3,20 +3,26 @@ mod r#static {
     use serde_json::Value;
     use std::{fs, io, path::Path};
 
-    fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String) {
+    fn dir_tree_to_list(dir: impl AsRef<Path>) -> (String, String, String) {
         let info_path = dir.as_ref().join("info.json");
-        let info_dot_json = match info_path.exists() {
+        let node_dir = match info_path.exists() {
             true => {
                 let info = fs::read_to_string(&info_path).unwrap();
                 let info: Value = serde_json::from_str(info.as_str()).unwrap();
                 let mut info = info.as_object().unwrap().clone();
                 info.remove("$schema");
-                Some(Value::Object(info))
+
+                let path = dir.as_ref().display().to_string();
+                Some((
+                    path.split("_data/").last().unwrap_or(&path).to_string(),
+                    Value::Object(info),
+                ))
             }
             false => None,
         };
-        let this_node = match &info_dot_json {
-            Some(info) => {
+
+        let this_node = match &node_dir {
+            Some((_, info)) => {
                 let path = dir.as_ref().display().to_string();
                 let path = path.split("_data/").last().unwrap_or(&path);
 
@@ -50,7 +56,7 @@ mod r#static {
 
                             match ty.as_str() {
                                 "Specialty" | "Sector" => format!(
-                                    r#"NodeType::{}{{
+                                    r#"NodeType::{} {{
         terms: NodeTerms {{
             per_year: 2,
             slots: &[7, 8, 9, 10],
@@ -69,10 +75,8 @@ mod r#static {
             None => String::new(),
         };
 
-        let this_match = match &info_dot_json {
-            Some(_) => {
-                let path = dir.as_ref().display().to_string();
-                let path = path.split("_data/").last().unwrap_or(&path);
+        let this_match = match &node_dir {
+            Some((path, _)) => {
                 format!(
                     "        \"{}\" => Some(&{}),\n",
                     path,
@@ -83,12 +87,22 @@ mod r#static {
         };
 
         let sub_dirs = fs::read_dir(&dir).unwrap();
-        let mut children: Vec<(String, String)> = sub_dirs
+        let mut children_names = Vec::new();
+        let mut children: Vec<(String, String, String)> = sub_dirs
             .filter_map(|entry| {
                 let entry = entry.unwrap();
                 let ty = entry.file_type().unwrap();
                 if ty.is_dir() {
-                    Some(dir_tree_to_list(entry.path()))
+                    let path = entry.path();
+                    children_names.push(
+                        path.display()
+                            .to_string()
+                            .split("_data/")
+                            .last()
+                            .map(|s| s.replace('/', "_").to_uppercase())
+                            .unwrap(),
+                    );
+                    Some(dir_tree_to_list(path))
                 } else {
                     None
                 }
@@ -97,16 +111,35 @@ mod r#static {
         // to ensure deterministic output on different platforms
         children.sort();
 
+        let this_children_match = match &node_dir {
+            Some((path, _)) => {
+                format!(
+                    r#"        "{}" => vec![{}],
+"#,
+                    path,
+                    children_names
+                        .iter()
+                        .map(|name| format!("&{}", name))
+                        .collect::<Vec<String>>()
+                        .join(", ")
+                )
+            }
+            None => String::new(),
+        };
+
         let mut constants = String::new();
         let mut matches = String::new();
-        for (c, m) in children {
-            constants.push_str(&c);
-            matches.push_str(&m);
+        let mut children_matches = String::new();
+        for (c, m, chm) in &children {
+            constants.push_str(c);
+            matches.push_str(m);
+            children_matches.push_str(chm);
         }
 
         (
             format!("{}{}", this_node, constants),
             format!("{}{}", this_match, matches),
+            format!("{}{}", this_children_match, children_matches),
         )
     }
 
@@ -123,8 +156,15 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {{
     match path {{
 {}        _ => None,
     }}
-}}"##,
-            string_tree.0, string_tree.1
+}}
+
+pub fn get_children_by_path(path: &str) -> Vec<&Node> {{
+    match path {{
+{}        _ => vec![],
+    }}
+}}
+"##,
+            string_tree.0, string_tree.1, string_tree.2
         );
         fs::create_dir_all("./src/static/_auto_generated")?;
         fs::write("./src/static/_auto_generated/data.rs", data)?;
