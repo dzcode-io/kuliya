@@ -191,6 +191,15 @@ const UA2AKS_IT: Node = Node {
     },
     r#type: NodeType::Institute,
 };
+const UBMA: Node = Node {
+    code: "ubma",
+    name: NodeName {
+        en: "University of Badji Mokhtar Annaba",
+        ar: "جامعة باجي مختار عنابة",
+        fr: "Université Badji Mokhtar Annaba",
+    },
+    r#type: NodeType::University,
+};
 const UBMA_FACDR: Node = Node {
     code: "facdr",
     name: NodeName {
@@ -1876,6 +1885,7 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
         "ua2aks/fss/dst" => Some(&UA2AKS_FSS_DST),
         "ua2aks/ia" => Some(&UA2AKS_IA),
         "ua2aks/it" => Some(&UA2AKS_IT),
+        "ubma" => Some(&UBMA),
         "ubma/facdr" => Some(&UBMA_FACDR),
         "ubma/facdr/pld" => Some(&UBMA_FACDR_PLD),
         "ubma/facdr/psd" => Some(&UBMA_FACDR_PSD),
@@ -2066,6 +2076,7 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
 
 pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
     match path {
+        "" => vec![&UMBM, &UMKB, &USTO, &UMMTO, &USTHB, &UBMA, &UA2AKS],
         "ua2aks" => vec![&UA2AKS_FLE, &UA2AKS_IT, &UA2AKS_IA, &UA2AKS_FSS, &UA2AKS_FSH, &UA2AKS_FALAOL],
         "ua2aks/falaol" => vec![&UA2AKS_FALAOL_DTS, &UA2AKS_FALAOL_DART, &UA2AKS_FALAOL_DTRL, &UA2AKS_FALAOL_DALA],
         "ua2aks/falaol/dala" => vec![],
@@ -2087,6 +2098,7 @@ pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
         "ua2aks/fss/dst" => vec![],
         "ua2aks/ia" => vec![],
         "ua2aks/it" => vec![],
+        "ubma" => vec![&UBMA_FACDR, &UBMA_FACSC, &UBMA_FACSCM, &UBMA_FACLSCHS, &UBMA_FACSCEG, &UBMA_FACSCT, &UBMA_FACSCI],
         "ubma/facdr" => vec![&UBMA_FACDR_PLD, &UBMA_FACDR_PSD],
         "ubma/facdr/pld" => vec![],
         "ubma/facdr/psd" => vec![],

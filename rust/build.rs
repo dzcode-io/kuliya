@@ -114,21 +114,19 @@ mod r#static {
         // to ensure deterministic output on different platforms
         children.sort();
 
-        let this_children_match = match &node_dir {
-            Some((path, _)) => {
-                format!(
-                    r#"        "{}" => vec![{}],
+        let this_children_match = format!(
+            r#"        "{}" => vec![{}],
 "#,
-                    path,
-                    children_names
-                        .iter()
-                        .map(|name| format!("&{}", name))
-                        .collect::<Vec<String>>()
-                        .join(", ")
-                )
-            }
-            None => String::new(),
-        };
+            match &node_dir {
+                Some((path, _)) => path,
+                None => "",
+            },
+            children_names
+                .iter()
+                .map(|name| format!("&{}", name))
+                .collect::<Vec<String>>()
+                .join(", ")
+        );
 
         let mut constants = String::new();
         let mut matches = String::new();
