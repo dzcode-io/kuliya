@@ -25,9 +25,11 @@ mod r#static {
             Some((_, info)) => {
                 let path = dir.as_ref().display().to_string();
                 let path = path.split("_data/").last().unwrap_or(&path);
+                let code = path.replace('/', "_").to_uppercase();
 
                 format!(
                     r#"const {}: Node = Node {{
+    code: "{}",
     name: NodeName {{
         en: {},
         ar: {},
@@ -36,7 +38,8 @@ mod r#static {
     r#type: {},
 }};
 "#,
-                    path.replace('/', "_").to_uppercase(),
+                    code,
+                    code,
                     info.get("name").unwrap().get("en").unwrap(),
                     info.get("name").unwrap().get("ar").unwrap(),
                     info.get("name").unwrap().get("fr").unwrap(),

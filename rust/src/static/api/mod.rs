@@ -36,6 +36,7 @@ mod test {
     #[test]
     fn check_three_schemas_and_non_existent() {
         let umkb = Node {
+            code: "UMKB",
             name: NodeName {
                 ar: "جامعة محمد خيضر بسكرة",
                 en: "University of Mohamed Khider Biskra",
@@ -44,6 +45,7 @@ mod test {
             r#type: NodeType::University,
         };
         let sec = Node {
+            code: "SEC",
             name: NodeName {
                 ar: "تخصص التحكم الكهربائي",
                 en: "Specialy of Electrical Control",
@@ -57,6 +59,7 @@ mod test {
             },
         };
         let fst = Node {
+            code: "FST",
             name: NodeName {
                 ar: "كلية العلوم والتكنلوجيا",
                 en: "Faculty of Science and Technology",
