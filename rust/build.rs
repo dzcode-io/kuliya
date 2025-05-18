@@ -25,7 +25,7 @@ mod r#static {
             Some((_, info)) => {
                 let path = dir.as_ref().display().to_string();
                 let path = path.split("_data/").last().unwrap_or(&path);
-                let code = path.split('/').last().unwrap_or(path).to_lowercase();
+                let code = path.split('/').next_back().unwrap_or(path).to_lowercase();
 
                 format!(
                     r#"const {}: Node = Node {{
