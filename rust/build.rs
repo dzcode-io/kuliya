@@ -114,6 +114,13 @@ mod r#static {
         // to ensure deterministic output on different platforms
         children.sort();
 
+        let mut children_names = children_names
+            .iter()
+            .map(|name| format!("&{}", name))
+            .collect::<Vec<String>>();
+        // to ensure deterministic output on different platforms
+        children_names.sort();
+
         let this_children_match = format!(
             r#"        "{}" => vec![{}],
 "#,
@@ -121,11 +128,7 @@ mod r#static {
                 Some((path, _)) => path,
                 None => "",
             },
-            children_names
-                .iter()
-                .map(|name| format!("&{}", name))
-                .collect::<Vec<String>>()
-                .join(", ")
+            children_names.join(", ")
         );
 
         let mut constants = String::new();
