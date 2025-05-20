@@ -3,6 +3,7 @@
 use super::super::node::{Node, NodeName, NodeType, NodeTerms};
 
 const UA2AKS: Node = Node {
+    code: "ua2aks",
     name: NodeName {
         en: "University of Algiers 2 Abou El-kacem Saâdallah",
         ar: "جامعة الجزائر 2  أبو القاسم سعد الله",
@@ -11,6 +12,7 @@ const UA2AKS: Node = Node {
     r#type: NodeType::University,
 };
 const UA2AKS_FALAOL: Node = Node {
+    code: "falaol",
     name: NodeName {
         en: "Faculty of Humanities",
         ar: "كلية العلوم الإنسانية",
@@ -19,6 +21,7 @@ const UA2AKS_FALAOL: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UA2AKS_FALAOL_DALA: Node = Node {
+    code: "dala",
     name: NodeName {
         en: "Department of Arabic Language and Arts",
         ar: "قسم اللغة العربية وآدابها ",
@@ -27,6 +30,7 @@ const UA2AKS_FALAOL_DALA: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FALAOL_DART: Node = Node {
+    code: "dart",
     name: NodeName {
         en: "Department of Arts",
         ar: "قسم الفنون ",
@@ -35,6 +39,7 @@ const UA2AKS_FALAOL_DART: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FALAOL_DTRL: Node = Node {
+    code: "dtrl",
     name: NodeName {
         en: "Department of Turkish and Russian Languages",
         ar: "قسم اللغة التركية والروسية ",
@@ -43,6 +48,7 @@ const UA2AKS_FALAOL_DTRL: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FALAOL_DTS: Node = Node {
+    code: "dts",
     name: NodeName {
         en: "Department of Tongue Sciences",
         ar: "قسم علوم اللسان ",
@@ -51,6 +57,7 @@ const UA2AKS_FALAOL_DTS: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FLE: Node = Node {
+    code: "fle",
     name: NodeName {
         en: "Faculty of Humanities",
         ar: "كلية العلوم الإنسانية",
@@ -59,6 +66,7 @@ const UA2AKS_FLE: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UA2AKS_FLE_DEN: Node = Node {
+    code: "den",
     name: NodeName {
         en: "Department of English",
         ar: "قسم اللغة الانجليزية ",
@@ -67,6 +75,7 @@ const UA2AKS_FLE_DEN: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FLE_DFR: Node = Node {
+    code: "dfr",
     name: NodeName {
         en: "Department of French",
         ar: "قسم اللغة الفرنسية ",
@@ -75,6 +84,7 @@ const UA2AKS_FLE_DFR: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FLE_DSGI: Node = Node {
+    code: "dsgi",
     name: NodeName {
         en: "Department of Spanish, German & Italian",
         ar: "قسم اللغات الاسبانية , الألمانية , الايطالية  ",
@@ -83,6 +93,7 @@ const UA2AKS_FLE_DSGI: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSH: Node = Node {
+    code: "fsh",
     name: NodeName {
         en: "Faculty of Humanities",
         ar: "كلية العلوم الإنسانية",
@@ -91,6 +102,7 @@ const UA2AKS_FSH: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UA2AKS_FSH_DH: Node = Node {
+    code: "dh",
     name: NodeName {
         en: "Department of philosophy",
         ar: "قسم الفلسفة",
@@ -99,6 +111,7 @@ const UA2AKS_FSH_DH: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSH_DLD: Node = Node {
+    code: "dld",
     name: NodeName {
         en: "Department of librarianship and documentation",
         ar: "قسم علم المكتبات والتوثيق",
@@ -107,6 +120,7 @@ const UA2AKS_FSH_DLD: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSH_DPH: Node = Node {
+    code: "dph",
     name: NodeName {
         en: "Department of history",
         ar: "قسم التاريخ",
@@ -115,6 +129,7 @@ const UA2AKS_FSH_DPH: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSS: Node = Node {
+    code: "fss",
     name: NodeName {
         en: "Faculty of humanities",
         ar: "كلية العلوم الإنسانية",
@@ -123,6 +138,7 @@ const UA2AKS_FSS: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UA2AKS_FSS_DEDU: Node = Node {
+    code: "dedu",
     name: NodeName {
         en: "Department of educational sciences",
         ar: "قسم علوم التربية",
@@ -131,6 +147,7 @@ const UA2AKS_FSS_DEDU: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSS_DPSY: Node = Node {
+    code: "dpsy",
     name: NodeName {
         en: "Department of psychology",
         ar: "قسم علم النفس",
@@ -139,6 +156,7 @@ const UA2AKS_FSS_DPSY: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSS_DSOCIO: Node = Node {
+    code: "dsocio",
     name: NodeName {
         en: "Department of sociology",
         ar: "قسم علم الاجتماع",
@@ -147,6 +165,7 @@ const UA2AKS_FSS_DSOCIO: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_FSS_DST: Node = Node {
+    code: "dst",
     name: NodeName {
         en: "Department of speech therapy",
         ar: "قسم الأرطوفونيا",
@@ -155,6 +174,7 @@ const UA2AKS_FSS_DST: Node = Node {
     r#type: NodeType::Department,
 };
 const UA2AKS_IA: Node = Node {
+    code: "ia",
     name: NodeName {
         en: "Institute of translation",
         ar: "معهد الترجمة",
@@ -163,6 +183,7 @@ const UA2AKS_IA: Node = Node {
     r#type: NodeType::Institute,
 };
 const UA2AKS_IT: Node = Node {
+    code: "it",
     name: NodeName {
         en: "Institute of archology",
         ar: "معهد الآثار",
@@ -170,7 +191,17 @@ const UA2AKS_IT: Node = Node {
     },
     r#type: NodeType::Institute,
 };
+const UBMA: Node = Node {
+    code: "ubma",
+    name: NodeName {
+        en: "University of Badji Mokhtar Annaba",
+        ar: "جامعة باجي مختار عنابة",
+        fr: "Université Badji Mokhtar Annaba",
+    },
+    r#type: NodeType::University,
+};
 const UBMA_FACDR: Node = Node {
+    code: "facdr",
     name: NodeName {
         en: "Faculty Of Law",
         ar: "كلية الحقوق",
@@ -179,6 +210,7 @@ const UBMA_FACDR: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACDR_PLD: Node = Node {
+    code: "pld",
     name: NodeName {
         en: "Public Law Department",
         ar: "قسم القانون العام",
@@ -187,6 +219,7 @@ const UBMA_FACDR_PLD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACDR_PSD: Node = Node {
+    code: "psd",
     name: NodeName {
         en: "Political Sciences Department",
         ar: "قسم العلوم السياسية",
@@ -195,6 +228,7 @@ const UBMA_FACDR_PSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS: Node = Node {
+    code: "faclschs",
     name: NodeName {
         en: "Faculty Of Letters, Humanities And Social Sciences",
         ar: "كلية الآداب والعلوم الإنسانية والاجتماعية",
@@ -203,6 +237,7 @@ const UBMA_FACLSCHS: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACLSCHS_ALLD: Node = Node {
+    code: "alld",
     name: NodeName {
         en: "Arabic Language And Literature Department",
         ar: "قسم اللغة العربية وآدابها",
@@ -211,6 +246,7 @@ const UBMA_FACLSCHS_ALLD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_BD: Node = Node {
+    code: "bd",
     name: NodeName {
         en: "Biblitheconomy Department",
         ar: "قسم علم المكتبيات",
@@ -219,6 +255,7 @@ const UBMA_FACLSCHS_BD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_ELD: Node = Node {
+    code: "eld",
     name: NodeName {
         en: "English Language Department",
         ar: "قسم اللغة الإنجليزية",
@@ -227,6 +264,7 @@ const UBMA_FACLSCHS_ELD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_FLD: Node = Node {
+    code: "fld",
     name: NodeName {
         en: "French Language Department",
         ar: "قسم اللغة الفرنسية",
@@ -235,6 +273,7 @@ const UBMA_FACLSCHS_FLD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_HD: Node = Node {
+    code: "hd",
     name: NodeName {
         en: "History Department",
         ar: "قسم التاريخ",
@@ -243,6 +282,7 @@ const UBMA_FACLSCHS_HD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_HSSD: Node = Node {
+    code: "hssd",
     name: NodeName {
         en: "Human And Social Sciences Department",
         ar: "قسم العلوم الإنسانية والاجتماعية",
@@ -251,6 +291,7 @@ const UBMA_FACLSCHS_HSSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_ICSD: Node = Node {
+    code: "icsd",
     name: NodeName {
         en: "Information And Communication Sciences Department",
         ar: "قسم علوم الإعلام والاتصال",
@@ -259,6 +300,7 @@ const UBMA_FACLSCHS_ICSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_ILD: Node = Node {
+    code: "ild",
     name: NodeName {
         en: "Italian Language Department",
         ar: "قسم اللغة الإيطالية",
@@ -267,6 +309,7 @@ const UBMA_FACLSCHS_ILD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_PD: Node = Node {
+    code: "pd",
     name: NodeName {
         en: "Philosophy Department",
         ar: "قسم الفلسفة",
@@ -275,6 +318,7 @@ const UBMA_FACLSCHS_PD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_PSED: Node = Node {
+    code: "psed",
     name: NodeName {
         en: "Physical And Sports Education Department",
         ar: "قسم التربية البدنية والرياضية",
@@ -283,6 +327,7 @@ const UBMA_FACLSCHS_PSED: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_SD: Node = Node {
+    code: "sd",
     name: NodeName {
         en: "Sociology Department",
         ar: "قسم الاجتماع",
@@ -291,6 +336,7 @@ const UBMA_FACLSCHS_SD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACLSCHS_TD: Node = Node {
+    code: "td",
     name: NodeName {
         en: "Translation Department",
         ar: "قسم الترجمة",
@@ -299,6 +345,7 @@ const UBMA_FACLSCHS_TD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC: Node = Node {
+    code: "facsc",
     name: NodeName {
         en: "Faculty Of Sciences",
         ar: "كلية العلوم",
@@ -307,6 +354,7 @@ const UBMA_FACSC: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACSC_BD: Node = Node {
+    code: "bd",
     name: NodeName {
         en: "Biology Department",
         ar: "قسم علم المكتبيات",
@@ -315,6 +363,7 @@ const UBMA_FACSC_BD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_CD: Node = Node {
+    code: "cd",
     name: NodeName {
         en: "Chemistry Department",
         ar: "قسم الكيمياء",
@@ -323,6 +372,7 @@ const UBMA_FACSC_CD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_MCD: Node = Node {
+    code: "mcd",
     name: NodeName {
         en: "Mathematics And Computing Department",
         ar: "قسم الرياضيات و الإعلام الألي",
@@ -331,6 +381,7 @@ const UBMA_FACSC_MCD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_MD: Node = Node {
+    code: "md",
     name: NodeName {
         en: "Mathematics Department",
         ar: "قسم الرياضيات",
@@ -339,6 +390,7 @@ const UBMA_FACSC_MD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_MSD: Node = Node {
+    code: "msd",
     name: NodeName {
         en: "Material Sciences Department",
         ar: "قسم العلوم الإدارية",
@@ -347,6 +399,7 @@ const UBMA_FACSC_MSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_NLSD: Node = Node {
+    code: "nlsd",
     name: NodeName {
         en: "Nature And Life Sciences Department",
         ar: "قسم علوم الطبيعة والحياة",
@@ -355,6 +408,7 @@ const UBMA_FACSC_NLSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_PD: Node = Node {
+    code: "pd",
     name: NodeName {
         en: "Physics Department",
         ar: "قسم الفلسفة",
@@ -363,6 +417,7 @@ const UBMA_FACSC_PD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSC_SSD: Node = Node {
+    code: "ssd",
     name: NodeName {
         en: "Sea Sciences Department",
         ar: "قسم علوم البحار",
@@ -371,6 +426,7 @@ const UBMA_FACSC_SSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCEG: Node = Node {
+    code: "facsceg",
     name: NodeName {
         en: "Faculty Of Economics And Management Sciences",
         ar: "كلية الاقتصاد وعلوم التسيير",
@@ -379,6 +435,7 @@ const UBMA_FACSCEG: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACSCEG_CT: Node = Node {
+    code: "ct",
     name: NodeName {
         en: "Common Trunk",
         ar: "جذع مشترك",
@@ -387,6 +444,7 @@ const UBMA_FACSCEG_CT: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCEG_ESD: Node = Node {
+    code: "esd",
     name: NodeName {
         en: "Economic Sciences Department",
         ar: "قسم العلوم الاقتصادية",
@@ -395,6 +453,7 @@ const UBMA_FACSCEG_ESD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCEG_FSD: Node = Node {
+    code: "fsd",
     name: NodeName {
         en: "Financial Sciences Department",
         ar: "قسم العلوم المالية",
@@ -403,6 +462,7 @@ const UBMA_FACSCEG_FSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCEG_MSD: Node = Node {
+    code: "msd",
     name: NodeName {
         en: "Management Sciences Department",
         ar: "قسم العلوم الإدارية",
@@ -411,6 +471,7 @@ const UBMA_FACSCEG_MSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI: Node = Node {
+    code: "facsci",
     name: NodeName {
         en: "Faculty Of Engineering Sciences",
         ar: "كلية العلوم الهندسية",
@@ -419,6 +480,7 @@ const UBMA_FACSCI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACSCI_CED: Node = Node {
+    code: "ced",
     name: NodeName {
         en: "Civil Engineering Department",
         ar: "قسم الهندسة المدنية",
@@ -427,6 +489,7 @@ const UBMA_FACSCI_CED: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_CSD: Node = Node {
+    code: "csd",
     name: NodeName {
         en: "Computer Science Department",
         ar: "قسم الإعلام الألي",
@@ -435,6 +498,7 @@ const UBMA_FACSCI_CSD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_D: Node = Node {
+    code: "d",
     name: NodeName {
         en: "Doctorat",
         ar: "",
@@ -443,6 +507,7 @@ const UBMA_FACSCI_D: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_ED: Node = Node {
+    code: "ed",
     name: NodeName {
         en: "Electrotechnical Department",
         ar: "القسم الكهروتقني",
@@ -451,6 +516,7 @@ const UBMA_FACSCI_ED: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_HD: Node = Node {
+    code: "hd",
     name: NodeName {
         en: "Hydraulic Department",
         ar: "قسم الهيدروليك",
@@ -459,6 +525,7 @@ const UBMA_FACSCI_HD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_MD: Node = Node {
+    code: "md",
     name: NodeName {
         en: "Metalurgy Department",
         ar: "قسم علم المعادن",
@@ -467,6 +534,7 @@ const UBMA_FACSCI_MD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_MED: Node = Node {
+    code: "med",
     name: NodeName {
         en: "Mechanical Engineering Department",
         ar: "قسم الهندسة الميكانيكية",
@@ -475,6 +543,7 @@ const UBMA_FACSCI_MED: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_PED: Node = Node {
+    code: "ped",
     name: NodeName {
         en: "Process Engineering Department",
         ar: "قسم هندسة العمليات",
@@ -483,6 +552,7 @@ const UBMA_FACSCI_PED: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_STD: Node = Node {
+    code: "std",
     name: NodeName {
         en: "Science And Technology Department",
         ar: "قسم العلوم والتكنولوجيا",
@@ -491,6 +561,7 @@ const UBMA_FACSCI_STD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCI_TT: Node = Node {
+    code: "tt",
     name: NodeName {
         en: "Teacher Training",
         ar: "",
@@ -499,6 +570,7 @@ const UBMA_FACSCI_TT: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCM: Node = Node {
+    code: "facscm",
     name: NodeName {
         en: "Faculty Of Medical Sciences",
         ar: "كلية العلوم الطبية",
@@ -507,6 +579,7 @@ const UBMA_FACSCM: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACSCM_DDM: Node = Node {
+    code: "ddm",
     name: NodeName {
         en: "Department Of Dental Medicine",
         ar: "قسم طب الأسنان",
@@ -515,6 +588,7 @@ const UBMA_FACSCM_DDM: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCM_MD: Node = Node {
+    code: "md",
     name: NodeName {
         en: "Medicine Department",
         ar: "قسم الطب",
@@ -523,6 +597,7 @@ const UBMA_FACSCM_MD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCM_PD: Node = Node {
+    code: "pd",
     name: NodeName {
         en: "Pharmacy Department",
         ar: "قسم الصيدلة",
@@ -531,6 +606,7 @@ const UBMA_FACSCM_PD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCM_TT: Node = Node {
+    code: "tt",
     name: NodeName {
         en: "Teacher Training",
         ar: "",
@@ -539,6 +615,7 @@ const UBMA_FACSCM_TT: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCT: Node = Node {
+    code: "facsct",
     name: NodeName {
         en: "Faculty Of Earth Sciences",
         ar: "كلية علوم الأرض",
@@ -547,6 +624,7 @@ const UBMA_FACSCT: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UBMA_FACSCT_AD: Node = Node {
+    code: "ad",
     name: NodeName {
         en: "Architecture Department",
         ar: "قسم العمارة",
@@ -555,6 +633,7 @@ const UBMA_FACSCT_AD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCT_GD: Node = Node {
+    code: "gd",
     name: NodeName {
         en: "Geology Department",
         ar: "قسم الجيولوجيا",
@@ -563,6 +642,7 @@ const UBMA_FACSCT_GD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCT_MD: Node = Node {
+    code: "md",
     name: NodeName {
         en: "Mining Department",
         ar: "قسم التعدين",
@@ -571,6 +651,7 @@ const UBMA_FACSCT_MD: Node = Node {
     r#type: NodeType::Department,
 };
 const UBMA_FACSCT_PD: Node = Node {
+    code: "pd",
     name: NodeName {
         en: "Planning Department",
         ar: "قسم التخطيط",
@@ -579,6 +660,7 @@ const UBMA_FACSCT_PD: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM: Node = Node {
+    code: "umbm",
     name: NodeName {
         en: "University Mohamed Boudiaf M'sila",
         ar: "جامعة محمد بوضياف مسيلة",
@@ -587,6 +669,7 @@ const UMBM: Node = Node {
     r#type: NodeType::University,
 };
 const UMBM_FDSP: Node = Node {
+    code: "fdsp",
     name: NodeName {
         en: "Faculty of Law and Political Sciences",
         ar: "كلية الحقوق والعلوم السياسية",
@@ -595,6 +678,7 @@ const UMBM_FDSP: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FDSP_DDROIT: Node = Node {
+    code: "ddroit",
     name: NodeName {
         en: "Department of Law",
         ar: "قسم القانون",
@@ -603,6 +687,7 @@ const UMBM_FDSP_DDROIT: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FDSP_DSP: Node = Node {
+    code: "dsp",
     name: NodeName {
         en: "Department of Political Science",
         ar: "قسم العلوم السياسية",
@@ -611,6 +696,7 @@ const UMBM_FDSP_DSP: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FLL: Node = Node {
+    code: "fll",
     name: NodeName {
         en: "Faculty of Letters and Languages",
         ar: "كلية الآداب واللغات",
@@ -619,6 +705,7 @@ const UMBM_FLL: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FLL_DALL: Node = Node {
+    code: "dall",
     name: NodeName {
         en: "Department of Arabic Language and Literature",
         ar: "قسم اللغة العربية وآدابها",
@@ -627,6 +714,7 @@ const UMBM_FLL_DALL: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FLL_DELL: Node = Node {
+    code: "dell",
     name: NodeName {
         en: "Department of English Language and Literature",
         ar: "قسم اللغة الإنجليزية وآدابها",
@@ -635,6 +723,7 @@ const UMBM_FLL_DELL: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FLL_DFLL: Node = Node {
+    code: "dfll",
     name: NodeName {
         en: "Department of French Language and Literature",
         ar: "قسم اللغة الفرنسية وآدابها",
@@ -643,6 +732,7 @@ const UMBM_FLL_DFLL: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FMI: Node = Node {
+    code: "fmi",
     name: NodeName {
         en: "Faculty of Mathematics and Computer Science",
         ar: "كلية الرياضيات و اﻹعلام اﻵلي",
@@ -651,6 +741,7 @@ const UMBM_FMI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FMI_DCS: Node = Node {
+    code: "dcs",
     name: NodeName {
         en: "Department of Computer Science",
         ar: "قسم اﻹعلام اﻵلي",
@@ -659,6 +750,7 @@ const UMBM_FMI_DCS: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FMI_DMATH: Node = Node {
+    code: "dmath",
     name: NodeName {
         en: "Department of Mathematics",
         ar: "قسم الرياضيات",
@@ -667,6 +759,7 @@ const UMBM_FMI_DMATH: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSCI: Node = Node {
+    code: "fsci",
     name: NodeName {
         en: "Faculty of Sciences",
         ar: "كلية العلوم",
@@ -675,6 +768,7 @@ const UMBM_FSCI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FSCI_DBCMB: Node = Node {
+    code: "dbcmb",
     name: NodeName {
         en: "Department of Biochemistry and Microbiology",
         ar: "قسم الكيمياء الحيوية والأحياء الدقيقة",
@@ -683,6 +777,7 @@ const UMBM_FSCI_DBCMB: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSCI_DCHI: Node = Node {
+    code: "dchi",
     name: NodeName {
         en: "Department of Chemistry",
         ar: "قسم الكيمياء",
@@ -691,6 +786,7 @@ const UMBM_FSCI_DCHI: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSCI_DPHY: Node = Node {
+    code: "dphy",
     name: NodeName {
         en: "Department of Physics",
         ar: "قسم الفيزياء",
@@ -699,6 +795,7 @@ const UMBM_FSCI_DPHY: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSCI_DSA: Node = Node {
+    code: "dsa",
     name: NodeName {
         en: "Department of Argonomic Sciences",
         ar: "قسم علوم الأرغونوميك",
@@ -707,6 +804,7 @@ const UMBM_FSCI_DSA: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSCI_DSNV: Node = Node {
+    code: "dsnv",
     name: NodeName {
         en: "Department of Natural and Life Sciences",
         ar: "قسم علوم الطبيعة و الحياة",
@@ -715,6 +813,7 @@ const UMBM_FSCI_DSNV: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSEGC: Node = Node {
+    code: "fsegc",
     name: NodeName {
         en: "Faculty of Economics, Business and Management Sciences",
         ar: "كلية العلوم الإقتصادية والتجارية وعلوم التسيير",
@@ -723,6 +822,7 @@ const UMBM_FSEGC: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FSEGC_DSC: Node = Node {
+    code: "dsc",
     name: NodeName {
         en: "Department of Commercial Sciences",
         ar: "قسم العلوم التجارية",
@@ -731,6 +831,7 @@ const UMBM_FSEGC_DSC: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSEGC_DSE: Node = Node {
+    code: "dse",
     name: NodeName {
         en: "Department of Economic Sciences",
         ar: "قسم العلوم الإقتصادية",
@@ -739,6 +840,7 @@ const UMBM_FSEGC_DSE: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSEGC_DSFC: Node = Node {
+    code: "dsfc",
     name: NodeName {
         en: "Department of Finance and Accounting Sciences",
         ar: "قسم علوم المالية والمحاسبة",
@@ -747,6 +849,7 @@ const UMBM_FSEGC_DSFC: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSEGC_DSG: Node = Node {
+    code: "dsg",
     name: NodeName {
         en: "Department of Management Sciences",
         ar: "قسم علوم التسيير",
@@ -755,6 +858,7 @@ const UMBM_FSEGC_DSG: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSHS: Node = Node {
+    code: "fshs",
     name: NodeName {
         en: "Faculty of Human Sciences and Social Sciences",
         ar: "كلية العلوم الإنسانية والاجتماعية",
@@ -763,6 +867,7 @@ const UMBM_FSHS: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FSHS_DHIST: Node = Node {
+    code: "dhist",
     name: NodeName {
         en: "Department of History",
         ar: "قسم التاريخ",
@@ -771,6 +876,7 @@ const UMBM_FSHS_DHIST: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSHS_DPHILO: Node = Node {
+    code: "dphilo",
     name: NodeName {
         en: "Department of Philosophy",
         ar: "قسم الفلسفة",
@@ -779,6 +885,7 @@ const UMBM_FSHS_DPHILO: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSHS_DSCI: Node = Node {
+    code: "dsci",
     name: NodeName {
         en: "Department of Information and Communication Sciences",
         ar: "قسم علوم الاعلام والاتصال",
@@ -787,6 +894,7 @@ const UMBM_FSHS_DSCI: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSHS_DSI: Node = Node {
+    code: "dsi",
     name: NodeName {
         en: "Department of Islamic Sciences",
         ar: "قسم العلوم الإسلامية",
@@ -795,6 +903,7 @@ const UMBM_FSHS_DSI: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FSHS_DSOCIO: Node = Node {
+    code: "dsocio",
     name: NodeName {
         en: "Department of Sociology",
         ar: "قسم علم الاجتماع",
@@ -803,6 +912,7 @@ const UMBM_FSHS_DSOCIO: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FTECH: Node = Node {
+    code: "ftech",
     name: NodeName {
         en: "Faculty of Technology",
         ar: "كلية التكنولوجيا",
@@ -811,6 +921,7 @@ const UMBM_FTECH: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMBM_FTECH_DCE: Node = Node {
+    code: "dce",
     name: NodeName {
         en: "Department of Civil Engineering",
         ar: "قسم الهندسة المدنية",
@@ -819,6 +930,7 @@ const UMBM_FTECH_DCE: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FTECH_DEE: Node = Node {
+    code: "dee",
     name: NodeName {
         en: "Department of Electrical Engineering",
         ar: "قسم الهندسة الكهربائية",
@@ -827,6 +939,7 @@ const UMBM_FTECH_DEE: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FTECH_DELEC: Node = Node {
+    code: "delec",
     name: NodeName {
         en: "Department of Electronics",
         ar: "قسم الالكترونيات",
@@ -835,6 +948,7 @@ const UMBM_FTECH_DELEC: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FTECH_DHYDR: Node = Node {
+    code: "dhydr",
     name: NodeName {
         en: "Department of Hydraulics",
         ar: "قسم الهيدروليكا",
@@ -843,6 +957,7 @@ const UMBM_FTECH_DHYDR: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_FTECH_DME: Node = Node {
+    code: "dme",
     name: NodeName {
         en: "Department of Mecanical Engineering",
         ar: "قسم الهندسة الميكانيكية",
@@ -851,6 +966,7 @@ const UMBM_FTECH_DME: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS: Node = Node {
+    code: "istaps",
     name: NodeName {
         en: "Institute of Sciences and Technologies of Physical Activities",
         ar: "معهد علوم وتقنيات النشاطات البدنية",
@@ -859,6 +975,7 @@ const UMBM_ISTAPS: Node = Node {
     r#type: NodeType::Institute,
 };
 const UMBM_ISTAPS_DAGS: Node = Node {
+    code: "dags",
     name: NodeName {
         en: "Department of Sports Administration and Management",
         ar: "قسم الإدارة و التسيير الرياضي",
@@ -867,6 +984,7 @@ const UMBM_ISTAPS_DAGS: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS_DAPSA: Node = Node {
+    code: "dapsa",
     name: NodeName {
         en: "Department of Adapted physical and sports activity",
         ar: "قسم النشاط البدني و الرياضي المكيف",
@@ -875,6 +993,7 @@ const UMBM_ISTAPS_DAPSA: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS_DCBF: Node = Node {
+    code: "dcbf",
     name: NodeName {
         en: "Department of Common Basal Formation",
         ar: "قسم التكوين القاعدي المشترك",
@@ -883,6 +1002,7 @@ const UMBM_ISTAPS_DCBF: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS_DEP: Node = Node {
+    code: "dep",
     name: NodeName {
         en: "Department of Physical Education",
         ar: "قسم التربية البدنية",
@@ -891,6 +1011,7 @@ const UMBM_ISTAPS_DEP: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS_DFC: Node = Node {
+    code: "dfc",
     name: NodeName {
         en: "Sports Training Department",
         ar: "قسم التدريب الرياضي",
@@ -899,6 +1020,7 @@ const UMBM_ISTAPS_DFC: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_ISTAPS_DMCS: Node = Node {
+    code: "dmcs",
     name: NodeName {
         en: "Department of Media and Sports Communication",
         ar: "قسم الإعلام و الإتصال الرياضي",
@@ -907,6 +1029,7 @@ const UMBM_ISTAPS_DMCS: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_IUTM: Node = Node {
+    code: "iutm",
     name: NodeName {
         en: "Urban Technology Management Institute",
         ar: "معهد إدارة التكنولوجيا الحضرية",
@@ -915,6 +1038,7 @@ const UMBM_IUTM: Node = Node {
     r#type: NodeType::Institute,
 };
 const UMBM_IUTM_DCG: Node = Node {
+    code: "dcg",
     name: NodeName {
         en: "Departement of common ground",
         ar: "قسم الأرضية المشتركة",
@@ -923,6 +1047,7 @@ const UMBM_IUTM_DCG: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_IUTM_DCM: Node = Node {
+    code: "dcm",
     name: NodeName {
         en: "Department of Scientific Counsil",
         ar: "قسم الاستشارات العلمية",
@@ -931,6 +1056,7 @@ const UMBM_IUTM_DCM: Node = Node {
     r#type: NodeType::Department,
 };
 const UMBM_IUTM_DUE: Node = Node {
+    code: "due",
     name: NodeName {
         en: "Department of Urban Engineering",
         ar: "قسم الهندسة الحضرية",
@@ -939,6 +1065,7 @@ const UMBM_IUTM_DUE: Node = Node {
     r#type: NodeType::Department,
 };
 const UMKB: Node = Node {
+    code: "umkb",
     name: NodeName {
         en: "University of Mohamed Khider Biskra",
         ar: "جامعة محمد خيضر بسكرة",
@@ -947,6 +1074,7 @@ const UMKB: Node = Node {
     r#type: NodeType::University,
 };
 const UMKB_FDSP: Node = Node {
+    code: "fdsp",
     name: NodeName {
         en: "Faculty of Law and Political Science",
         ar: "كلية العلوم الاقتصادية والتجارية وعلوم التسيير",
@@ -955,6 +1083,7 @@ const UMKB_FDSP: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FLL: Node = Node {
+    code: "fll",
     name: NodeName {
         en: "Faculty of Arts and Languages",
         ar: "كلية الآداب واللغات",
@@ -963,6 +1092,7 @@ const UMKB_FLL: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FSECSG: Node = Node {
+    code: "fsecsg",
     name: NodeName {
         en: "Faculty of Economic, Commercial and Management Sciences",
         ar: "كلية العلوم الاقتصادية والتجارية وعلوم التسيير",
@@ -971,6 +1101,7 @@ const UMKB_FSECSG: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FSESNV: Node = Node {
+    code: "fsesnv",
     name: NodeName {
         en: "Faculty of The Exact Sciences, Natural, and Life Sciences",
         ar: "كلية العلوم الدقيقة و علوم الطبيعة و الحياة",
@@ -979,6 +1110,7 @@ const UMKB_FSESNV: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FSHS: Node = Node {
+    code: "fshs",
     name: NodeName {
         en: "Faculty of Humanities and Social Sciences",
         ar: "كلية العلوم الانسانية و الاجتماعية",
@@ -987,6 +1119,7 @@ const UMKB_FSHS: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FST: Node = Node {
+    code: "fst",
     name: NodeName {
         en: "Faculty of Science and Technology",
         ar: "كلية العلوم والتكنلوجيا",
@@ -995,6 +1128,7 @@ const UMKB_FST: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMKB_FST_DEE: Node = Node {
+    code: "dee",
     name: NodeName {
         en: "Department of Electrical Engeniering",
         ar: "قسم الهندسة كهربائية",
@@ -1003,12 +1137,13 @@ const UMKB_FST_DEE: Node = Node {
     r#type: NodeType::Department,
 };
 const UMKB_FST_DEE_SEC: Node = Node {
+    code: "sec",
     name: NodeName {
         en: "Specialy of Electrical Control",
         ar: "تخصص التحكم الكهربائي",
         fr: "Spécialité de commande électrique",
     },
-    r#type: NodeType::Specialty{
+    r#type: NodeType::Specialty {
         terms: NodeTerms {
             per_year: 2,
             slots: &[7, 8, 9, 10],
@@ -1016,6 +1151,7 @@ const UMKB_FST_DEE_SEC: Node = Node {
     },
 };
 const UMKB_ISTAPS: Node = Node {
+    code: "istaps",
     name: NodeName {
         en: "Institute of Sciences and Techniques of Physical Activities and Sports",
         ar: "معهد علوم و تتقنيات النشاطات البدنية و الرياضية",
@@ -1024,6 +1160,7 @@ const UMKB_ISTAPS: Node = Node {
     r#type: NodeType::Institute,
 };
 const UMMTO: Node = Node {
+    code: "ummto",
     name: NodeName {
         en: "University of Mouloud Mammeri",
         ar: "جامعة مولود معمري",
@@ -1032,6 +1169,7 @@ const UMMTO: Node = Node {
     r#type: NodeType::University,
 };
 const UMMTO_DMI: Node = Node {
+    code: "dmi",
     name: NodeName {
         en: "Mathematics - Computer Science Department",
         ar: "قسم الإعلام الآلي والرياضيات",
@@ -1040,6 +1178,7 @@ const UMMTO_DMI: Node = Node {
     r#type: NodeType::Department,
 };
 const UMMTO_DSAT: Node = Node {
+    code: "dsat",
     name: NodeName {
         en: "Department of Applied Sciences and Technologies",
         ar: "قسم العلوم التطبيقية والتقنيات",
@@ -1048,6 +1187,7 @@ const UMMTO_DSAT: Node = Node {
     r#type: NodeType::Department,
 };
 const UMMTO_FDSP: Node = Node {
+    code: "fdsp",
     name: NodeName {
         en: "Faculty of Law and Political Sciences",
         ar: "كلية الحقوق والعلوم السياسية",
@@ -1056,6 +1196,7 @@ const UMMTO_FDSP: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FGC: Node = Node {
+    code: "fgc",
     name: NodeName {
         en: "Faculty of Construction Engineering",
         ar: "كلية هندسة التشييد",
@@ -1064,6 +1205,7 @@ const UMMTO_FGC: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FGEI: Node = Node {
+    code: "fgei",
     name: NodeName {
         en: "Faculty of Electrical and Computer Engineering",
         ar: "كلية الهندسة الكهربائية وهندسة الإعلام الآلي",
@@ -1072,6 +1214,7 @@ const UMMTO_FGEI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FMED: Node = Node {
+    code: "fmed",
     name: NodeName {
         en: "Faculty of Medicine",
         ar: "كلية الطب",
@@ -1080,6 +1223,7 @@ const UMMTO_FMED: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FSBSA: Node = Node {
+    code: "fsbsa",
     name: NodeName {
         en: "Faculty of Biological Sciences and Agronomic Sciences",
         ar: "كلية العلوم البيولوجية والعلوم الزراعية",
@@ -1088,6 +1232,7 @@ const UMMTO_FSBSA: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FSECSG: Node = Node {
+    code: "fsecsg",
     name: NodeName {
         en: "Faculty of Economics, Business and Management Sciences",
         ar: "كلية الاقتصاد والأعمال وعلوم التسيير",
@@ -1096,6 +1241,7 @@ const UMMTO_FSECSG: Node = Node {
     r#type: NodeType::Faculty,
 };
 const UMMTO_FSHS: Node = Node {
+    code: "fshs",
     name: NodeName {
         en: "Faculty of Humanities and Social Sciences",
         ar: "كلية العلوم الإنسانية والاجتماعية",
@@ -1104,6 +1250,7 @@ const UMMTO_FSHS: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB: Node = Node {
+    code: "usthb",
     name: NodeName {
         en: "University of Sciences and Technology Houari Boumediene",
         ar: "جامعة هواري بومدين للعلوم والتكنولوجيا",
@@ -1112,6 +1259,7 @@ const USTHB: Node = Node {
     r#type: NodeType::University,
 };
 const USTHB_FCHIMIE: Node = Node {
+    code: "fchimie",
     name: NodeName {
         en: "Faculty of Chemsitry",
         ar: "كلية الكيمياء",
@@ -1120,6 +1268,7 @@ const USTHB_FCHIMIE: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FCHIMIE_DCM: Node = Node {
+    code: "dcm",
     name: NodeName {
         en: "Department of Macromolecular Chemistry",
         ar: "قسم الكيمياء الجزيئية",
@@ -1128,6 +1277,7 @@ const USTHB_FCHIMIE_DCM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FCHIMIE_DCOA: Node = Node {
+    code: "dcoa",
     name: NodeName {
         en: "Department of Applied Organic Chemistry",
         ar: "قسم الكيمياء العضوية التطبيقية",
@@ -1136,6 +1286,7 @@ const USTHB_FCHIMIE_DCOA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FCHIMIE_DCPMI: Node = Node {
+    code: "dcpmi",
     name: NodeName {
         en: "Department of Chemistry and Physics of Inorganic Materials",
         ar: "قسم كيمياء وفيزياء المواد غير العضوية",
@@ -1144,6 +1295,7 @@ const USTHB_FCHIMIE_DCPMI: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FCHIMIE_DCPT: Node = Node {
+    code: "dcpt",
     name: NodeName {
         en: "Department of Physical and Theoretical Chemistry",
         ar: "قسم الكيمياء الفيزيائية والنظرية",
@@ -1152,6 +1304,7 @@ const USTHB_FCHIMIE_DCPT: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FEI: Node = Node {
+    code: "fei",
     name: NodeName {
         en: "Faculty of Electronics and Computer Science",
         ar: "كلية اﻹلكترونيك و اﻹعلام اﻵلي",
@@ -1160,6 +1313,7 @@ const USTHB_FEI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FEI_AUTO: Node = Node {
+    code: "auto",
     name: NodeName {
         en: "Instrumentation and Automation Department",
         ar: "قسم الأجهزة والأتمتة",
@@ -1168,6 +1322,7 @@ const USTHB_FEI_AUTO: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FEI_ELT: Node = Node {
+    code: "elt",
     name: NodeName {
         en: "Department of Electronics",
         ar: "قسم اﻹلكترونيك",
@@ -1176,6 +1331,7 @@ const USTHB_FEI_ELT: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FEI_INFO: Node = Node {
+    code: "info",
     name: NodeName {
         en: "Department of Computer Science",
         ar: "قسم اﻹعلام اﻵلي",
@@ -1184,6 +1340,7 @@ const USTHB_FEI_INFO: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FEI_TELECOM: Node = Node {
+    code: "telecom",
     name: NodeName {
         en: "Telecommunications Department",
         ar: "قسم اﻹتصال",
@@ -1192,6 +1349,7 @@ const USTHB_FEI_TELECOM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGC: Node = Node {
+    code: "fgc",
     name: NodeName {
         en: "Faculty of Civil Engineering",
         ar: "كلية الهندسة المدنية",
@@ -1200,6 +1358,7 @@ const USTHB_FGC: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FGC_DGH: Node = Node {
+    code: "dgh",
     name: NodeName {
         en: "Department of Geotechnics and Hydraulics",
         ar: "قسم الجيوتكنيك والهيدروليكا",
@@ -1208,6 +1367,7 @@ const USTHB_FGC_DGH: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGC_DSM: Node = Node {
+    code: "dsm",
     name: NodeName {
         en: "Department of Structures and Materials",
         ar: "قسم الهياكل والمواد",
@@ -1216,6 +1376,7 @@ const USTHB_FGC_DSM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGMGP: Node = Node {
+    code: "fgmgp",
     name: NodeName {
         en: "Faculty of Mechanical Engineering and Process Engineering",
         ar: "كلية الهندسة الميكانيكية وهندسة الطرائق",
@@ -1224,6 +1385,7 @@ const USTHB_FGMGP: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FGMGP_DCMP: Node = Node {
+    code: "dcmp",
     name: NodeName {
         en: "Mechanical Construction and Manufacturing Department",
         ar: "قسم الإنشاءات الميكانيكية والتصنيع",
@@ -1232,6 +1394,7 @@ const USTHB_FGMGP_DCMP: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGMGP_DGCC: Node = Node {
+    code: "dgcc",
     name: NodeName {
         en: "Department of Chemical Engineering and Cryogenics",
         ar: "قسم الهندسة الكيميائية وعلم التبريد",
@@ -1240,6 +1403,7 @@ const USTHB_FGMGP_DGCC: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGMGP_DGEGP: Node = Node {
+    code: "dgegp",
     name: NodeName {
         en: "Environmental Engineering and Pharmaceutical Engineering Department",
         ar: "قسم الهندسة البيئية والهندسة الصيدلانية",
@@ -1248,6 +1412,7 @@ const USTHB_FGMGP_DGEGP: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGMGP_DSM: Node = Node {
+    code: "dsm",
     name: NodeName {
         en: "Department of Materials Sciences",
         ar: "قسم علوم المواد",
@@ -1256,6 +1421,7 @@ const USTHB_FGMGP_DSM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FGMGP_DTE: Node = Node {
+    code: "dte",
     name: NodeName {
         en: "Thermo Energy Department",
         ar: "قسم الطاقة الحرارية",
@@ -1264,6 +1430,7 @@ const USTHB_FGMGP_DTE: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FMATH: Node = Node {
+    code: "fmath",
     name: NodeName {
         en: "Faculty of Mathematics",
         ar: "كلية الرياضيات",
@@ -1272,6 +1439,7 @@ const USTHB_FMATH: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FMATH_DA: Node = Node {
+    code: "da",
     name: NodeName {
         en: "Analysis Department",
         ar: "قسم التحليل",
@@ -1280,6 +1448,7 @@ const USTHB_FMATH_DA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FMATH_DATN: Node = Node {
+    code: "datn",
     name: NodeName {
         en: "Department of Algebra and Number Theory",
         ar: "قسم الجبر ونظرية الأعداد",
@@ -1288,6 +1457,7 @@ const USTHB_FMATH_DATN: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FMATH_DPS: Node = Node {
+    code: "dps",
     name: NodeName {
         en: "Probability and Statistics Department",
         ar: "قسم الاحتمالات والإحصاء",
@@ -1296,6 +1466,7 @@ const USTHB_FMATH_DPS: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FMATH_DRO: Node = Node {
+    code: "dro",
     name: NodeName {
         en: "Operational Research Department",
         ar: "قسم البحوث التشغيلية",
@@ -1304,6 +1475,7 @@ const USTHB_FMATH_DRO: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FPHY: Node = Node {
+    code: "fphy",
     name: NodeName {
         en: "Faculty of Physics",
         ar: "كلية الفيزياء",
@@ -1312,6 +1484,7 @@ const USTHB_FPHY: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FPHY_DEMF: Node = Node {
+    code: "demf",
     name: NodeName {
         en: "Department of Energy and Fluid Mechanics",
         ar: "قسم ميكانيكا الطاقة والموائع",
@@ -1320,6 +1493,7 @@ const USTHB_FPHY_DEMF: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FPHY_DMC: Node = Node {
+    code: "dmc",
     name: NodeName {
         en: "Materials and Components Department",
         ar: "قسم المواد والمكونات",
@@ -1328,6 +1502,7 @@ const USTHB_FPHY_DMC: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FPHY_DPR: Node = Node {
+    code: "dpr",
     name: NodeName {
         en: "Department of Radiation Physics",
         ar: "قسم الفيزياء الإشعاعية",
@@ -1336,6 +1511,7 @@ const USTHB_FPHY_DPR: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FPHY_DPT: Node = Node {
+    code: "dpt",
     name: NodeName {
         en: "Department of Theoretical Physics",
         ar: "قسم الفيزياء النظرية",
@@ -1344,6 +1520,7 @@ const USTHB_FPHY_DPT: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSB: Node = Node {
+    code: "fsb",
     name: NodeName {
         en: "Faculty of Biological Sciences",
         ar: "كلية العلوم البيولوجية",
@@ -1352,6 +1529,7 @@ const USTHB_FSB: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FSB_DBCM: Node = Node {
+    code: "dbcm",
     name: NodeName {
         en: "Cellular and Molecular Biology Department",
         ar: "قسم البيولوجيا الخلوية والجزيئية",
@@ -1360,6 +1538,7 @@ const USTHB_FSB_DBCM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSB_DBPO: Node = Node {
+    code: "dbpo",
     name: NodeName {
         en: "Department of Biology and Physiology of Organisms",
         ar: "قسم علم الأحياء ووظائف الأعضاء",
@@ -1368,6 +1547,7 @@ const USTHB_FSB_DBPO: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSB_DEE: Node = Node {
+    code: "dee",
     name: NodeName {
         en: "Department of Ecology and Environment",
         ar: "قسم البيئة",
@@ -1376,6 +1556,7 @@ const USTHB_FSB_DEE: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSTGAT: Node = Node {
+    code: "fstgat",
     name: NodeName {
         en: "Faculty of Earth Sciences and Country Planning",
         ar: "كلية علوم اﻷرض و تهيئة اﻹقليم",
@@ -1384,6 +1565,7 @@ const USTHB_FSTGAT: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTHB_FSTGAT_DG: Node = Node {
+    code: "dg",
     name: NodeName {
         en: "Department of Geology",
         ar: "قسم الجيولوجيا",
@@ -1392,6 +1574,7 @@ const USTHB_FSTGAT_DG: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSTGAT_DGAT: Node = Node {
+    code: "dgat",
     name: NodeName {
         en: "Department of Geophysics",
         ar: "قسم الجيوفيزياء",
@@ -1400,6 +1583,7 @@ const USTHB_FSTGAT_DGAT: Node = Node {
     r#type: NodeType::Department,
 };
 const USTHB_FSTGAT_DGP: Node = Node {
+    code: "dgp",
     name: NodeName {
         en: "Department of Geography and Regional Planning",
         ar: "قسم الجغرافيا والتخطيط الإقليمي",
@@ -1408,6 +1592,7 @@ const USTHB_FSTGAT_DGP: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO: Node = Node {
+    code: "usto",
     name: NodeName {
         en: "University of Sciences and Technology Oran Mohamed Boudiaf",
         ar: "جامعة وهران للعلوم و التكنولوجيا محمد بوضياف",
@@ -1416,6 +1601,7 @@ const USTO: Node = Node {
     r#type: NodeType::University,
 };
 const USTO_FAG: Node = Node {
+    code: "fag",
     name: NodeName {
         en: "Water engineering department",
         ar: "قسم هندسة المياه",
@@ -1424,6 +1610,7 @@ const USTO_FAG: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FAG_DA: Node = Node {
+    code: "da",
     name: NodeName {
         en: "Architecture department",
         ar: "قسم العمارة",
@@ -1432,6 +1619,7 @@ const USTO_FAG_DA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FAG_DGC: Node = Node {
+    code: "dgc",
     name: NodeName {
         en: "Civil engineering department",
         ar: "قسم الهندسة المدنية",
@@ -1440,6 +1628,7 @@ const USTO_FAG_DGC: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FAG_DGE: Node = Node {
+    code: "dge",
     name: NodeName {
         en: "Faculty of Architecture and Civil Engineering",
         ar: "كلية العمارة والهندسة المدنية",
@@ -1448,6 +1637,7 @@ const USTO_FAG_DGE: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FCH: Node = Node {
+    code: "fch",
     name: NodeName {
         en: "Faculty of Chemistry",
         ar: "كلية الكيمياء",
@@ -1456,6 +1646,7 @@ const USTO_FCH: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FCH_DCHM: Node = Node {
+    code: "dchm",
     name: NodeName {
         en: "Departement of Materials chemistry",
         ar: "قسم كيمياء المواد",
@@ -1464,6 +1655,7 @@ const USTO_FCH_DCHM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FCH_DCHP: Node = Node {
+    code: "dchp",
     name: NodeName {
         en: "Departement of  Physical chemistry",
         ar: "قسم الكيمياء الفيزيائية",
@@ -1472,6 +1664,7 @@ const USTO_FCH_DCHP: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FCH_DGC: Node = Node {
+    code: "dgc",
     name: NodeName {
         en: "Departement of chemical engineering",
         ar: "قسم الهندسة الكيميائية",
@@ -1480,6 +1673,7 @@ const USTO_FCH_DGC: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGE: Node = Node {
+    code: "fge",
     name: NodeName {
         en: "Faculty of Electrical Engineering",
         ar: "كلية الهندسة الكهربائية",
@@ -1488,6 +1682,7 @@ const USTO_FGE: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FGE_DAU: Node = Node {
+    code: "dau",
     name: NodeName {
         en: "Department Automatic",
         ar: "قسم الإلكترونيات",
@@ -1496,6 +1691,7 @@ const USTO_FGE_DAU: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGE_DEL: Node = Node {
+    code: "del",
     name: NodeName {
         en: "Departement of Electrical engineering",
         ar: "قسم الهندسة الكهربائية",
@@ -1504,6 +1700,7 @@ const USTO_FGE_DEL: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGE_DELT: Node = Node {
+    code: "delt",
     name: NodeName {
         en: "Departement of Electrical engineering ",
         ar: "قسم الهندسة الكهربائية",
@@ -1512,6 +1709,7 @@ const USTO_FGE_DELT: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGM: Node = Node {
+    code: "fgm",
     name: NodeName {
         en: "Faculty of Mechanical Engineering",
         ar: "كلية الهندسة الميكانيكية",
@@ -1520,6 +1718,7 @@ const USTO_FGM: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FGM_DGMA: Node = Node {
+    code: "dgma",
     name: NodeName {
         en: "Department of Marine Engineering",
         ar: "قسم الهندسة البحرية",
@@ -1528,6 +1727,7 @@ const USTO_FGM_DGMA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGM_DGME: Node = Node {
+    code: "dgme",
     name: NodeName {
         en: "Department of Mechanical Engineering ",
         ar: "قسم الهندسة الميكانيكية",
@@ -1536,6 +1736,7 @@ const USTO_FGM_DGME: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FGM_DMM: Node = Node {
+    code: "dmm",
     name: NodeName {
         en: "Departement of Mining and Metallurgy",
         ar: "قسم التعدين والمعادن",
@@ -1544,6 +1745,7 @@ const USTO_FGM_DMM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FMI: Node = Node {
+    code: "fmi",
     name: NodeName {
         en: "Faculty  Mathematics and Computer Science",
         ar: "كلية الرياضيات و الاعلام الالي ",
@@ -1552,6 +1754,7 @@ const USTO_FMI: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FMI_DINF: Node = Node {
+    code: "dinf",
     name: NodeName {
         en: "Departement of Mathematics",
         ar: "قسم الرياضيات",
@@ -1560,6 +1763,7 @@ const USTO_FMI_DINF: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FMI_DMA: Node = Node {
+    code: "dma",
     name: NodeName {
         en: "Departement of  Computer science",
         ar: "قسم الاعلام الالي",
@@ -1568,6 +1772,7 @@ const USTO_FMI_DMA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FPH: Node = Node {
+    code: "fph",
     name: NodeName {
         en: "Faculty of Materials technology ",
         ar: "قسم تكنولوجيا المواد",
@@ -1576,6 +1781,7 @@ const USTO_FPH: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FPH_DGP: Node = Node {
+    code: "dgp",
     name: NodeName {
         en: "Departement of physics Engineering ",
         ar: "قسم الهندسة الفيزيائية",
@@ -1584,6 +1790,7 @@ const USTO_FPH_DGP: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FPH_DPE: Node = Node {
+    code: "dpe",
     name: NodeName {
         en: "Departement of Physics energetics",
         ar: "قسم فيزياء الطاقة",
@@ -1592,6 +1799,7 @@ const USTO_FPH_DPE: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FPH_DTM: Node = Node {
+    code: "dtm",
     name: NodeName {
         en: "Departement of  Computer science",
         ar: "قسم الاعلام الالي",
@@ -1600,6 +1808,7 @@ const USTO_FPH_DTM: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FSNV: Node = Node {
+    code: "fsnv",
     name: NodeName {
         en: "Departement of Living and environment",
         ar: "قسم المعيشة والبيئة",
@@ -1608,6 +1817,7 @@ const USTO_FSNV: Node = Node {
     r#type: NodeType::Faculty,
 };
 const USTO_FSNV_DBIO: Node = Node {
+    code: "dbio",
     name: NodeName {
         en: "Departement of Biotechnology",
         ar: "قسم التكنولوجيا الحيوية",
@@ -1616,6 +1826,7 @@ const USTO_FSNV_DBIO: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FSNV_DGMA: Node = Node {
+    code: "dgma",
     name: NodeName {
         en: "Departement Applied Molecular Genetics",
         ar: "قسم علم الوراثة الجزيئية التطبيقية",
@@ -1624,6 +1835,7 @@ const USTO_FSNV_DGMA: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_FSNV_DVE: Node = Node {
+    code: "dve",
     name: NodeName {
         en: "Departement of physics Engineering ",
         ar: "قسم الهندسة الفيزيائية",
@@ -1632,6 +1844,7 @@ const USTO_FSNV_DVE: Node = Node {
     r#type: NodeType::Department,
 };
 const USTO_IEPS: Node = Node {
+    code: "ieps",
     name: NodeName {
         en: "Institute Of Physical Education And Sport",
         ar: "معهد التربية البدنية والرياضة",
@@ -1640,6 +1853,7 @@ const USTO_IEPS: Node = Node {
     r#type: NodeType::Institute,
 };
 const USTO_ISTA: Node = Node {
+    code: "ista",
     name: NodeName {
         en: "Institute of Applied Science and Technology",
         ar: "معهد العلوم التطبيقية والتكنولوجيا",
@@ -1671,6 +1885,7 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
         "ua2aks/fss/dst" => Some(&UA2AKS_FSS_DST),
         "ua2aks/ia" => Some(&UA2AKS_IA),
         "ua2aks/it" => Some(&UA2AKS_IT),
+        "ubma" => Some(&UBMA),
         "ubma/facdr" => Some(&UBMA_FACDR),
         "ubma/facdr/pld" => Some(&UBMA_FACDR_PLD),
         "ubma/facdr/psd" => Some(&UBMA_FACDR_PSD),
@@ -1856,5 +2071,218 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
         "usto/ieps" => Some(&USTO_IEPS),
         "usto/ista" => Some(&USTO_ISTA),
         _ => None,
+    }
+}
+
+pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
+    match path {
+        "" => vec![&UA2AKS, &UBMA, &UMBM, &UMKB, &UMMTO, &USTHB, &USTO],
+        "ua2aks" => vec![&UA2AKS_FALAOL, &UA2AKS_FLE, &UA2AKS_FSH, &UA2AKS_FSS, &UA2AKS_IA, &UA2AKS_IT],
+        "ua2aks/falaol" => vec![&UA2AKS_FALAOL_DALA, &UA2AKS_FALAOL_DART, &UA2AKS_FALAOL_DTRL, &UA2AKS_FALAOL_DTS],
+        "ua2aks/falaol/dala" => vec![],
+        "ua2aks/falaol/dart" => vec![],
+        "ua2aks/falaol/dtrl" => vec![],
+        "ua2aks/falaol/dts" => vec![],
+        "ua2aks/fle" => vec![&UA2AKS_FLE_DEN, &UA2AKS_FLE_DFR, &UA2AKS_FLE_DSGI],
+        "ua2aks/fle/den" => vec![],
+        "ua2aks/fle/dfr" => vec![],
+        "ua2aks/fle/dsgi" => vec![],
+        "ua2aks/fsh" => vec![&UA2AKS_FSH_DH, &UA2AKS_FSH_DLD, &UA2AKS_FSH_DPH],
+        "ua2aks/fsh/dh" => vec![],
+        "ua2aks/fsh/dld" => vec![],
+        "ua2aks/fsh/dph" => vec![],
+        "ua2aks/fss" => vec![&UA2AKS_FSS_DEDU, &UA2AKS_FSS_DPSY, &UA2AKS_FSS_DSOCIO, &UA2AKS_FSS_DST],
+        "ua2aks/fss/dedu" => vec![],
+        "ua2aks/fss/dpsy" => vec![],
+        "ua2aks/fss/dsocio" => vec![],
+        "ua2aks/fss/dst" => vec![],
+        "ua2aks/ia" => vec![],
+        "ua2aks/it" => vec![],
+        "ubma" => vec![&UBMA_FACDR, &UBMA_FACLSCHS, &UBMA_FACSC, &UBMA_FACSCEG, &UBMA_FACSCI, &UBMA_FACSCM, &UBMA_FACSCT],
+        "ubma/facdr" => vec![&UBMA_FACDR_PLD, &UBMA_FACDR_PSD],
+        "ubma/facdr/pld" => vec![],
+        "ubma/facdr/psd" => vec![],
+        "ubma/faclschs" => vec![&UBMA_FACLSCHS_ALLD, &UBMA_FACLSCHS_BD, &UBMA_FACLSCHS_ELD, &UBMA_FACLSCHS_FLD, &UBMA_FACLSCHS_HD, &UBMA_FACLSCHS_HSSD, &UBMA_FACLSCHS_ICSD, &UBMA_FACLSCHS_ILD, &UBMA_FACLSCHS_PD, &UBMA_FACLSCHS_PSED, &UBMA_FACLSCHS_SD, &UBMA_FACLSCHS_TD],
+        "ubma/faclschs/alld" => vec![],
+        "ubma/faclschs/bd" => vec![],
+        "ubma/faclschs/eld" => vec![],
+        "ubma/faclschs/fld" => vec![],
+        "ubma/faclschs/hd" => vec![],
+        "ubma/faclschs/hssd" => vec![],
+        "ubma/faclschs/icsd" => vec![],
+        "ubma/faclschs/ild" => vec![],
+        "ubma/faclschs/pd" => vec![],
+        "ubma/faclschs/psed" => vec![],
+        "ubma/faclschs/sd" => vec![],
+        "ubma/faclschs/td" => vec![],
+        "ubma/facsc" => vec![&UBMA_FACSC_BD, &UBMA_FACSC_CD, &UBMA_FACSC_MCD, &UBMA_FACSC_MD, &UBMA_FACSC_MSD, &UBMA_FACSC_NLSD, &UBMA_FACSC_PD, &UBMA_FACSC_SSD],
+        "ubma/facsc/bd" => vec![],
+        "ubma/facsc/cd" => vec![],
+        "ubma/facsc/mcd" => vec![],
+        "ubma/facsc/md" => vec![],
+        "ubma/facsc/msd" => vec![],
+        "ubma/facsc/nlsd" => vec![],
+        "ubma/facsc/pd" => vec![],
+        "ubma/facsc/ssd" => vec![],
+        "ubma/facsceg" => vec![&UBMA_FACSCEG_CT, &UBMA_FACSCEG_ESD, &UBMA_FACSCEG_FSD, &UBMA_FACSCEG_MSD],
+        "ubma/facsceg/ct" => vec![],
+        "ubma/facsceg/esd" => vec![],
+        "ubma/facsceg/fsd" => vec![],
+        "ubma/facsceg/msd" => vec![],
+        "ubma/facsci" => vec![&UBMA_FACSCI_CED, &UBMA_FACSCI_CSD, &UBMA_FACSCI_D, &UBMA_FACSCI_ED, &UBMA_FACSCI_HD, &UBMA_FACSCI_MD, &UBMA_FACSCI_MED, &UBMA_FACSCI_PED, &UBMA_FACSCI_STD, &UBMA_FACSCI_TT],
+        "ubma/facsci/ced" => vec![],
+        "ubma/facsci/csd" => vec![],
+        "ubma/facsci/d" => vec![],
+        "ubma/facsci/ed" => vec![],
+        "ubma/facsci/hd" => vec![],
+        "ubma/facsci/md" => vec![],
+        "ubma/facsci/med" => vec![],
+        "ubma/facsci/ped" => vec![],
+        "ubma/facsci/std" => vec![],
+        "ubma/facsci/tt" => vec![],
+        "ubma/facscm" => vec![&UBMA_FACSCM_DDM, &UBMA_FACSCM_MD, &UBMA_FACSCM_PD, &UBMA_FACSCM_TT],
+        "ubma/facscm/ddm" => vec![],
+        "ubma/facscm/md" => vec![],
+        "ubma/facscm/pd" => vec![],
+        "ubma/facscm/tt" => vec![],
+        "ubma/facsct" => vec![&UBMA_FACSCT_AD, &UBMA_FACSCT_GD, &UBMA_FACSCT_MD, &UBMA_FACSCT_PD],
+        "ubma/facsct/ad" => vec![],
+        "ubma/facsct/gd" => vec![],
+        "ubma/facsct/md" => vec![],
+        "ubma/facsct/pd" => vec![],
+        "umbm" => vec![&UMBM_FDSP, &UMBM_FLL, &UMBM_FMI, &UMBM_FSCI, &UMBM_FSEGC, &UMBM_FSHS, &UMBM_FTECH, &UMBM_ISTAPS, &UMBM_IUTM],
+        "umbm/fdsp" => vec![&UMBM_FDSP_DDROIT, &UMBM_FDSP_DSP],
+        "umbm/fdsp/ddroit" => vec![],
+        "umbm/fdsp/dsp" => vec![],
+        "umbm/fll" => vec![&UMBM_FLL_DALL, &UMBM_FLL_DELL, &UMBM_FLL_DFLL],
+        "umbm/fll/dall" => vec![],
+        "umbm/fll/dell" => vec![],
+        "umbm/fll/dfll" => vec![],
+        "umbm/fmi" => vec![&UMBM_FMI_DCS, &UMBM_FMI_DMATH],
+        "umbm/fmi/dcs" => vec![],
+        "umbm/fmi/dmath" => vec![],
+        "umbm/fsci" => vec![&UMBM_FSCI_DBCMB, &UMBM_FSCI_DCHI, &UMBM_FSCI_DPHY, &UMBM_FSCI_DSA, &UMBM_FSCI_DSNV],
+        "umbm/fsci/dbcmb" => vec![],
+        "umbm/fsci/dchi" => vec![],
+        "umbm/fsci/dphy" => vec![],
+        "umbm/fsci/dsa" => vec![],
+        "umbm/fsci/dsnv" => vec![],
+        "umbm/fsegc" => vec![&UMBM_FSEGC_DSC, &UMBM_FSEGC_DSE, &UMBM_FSEGC_DSFC, &UMBM_FSEGC_DSG],
+        "umbm/fsegc/dsc" => vec![],
+        "umbm/fsegc/dse" => vec![],
+        "umbm/fsegc/dsfc" => vec![],
+        "umbm/fsegc/dsg" => vec![],
+        "umbm/fshs" => vec![&UMBM_FSHS_DHIST, &UMBM_FSHS_DPHILO, &UMBM_FSHS_DSCI, &UMBM_FSHS_DSI, &UMBM_FSHS_DSOCIO],
+        "umbm/fshs/dhist" => vec![],
+        "umbm/fshs/dphilo" => vec![],
+        "umbm/fshs/dsci" => vec![],
+        "umbm/fshs/dsi" => vec![],
+        "umbm/fshs/dsocio" => vec![],
+        "umbm/ftech" => vec![&UMBM_FTECH_DCE, &UMBM_FTECH_DEE, &UMBM_FTECH_DELEC, &UMBM_FTECH_DHYDR, &UMBM_FTECH_DME],
+        "umbm/ftech/dce" => vec![],
+        "umbm/ftech/dee" => vec![],
+        "umbm/ftech/delec" => vec![],
+        "umbm/ftech/dhydr" => vec![],
+        "umbm/ftech/dme" => vec![],
+        "umbm/istaps" => vec![&UMBM_ISTAPS_DAGS, &UMBM_ISTAPS_DAPSA, &UMBM_ISTAPS_DCBF, &UMBM_ISTAPS_DEP, &UMBM_ISTAPS_DFC, &UMBM_ISTAPS_DMCS],
+        "umbm/istaps/dags" => vec![],
+        "umbm/istaps/dapsa" => vec![],
+        "umbm/istaps/dcbf" => vec![],
+        "umbm/istaps/dep" => vec![],
+        "umbm/istaps/dfc" => vec![],
+        "umbm/istaps/dmcs" => vec![],
+        "umbm/iutm" => vec![&UMBM_IUTM_DCG, &UMBM_IUTM_DCM, &UMBM_IUTM_DUE],
+        "umbm/iutm/dcg" => vec![],
+        "umbm/iutm/dcm" => vec![],
+        "umbm/iutm/due" => vec![],
+        "umkb" => vec![&UMKB_FDSP, &UMKB_FLL, &UMKB_FSECSG, &UMKB_FSESNV, &UMKB_FSHS, &UMKB_FST, &UMKB_ISTAPS],
+        "umkb/fdsp" => vec![],
+        "umkb/fll" => vec![],
+        "umkb/fsecsg" => vec![],
+        "umkb/fsesnv" => vec![],
+        "umkb/fshs" => vec![],
+        "umkb/fst" => vec![&UMKB_FST_DEE],
+        "umkb/fst/dee" => vec![&UMKB_FST_DEE_SEC],
+        "umkb/fst/dee/sec" => vec![],
+        "umkb/istaps" => vec![],
+        "ummto" => vec![&UMMTO_DMI, &UMMTO_DSAT, &UMMTO_FDSP, &UMMTO_FGC, &UMMTO_FGEI, &UMMTO_FMED, &UMMTO_FSBSA, &UMMTO_FSECSG, &UMMTO_FSHS],
+        "ummto/dmi" => vec![],
+        "ummto/dsat" => vec![],
+        "ummto/fdsp" => vec![],
+        "ummto/fgc" => vec![],
+        "ummto/fgei" => vec![],
+        "ummto/fmed" => vec![],
+        "ummto/fsbsa" => vec![],
+        "ummto/fsecsg" => vec![],
+        "ummto/fshs" => vec![],
+        "usthb" => vec![&USTHB_FCHIMIE, &USTHB_FEI, &USTHB_FGC, &USTHB_FGMGP, &USTHB_FMATH, &USTHB_FPHY, &USTHB_FSB, &USTHB_FSTGAT],
+        "usthb/fchimie" => vec![&USTHB_FCHIMIE_DCM, &USTHB_FCHIMIE_DCOA, &USTHB_FCHIMIE_DCPMI, &USTHB_FCHIMIE_DCPT],
+        "usthb/fchimie/dcm" => vec![],
+        "usthb/fchimie/dcoa" => vec![],
+        "usthb/fchimie/dcpmi" => vec![],
+        "usthb/fchimie/dcpt" => vec![],
+        "usthb/fei" => vec![&USTHB_FEI_AUTO, &USTHB_FEI_ELT, &USTHB_FEI_INFO, &USTHB_FEI_TELECOM],
+        "usthb/fei/auto" => vec![],
+        "usthb/fei/elt" => vec![],
+        "usthb/fei/info" => vec![],
+        "usthb/fei/telecom" => vec![],
+        "usthb/fgc" => vec![&USTHB_FGC_DGH, &USTHB_FGC_DSM],
+        "usthb/fgc/dgh" => vec![],
+        "usthb/fgc/dsm" => vec![],
+        "usthb/fgmgp" => vec![&USTHB_FGMGP_DCMP, &USTHB_FGMGP_DGCC, &USTHB_FGMGP_DGEGP, &USTHB_FGMGP_DSM, &USTHB_FGMGP_DTE],
+        "usthb/fgmgp/dcmp" => vec![],
+        "usthb/fgmgp/dgcc" => vec![],
+        "usthb/fgmgp/dgegp" => vec![],
+        "usthb/fgmgp/dsm" => vec![],
+        "usthb/fgmgp/dte" => vec![],
+        "usthb/fmath" => vec![&USTHB_FMATH_DA, &USTHB_FMATH_DATN, &USTHB_FMATH_DPS, &USTHB_FMATH_DRO],
+        "usthb/fmath/da" => vec![],
+        "usthb/fmath/datn" => vec![],
+        "usthb/fmath/dps" => vec![],
+        "usthb/fmath/dro" => vec![],
+        "usthb/fphy" => vec![&USTHB_FPHY_DEMF, &USTHB_FPHY_DMC, &USTHB_FPHY_DPR, &USTHB_FPHY_DPT],
+        "usthb/fphy/demf" => vec![],
+        "usthb/fphy/dmc" => vec![],
+        "usthb/fphy/dpr" => vec![],
+        "usthb/fphy/dpt" => vec![],
+        "usthb/fsb" => vec![&USTHB_FSB_DBCM, &USTHB_FSB_DBPO, &USTHB_FSB_DEE],
+        "usthb/fsb/dbcm" => vec![],
+        "usthb/fsb/dbpo" => vec![],
+        "usthb/fsb/dee" => vec![],
+        "usthb/fstgat" => vec![&USTHB_FSTGAT_DG, &USTHB_FSTGAT_DGAT, &USTHB_FSTGAT_DGP],
+        "usthb/fstgat/dg" => vec![],
+        "usthb/fstgat/dgat" => vec![],
+        "usthb/fstgat/dgp" => vec![],
+        "usto" => vec![&USTO_FAG, &USTO_FCH, &USTO_FGE, &USTO_FGM, &USTO_FMI, &USTO_FPH, &USTO_FSNV, &USTO_IEPS, &USTO_ISTA],
+        "usto/fag" => vec![&USTO_FAG_DA, &USTO_FAG_DGC, &USTO_FAG_DGE],
+        "usto/fag/da" => vec![],
+        "usto/fag/dgc" => vec![],
+        "usto/fag/dge" => vec![],
+        "usto/fch" => vec![&USTO_FCH_DCHM, &USTO_FCH_DCHP, &USTO_FCH_DGC],
+        "usto/fch/dchm" => vec![],
+        "usto/fch/dchp" => vec![],
+        "usto/fch/dgc" => vec![],
+        "usto/fge" => vec![&USTO_FGE_DAU, &USTO_FGE_DEL, &USTO_FGE_DELT],
+        "usto/fge/dau" => vec![],
+        "usto/fge/del" => vec![],
+        "usto/fge/delt" => vec![],
+        "usto/fgm" => vec![&USTO_FGM_DGMA, &USTO_FGM_DGME, &USTO_FGM_DMM],
+        "usto/fgm/dgma" => vec![],
+        "usto/fgm/dgme" => vec![],
+        "usto/fgm/dmm" => vec![],
+        "usto/fmi" => vec![&USTO_FMI_DINF, &USTO_FMI_DMA],
+        "usto/fmi/dinf" => vec![],
+        "usto/fmi/dma" => vec![],
+        "usto/fph" => vec![&USTO_FPH_DGP, &USTO_FPH_DPE, &USTO_FPH_DTM],
+        "usto/fph/dgp" => vec![],
+        "usto/fph/dpe" => vec![],
+        "usto/fph/dtm" => vec![],
+        "usto/fsnv" => vec![&USTO_FSNV_DBIO, &USTO_FSNV_DGMA, &USTO_FSNV_DVE],
+        "usto/fsnv/dbio" => vec![],
+        "usto/fsnv/dgma" => vec![],
+        "usto/fsnv/dve" => vec![],
+        "usto/ieps" => vec![],
+        "usto/ista" => vec![],
+        _ => vec![],
     }
 }

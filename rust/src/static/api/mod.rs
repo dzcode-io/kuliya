@@ -16,6 +16,18 @@ pub fn get_node_by_path(path: &str) -> Option<&Node> {
     _auto_generated::data::get_node_by_path(path)
 }
 
+/// Retrieves the children of a node by its path.
+/// # Arguments
+///
+/// * `path` - A string slice that holds the path of the node.
+///
+/// # Returns
+///
+/// * `Vec<&Node>` - A vector of references to the children nodes.
+pub fn get_node_children_by_path(path: &str) -> Vec<&Node> {
+    _auto_generated::data::get_node_children_by_path(path)
+}
+
 #[cfg(test)]
 mod test {
     use super::get_node_by_path;
@@ -24,6 +36,7 @@ mod test {
     #[test]
     fn check_three_schemas_and_non_existent() {
         let umkb = Node {
+            code: "umkb",
             name: NodeName {
                 ar: "جامعة محمد خيضر بسكرة",
                 en: "University of Mohamed Khider Biskra",
@@ -32,6 +45,7 @@ mod test {
             r#type: NodeType::University,
         };
         let sec = Node {
+            code: "sec",
             name: NodeName {
                 ar: "تخصص التحكم الكهربائي",
                 en: "Specialy of Electrical Control",
@@ -45,6 +59,7 @@ mod test {
             },
         };
         let fst = Node {
+            code: "fst",
             name: NodeName {
                 ar: "كلية العلوم والتكنلوجيا",
                 en: "Faculty of Science and Technology",
@@ -58,22 +73,22 @@ mod test {
                 "umkb",
                 Some(&umkb),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"UNIVERSITY\"}",
+                "{\"code\":\"umkb\",\"name\":{\"ar\":\"جامعة محمد خيضر بسكرة\",\"en\":\"University of Mohamed Khider Biskra\",\"fr\":\"Université Mohamed Khider Biskra\"},\"type\":\"UNIVERSITY\"}",
             ),
             (
                 "umkb/fst",
                 Some(&fst),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"FACULTY\"}",
+                "{\"code\":\"fst\",\"name\":{\"ar\":\"كلية العلوم والتكنلوجيا\",\"en\":\"Faculty of Science and Technology\",\"fr\":\"Faculté des Sciences et de la Technologie\"},\"type\":\"FACULTY\"}",
             ),
             (
                 "umkb/fst/dee/sec",
                 Some(&sec),
                 #[cfg(feature = "serde_derive")]
-                "{\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":\"SPECIALTY\",\"terms\":{\"perYear\":2,\"slots\":[7,8,9,10]}}",
+                "{\"code\":\"sec\",\"name\":{\"ar\":\"تخصص التحكم الكهربائي\",\"en\":\"Specialy of Electrical Control\",\"fr\":\"Spécialité de commande électrique\"},\"type\":\"SPECIALTY\",\"terms\":{\"perYear\":2,\"slots\":[7,8,9,10]}}",
             ),
             (
-                "does/not/exist", None, 
+                "does/not/exist", None,
                 #[cfg(feature = "serde_derive")]
                 "null"
             ),

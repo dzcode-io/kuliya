@@ -30,7 +30,7 @@ jobs:
       - run: cargo build --verbose
         working-directory: ${{ env.CWD }}
       - name: "is docs updated and generated files are committed"
-        run: exit $(git status --porcelain | wc -l)
+        run: git diff --exit-code
       - run: cargo test --verbose
         working-directory: ${{ env.CWD }}
       - run: cargo test --verbose --lib --bins --tests --features serde_derive
